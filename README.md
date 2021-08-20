@@ -5,10 +5,10 @@
 Se realizara el diseño de un sitio web responsive el cual tendra la tematica de un ecommerce para un local gastronomico. La audiencia del proyecto se encuentra enfocada a un publico joven ya que los pedidos se realizaran mediante la app **WhatsApp**
 
 ## SITIOS DE REFERENCIA
-- https://www.sweetlolu.com.ar/
-- http://cuoredipanna.com.ar/
-- http://www.laceleste.com.ar/
-- http://www.fullcheddar.com.ar/
+- https://www.sweetlolu.com.ar/ --> Tematica
+- http://cuoredipanna.com.ar/ --> Efectos
+- http://www.laceleste.com.ar/ --> Localizacion de sucursales
+- http://www.fullcheddar.com.ar/ --> Envio de pedidos por WhatsApp
 
 ### PRINCIPALES FUNCIONALIDADES
 
@@ -23,6 +23,7 @@ Se realizara el diseño de un sitio web responsive el cual tendra la tematica de
 <a href="https://git-scm.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a>
 <a href="https://nodejs.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> 
 <a href="https://expressjs.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a>
+<a href="https://reactjs.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a>
 </p>
 
 ### INTEGRANTES
