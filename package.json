@@ -1,0 +1,23 @@
+{
+  "name": "grupo_1_ecommerce",
+  "version": "1.0.0",
+  "description": "Se realizara el diseño de un sitio web responsive el cual tendra la tematica de un ecommerce para un local gastronomico. La audiencia del proyecto se encuentra enfocada a un publico joven ya que los pedidos se realizaran mediante la app **WhatsApp**",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JorgeCarlotto/Grupo_1_Ecommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JorgeCarlotto/Grupo_1_Ecommerce/issues"
+  },
+  "homepage": "https://github.com/JorgeCarlotto/Grupo_1_Ecommerce#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
