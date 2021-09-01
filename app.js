@@ -9,7 +9,7 @@ const publicFolderPath = path.resolve(__dirname, './public');
 app.use(express.static(publicFolderPath));
 
 //Routes
-app.get('/', (req, res) => {
+app.get('/product-details', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/product-details.html'))
 });
 
