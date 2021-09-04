@@ -5,41 +5,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/productDetail.css">
     <title>Document</title>
 </head>
 
 <body>
-    <header>
-        <img src="" alt="Logo">
+    <header class="nav">
         <nav>
             <ul>
-                <li>Home</li>
-                <li>Registrarte</li>
-                <li>Iniciar sesion</li>
+                <li class="nav-link"><a href="default.asp">Home</a></li>
+                <li class="nav-link"><a href="news.asp">News</a></li>
+                <li class="nav-link"><a href="contact.asp">Contact</a></li>
+                <li class="nav-link"><a href="about.asp">About</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section>
-            <div>
+            <div class="product">
                 <h1>DETALLE DEL PRODUCTO</h1>
                 <h2>Categoria -> Subcategoria</h2>
-                <img src="" alt="Foto 1 del producto">
+                <img src="/img/Brownies/Benidia0.jpg" alt="Foto 1 del producto">
             </div>
-            <div>
+            <div class="productDetails">
                 <h2>Nombre del producto</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, maiores. Quaerat quia debitis deleniti voluptas culpa corporis saepe rerum voluptates accusantium in perspiciatis nemo, sed, porro facere! Numquam, aliquid adipisci!</p>
-                <p>Precio</p>
-                <p>Variante del producto</p>
-                <select name="" id="">
-                    <option value="">Chocolate</option>
-                    <option value="">Frutilla</option>
-                    <option value="">Vainilla</option>
-                </select>
-                <p>Cantidad</p>
-                <input type="text">
-                <button>Agregar al carro</button>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, maiores. Quaerat quia debitis deleniti
+                    voluptas culpa corporis saepe rerum voluptates accusantium in perspiciatis nemo, sed, porro facere!
+                    Numquam, aliquid adipisci!</p>
+                <p class="price">Precio <span>$45.50</span></p>
+                <div class="form">
+                    <p>Variante del producto</p>
+                    <select name="" id="">
+                        <option value="">Chocolate</option>
+                        <option value="">Frutilla</option>
+                        <option value="">Vainilla</option>
+                    </select>
+                    <button>Agregar al carro</button>
+                </div>
             </div>
         </section>
         <hr>
