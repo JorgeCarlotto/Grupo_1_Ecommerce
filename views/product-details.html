@@ -8,5 +8,96 @@
 </head>
 <body>
     
+
+    <!-- Formulario de contacto LUANA -->
+    <header>
+        <div class="cuadro-menu" id="cuadro-menu">
+           
+         
+               <!--Botones del menu-->
+            <nav class="menu" id="menu">
+                <img  class="logo-menu" src="/img/logo.jpg" alt="logo" >  
+                <a class="botonesmenu" id="btn-home" href="product-details.html">Home</a>
+                <a class="botonesmenu" id="btn-productos" href="#">Productos</a>
+            </nav> 
+                 
+
+            <div class="contactos">
+                <a class="contacyo" href="#">Contactos</a>
+            </div>
+         </div>        
+          
+     </header>
+             
+
+     <section>
+         <!-- <div><a href="#">Iniciar con google</a></div>
+         <div><a href="#">Iniciar con Facebook</a></div> -->
+         <button>Iniciar con GOOGLE</button>
+         <button>Iniciar con FACEBOOK</button>
+     </section>
+    <div class="contact_form">
+
+        <div class="formulario">      
+          <!-- <h1>Formulario de contacto</h1> -->
+           
+    
+              <form action="submeter-formulario.php" method="post">       
+    
+                
+                    <p>
+                      <label for="nombre" class="colocar_nombre">Nombre
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Escribe tu nombre">
+                    </p>
+                  
+                    <p>
+                      <label for="email" class="colocar_email">Apellido
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="email" name="introducir_email" id="email" required="obligatorio" placeholder="Escribe tu apellido">
+                    </p>
+                
+                    <p>
+                      <label for="telefone" class="colocar_telefono">Email
+                      </label>
+                        <input type="tel" name="introducir_telefono" id="telefono" placeholder="Escribe tu email">
+                    </p>    
+                  
+                    <p>
+                      <label for="website" class="colocar_website">Celular
+                      </label>
+                        <input type="url" name="introducir_website" id="website" placeholder="Escribe tu celular">
+                    </p>    
+                  
+                    <p>
+                      <label for="asunto" class="colocar_asunto">Direccion
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="text" name="introducir_asunto" id="assunto" required="obligatorio" placeholder="Escribe tu direccion">
+                    </p>    
+                  
+                            
+                  
+                    <button type="submit" name="enviar_formulario" id="enviar"><p>Registrar</p></button>
+    
+                    <p class="aviso">
+                      <span class="obligatorio"> * </span>los campos son obligatorios.
+                    </p>          
+                
+              </form>
+        </div>  
+      </div>
+
+
 </body>
 </html>
+
+
+  
+ 
+
+ 
+
+
