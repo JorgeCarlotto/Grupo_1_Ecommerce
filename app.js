@@ -10,7 +10,7 @@ app.use(express.static(publicFolderPath));
 
 //Routes
 app.get('/product-details', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/product-details.html'))
+    res.sendFile(path.join(__dirname, '/views/productDetail.html'))
 });
 
 //Server Up
