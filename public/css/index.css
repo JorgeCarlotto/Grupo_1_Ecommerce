@@ -1,0 +1,130 @@
+
+* {
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100%; 
+    font-family: sans-serif;
+    
+  }
+
+
+
+
+img{
+    width: 300px;
+    height: 300px;
+}
+
+/*Inicio HEADER*/
+
+.nav-acount-uno-home nav ul{
+    display: flex;
+}
+.nav-acount-uno-home nav ul{
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+    
+}
+
+.nav-acount-home{
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+   
+}
+
+.nav-acount-home a{
+    text-decoration: none;
+   
+}
+
+.nav-acount-uno-home{
+    background-color: salmon;
+    width: 100%;
+    
+}
+
+.nav-menu-home{
+    display: flex;
+    align-items: center;
+    background-color: sandybrown;
+    
+}
+
+.nav-menu-home nav ul{
+    list-style-type: none;
+    display: flex;
+    
+}
+
+.nav-menu-home nav ul li{
+   margin: 20px;
+   
+}
+
+.nav-main-header-home a{
+    text-decoration: none; 
+}
+
+
+
+.hamburgesaHeader {
+    text-align:  center;
+}
+.hamburgesaHeader i{
+    background-color:black;
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 10px 0px 20px 0px;
+    padding: 10px;
+
+}
+
+/*Fin  HEADER*/
+
+
+
+
+
+
+
+
+
+
+/*Inicio MAIN*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mapa-home{
+    background-color: green;
+    width: 400px;
+    height:400px ;
+}
+
+.mapa-home p{
+    text-align: center;
+    font-size: 40px;
+}
+
+
+
+/*Fin MAIN*/
