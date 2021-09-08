@@ -22,15 +22,23 @@ img{
 
 /*Inicio HEADER*/
 
-.nav-acount-uno-home nav ul{
+.header{
     display: flex;
+    flex-wrap: wrap;
+
 }
+.nav-acount-uno-home{
+    background-color: salmon;
+    width: 100%;
+    
+}
+
 .nav-acount-uno-home nav ul{
     display: flex;
     justify-content: flex-end;
     margin: 10px;
     
-}
+}  
 
 .nav-acount-home{
     text-decoration: none;
@@ -40,28 +48,35 @@ img{
    
 }
 
+
 .nav-acount-home a{
     text-decoration: none;
-   
 }
 
-.nav-acount-uno-home{
-    background-color: salmon;
-    width: 100%;
-    
-}
 
 .nav-menu-home{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     background-color: sandybrown;
-    
+    height: auto;
+    width: auto;
 }
+
+.logo-menu-home{
+        display: block;
+        margin: 0 auto;
+        width: 220px;
+        height: auto;
+    }
+
 
 .nav-menu-home nav ul{
     list-style-type: none;
     display: flex;
-    
+    flex-wrap: wrap;
+    justify-content: center;
+
 }
 
 .nav-menu-home nav ul li{
@@ -74,10 +89,17 @@ img{
 }
 
 
+.barraDeBusqueda-home{
+    margin-left: 20%;
+    
+    
+}
+
 
 .hamburgesaHeader {
     text-align:  center;
 }
+
 .hamburgesaHeader i{
     background-color:black;
     color: white;
@@ -101,19 +123,6 @@ img{
 
 /*Inicio MAIN*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 .mapa-home{
     background-color: green;
     width: 400px;
@@ -128,3 +137,4 @@ img{
 
 
 /*Fin MAIN*/
+
