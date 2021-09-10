@@ -136,14 +136,30 @@ p.price>span {
 	
 
 	/*Menu*/
+  .header-luana .navbar-hamburger {
+      padding: 10px 0px;
+      text-align: center;
+      font-size: 25px;
+}
+
+  .header-luana .menu{
+		position: static;
+		width: auto;
+		height: auto;
+		float: right;
+		display: flex;
+		padding: 10px 50px;
+		text-align: right;
+	}
+
 	.header-luana .menu a {
     border: none;
     padding-bottom:  10px;
     margin: 0 20px;
     text-decoration: none;
     color: white;
-    display: inline-block;
-    font-size: 0.8em;
+    display: none;
+    font-size:1em;
     position: relative;
     top: 0px;
     font-weight:400;
@@ -154,30 +170,10 @@ p.price>span {
     font-size: 1.2em;
   }
 
-	.menu{
-		position: static;
-		width: auto;
-		height: auto;
-		float: right;
-		display: flex;
-		padding: 10px 50px;
-		text-align: right;
-		
-	}
 
-.menu a {
-  border: none;
-  padding-bottom:  10px;
-	margin: 0 20px;
-	text-decoration: none;
-	color: white;
-	display: inline-block;
-	font-size: 1em;
-	position: relative;
-	top: 0px;
-	font-weight:400;
-}
- header .cuadro-menu .logo-menu {
+
+
+ .header-luana .cuadro-menu .logo-menu {
     display: inline-block;
 	position: fixed;
     z-index: 1000;
@@ -341,3 +337,5 @@ p{
 
 /* /Formulario */
 
+
+ 
