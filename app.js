@@ -21,4 +21,4 @@ app.get('/register', (req, res) => {
 });
 
 //Server Up
-app.listen(3000, () => console.log('Server running'))
+app.listen(3000, () => console.log('Server running in http://localhost:300'))
