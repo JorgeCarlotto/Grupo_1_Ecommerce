@@ -176,7 +176,51 @@ body{
     font-size: 40px;
 }
 
+.caja-formulario-home{
+    background-color:rgb(218, 120, 120);
+    border: solid 2px black;
+    border-radius:4px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: auto;
+    height: auto;
+}
 
+.caja-formulario-home h2{
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.caja-formulario-home label{
+ 
+   font-style: oblique;
+   font-weight: bold;
+}
+
+.caja-formulario-home input{
+    border-radius: 5px;
+    width: 50%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.caja-formulario-home textarea{
+    margin-top: 5px;
+    height: 6em;
+    width: 95%;
+    border-radius: 5px;
+}
+
+.caja-formulario-home button{
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 
 /*Fin MAIN*/
+
+
+
 

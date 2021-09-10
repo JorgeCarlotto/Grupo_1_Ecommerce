@@ -95,34 +95,25 @@
         <div class="mapa-home">
             <p>MAPA</p>
         </div>
-        <div class="formulario-home">
+        <div class="caja-formulario-home">
             
-            <form>       
-                <p>
-                  <label for="nombre" class="nombre-formulario-home">Nombre
-                    <span class="obligatorio"></span>
-                  </label>
-                    <input type="text" name="introducir-nombre" id="nombre-form-home" required="obligatorio" placeholder="Escribi tu nombre">
-                </p>
+            <form action="nil" method="POST" class="formulario-home"> <!--Consultar tema accion-->       
+                
+                <h2>Dejanos tu comentario</h2>
 
-                <p>
-                  <label for="email" class="email-formulario-home">Email
-                    <span class="obligatorio"></span>
-                  </label>
-                    <input type="email" name="introducir-email" id="correo-form-home" placeholder="Escribe tu Correo Electrónico">
-                </p>    
-              
-                <p>
-                  <label for="comentarios" class="comentarios-formulario-home">Comentarios
-                    
-                  </label>
-                    <input type="text" name="introducir-comentario" id="comentario-form-home" placeholder="Escribe tu Comentario">
-                </p>    
-               
-                <button type="submit" name="enviar-comentario" id="enviar-comentario-home"><p>Enviar</p></button>
+                <label for="nombre">Nombre:</label><br/>
+                <input type="text" id="nombre" name="nombre" placeholder="Escribi tu nombre" required><br/>
+
+                <label for=email>E-mail:</label><br/>
+                <input type="email" id="email" name="email" placeholder="Correo Electrónico" required><br/>
+
+                <label for="comentario">Comentario:</label><br/>
+                <textarea id="comentario" name="texarea">Escribe algo aqui!</textarea><br/>
+
+                <button type="submit" name="enviar-comentario" id="enviar-comentario-home">Enviar Comentario</button>
 
                 <p class="aviso-formulario-home">
-                  <span class="obligatorio"> * </span>Todos los campos son obligatorios.
+                  <span> * </span>Todos los campos son obligatorios.
                 </p>          
           </form>
         </div>
