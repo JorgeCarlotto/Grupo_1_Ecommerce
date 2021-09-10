@@ -13,12 +13,7 @@ body{
   }
 
 
-/* img{
-    width: 300px;
-    height: 300px;
-} */
-
-/*Inicio HEADER*/
+/*Inicio HOME HEADER*/
 
 .header{
     display: flex;
@@ -108,18 +103,9 @@ body{
 
 }
 
-/*Fin  HEADER*/
+/*Fin HOME HEADER*/
 
-
-
-
-
-
-
-
-
-
-/*Inicio MAIN*/
+/*Inicio HOME MAIN*/
 
  main{
     margin: 0 auto;
@@ -219,9 +205,39 @@ body{
     margin-bottom: 5px;
 }
 
-/*Fin MAIN*/
+/*Fin HOME MAIN*/
+
+/* INICIO HOME Footer */
+.footer-home{
+    padding: 20px;
+    background-color: #C4CAD0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-home ul{
+    list-style-type: none;
+}
+
+.footer-home a{
+    text-decoration: none;
+}
+
+.cajaSocialMedia-home{
+    
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.socialMedia-home {
+
+    display: inline;
+    font-size: 30px;
+
+}
 
 
+/* FIN HOME Footer */
 
 /*
 Paleta de colores
