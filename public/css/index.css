@@ -94,20 +94,24 @@ body{
 
 .home-360-header{
     display: flex;
-    justify-content: space-between;
     background-color: salmon;
     margin-bottom: 20px;
     width: 100%;
     position: fixed;
     top: 0;
     z-index: 100;
+    justify-content: space-between;
+    
+    
+    
 }
 
 .logo-home-360-home{
     display: block;
-    margin: 0 auto;
     width: auto;
     height: 60px;
+    
+    
 }
 
 .hamburgesaHeader {
