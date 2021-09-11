@@ -23,6 +23,7 @@ body{
 .nav-acount-uno-home{
     background-color: salmon;
     width: 100%;
+    display: none;
     
 }
 
@@ -54,6 +55,7 @@ body{
     background-color: sandybrown;
     height: auto;
     width: auto;
+    display: none;
 }
 
 .logo-menu-home{
@@ -61,6 +63,7 @@ body{
         margin: 0 auto;
         width: 220px;
         height: auto;
+        display: none;
     }
 
 
@@ -89,8 +92,27 @@ body{
 }
 
 
+.home-360-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: salmon;
+    margin-bottom: 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-home-360-home{
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: 60px;
+}
+
 .hamburgesaHeader {
     text-align:  center;
+    
 }
 
 .hamburgesaHeader i{
@@ -98,10 +120,10 @@ body{
     color: white;
     border-radius: 5px;
     font-size: 20px;
-    margin: 10px 0px 20px 0px;
+    margin: 10px 20px 20px 0px;
     padding: 10px;
-
 }
+
 
 /*Fin HOME HEADER*/
 
@@ -115,6 +137,7 @@ body{
 .carruselImagenes-home{
     border: brown 5Px solid;
     margin-bottom: 20px;
+    margin-top: 100px;
 }
 
 .carrusel-home{
