@@ -1,4 +1,14 @@
 
+/*
+ colores:
+    color: #E9748B;    ULTRA RED
+    color: #7F636E;    OLD LAVENDER
+    color: #080708;    RICH BLACK FOGRA 39
+    color:#E8E9EB;     PLATINIUM
+    color:#FBFCFF      GHOST WHITE
+*/
+
+
 * {
     font-family: 'Lato', sans-serif;
     box-sizing: border-box;
@@ -94,7 +104,7 @@ body{
 
 .home-360-header{
     display: flex;
-    background-color: salmon;
+    background-color: #E9748B;
     width: 100%;
     position: fixed;
     top: 0;
@@ -115,10 +125,12 @@ body{
 }
 
 .iniciar-secion-360-home {
-    color: black;
-    border-radius: 5px;
+    background-color: #7F636E; ;
+    color:#E8E9EB;
+    border-radius: 100%;
     font-size: 20px;
     margin: 5px 0px;
+    padding: 8px;
 }
 
 
@@ -128,7 +140,7 @@ body{
 }
 
 .hamburgesaHeader i{
-    background-color:black;
+    background-color:rgb(159, 140, 140);
     color: white;
     border-radius: 5px;
     font-size: 20px;
@@ -146,7 +158,6 @@ body{
 }
 
 .carruselImagenes-home{
-    border: brown 5Px solid;
     margin-bottom: 20px;
     margin-top: 100px;
 }
@@ -156,29 +167,32 @@ body{
     
 }
 
-.destacadas{
-    border: blue 5Px solid;
-    display: flex; 
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+.destacadas{    
+    margin-bottom: 20px; 
+    padding: 15px 20px;
 }
 
 .destacada{
-  
-    width: 80%;
+    
+    border: 1px solid #acacac;
+    width: 100%;
+    margin: 0px auto;
+    padding: 15px 20px;
+    
    
 }
 
 .productosVarios{
-    border: green 5Px solid;
-    display: flex; 
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
+    padding: 15px 20px;
 }
 
 .varios-home{
     
-    width: 80%;
+    border: 1px solid #acacac;
+    width: 90%;
+    margin: 0px auto;
+    padding: 15px 20px;
    
 }
 
@@ -197,7 +211,7 @@ body{
 }
 
 .caja-formulario-home{
-    background-color:rgb(218, 120, 120);
+    background-color:#E8E9EB;
     border: solid 2px black;
     border-radius:4px;
     padding: 10px;
@@ -244,9 +258,10 @@ body{
 /* INICIO HOME Footer */
 .footer-home{
     padding: 20px;
-    background-color: #C4CAD0;
+    background-color: #7F636E;
     display: flex;
     justify-content: space-between;
+    
 }
 
 .footer-home ul{
@@ -255,6 +270,7 @@ body{
 
 .footer-home a{
     text-decoration: none;
+    color: #FBFCFF
 }
 
 .cajaSocialMedia-home{
@@ -272,346 +288,4 @@ body{
 
 
 /* FIN HOME Footer */
-
-/*
-Paleta de colores
-Indigo #8F6593
-Gris claro #C4CAD0
-Gris oscuro #272D2D
-Verde claro #60992D
-Verde oscuro #169873
-*/
-
-* {
-    font-family: 'Lato', sans-serif;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-body{
-    height: 100%; 
-    font-family: sans-serif;
-    
-  }
-.header-luana {
-    width: 100%;
-    height: 50px;
-    background:rgba(116, 21, 76, 0.8);
-    color:#fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-}
-
-
-
-nav>ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 8px 15px;
-    text-align: center;
-}
-
-.nav {
-    background-color: #8F6593;
-}
-
-.nav-link {
-    margin: 8px;
-}
-
-.nav-link>a {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #C4CAD0;
-    font-weight: 700;
-}
-
-.product>h1 {
-    text-align: center;
-    color: #272D2D;
-    margin-bottom: 0px;
-    font-size: 1.5rem;
-}
-
-.product>h2 {
-    text-align: center;
-    color: #C4CAD0;
-    margin-top: 0px;
-    font-size: 16px;
-}
-
-.product>img {
-    display: block;
-    margin: 0 auto;
-    width: 220px;
-    height: auto;
-}
-
-.productDetails>h2 {
-    text-align: center;
-    color: #272D2D;
-    margin-bottom: 0px;
-    font-size: 1.5rem;
-}
-
-.productDetails>p {
-    margin-left: 8px;
-    margin-right: 8px;
-    font-size: 1rem;
-    text-align: justify;
-}
-
-.form {
-    padding: 10px;
-}
-
-.form>p {
-    margin: 10px 0px;
-}
-
-.form>select {
-    width: 100%;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #C4CAD0;
-}
-
-.form>button {
-    margin-top: 10px;
-    width: 100%;
-    background-color: #169873;
-    color: #f1f1f1;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    padding: 10px 25px;
-    text-transform: uppercase;
-    border-radius: 8px;
-}
-
-.price {
-    text-transform: uppercase;
-}
-
-p.price>span {
-    color: #60992D;
-    font-weight: 700;
-}
-
-.contenedor{
-	overflow: hidden; 
-    width: 100%;
-    margin: auto;
-}
-
-	
-
-	/*Menu*/
-  .header-luana .navbar-hamburger {
-      padding: 10px 0px;
-      text-align: center;
-      font-size: 25px;
-}
-
-  .header-luana .menu{
-		position: static;
-		width: auto;
-		height: auto;
-		float: right;
-		display: flex;
-		padding: 10px 50px;
-		text-align: right;
-	}
-
-	.header-luana .menu a {
-    border: none;
-    padding-bottom:  10px;
-    margin: 0 20px;
-    text-decoration: none;
-    color: white;
-    display: none;
-    font-size:1em;
-    position: relative;
-    top: 0px;
-    font-weight:400;
-  }
-
-  .header-luana .menu .botonesmenu:hover{
-    color: rgb(255, 249, 249);
-    font-size: 1.2em;
-  }
-
-
-
-
- .header-luana .cuadro-menu .logo-menu {
-    display: inline-block;
-	position: fixed;
-    z-index: 1000;
-	margin: 6px 10px;
-	
-}
-
-/* / Menu */
-
-/* Botones */
-.iniciar{
-    overflow: hidden; 
-    width: 100%;
-    margin: auto;
-    padding-top: 15%;
-    text-align: center;
-}
-
-.redes {
-    height: 45px; 
-    padding-left: 5px; 
-     padding-right: 5px;   
-    margin-bottom: 20px; 
-    margin-top: 10px;   
-    text-align: center;
-    text-transform: uppercase;
-    background-color:rgba(116, 21, 76, 0.8);
-    border-color:rgba(116, 21, 76, 0.8);
-    border-style: solid; 
-    border-radius: 10px;  
-    width: 70%;   
-    cursor: pointer;
-    color: #fff;
-
-  }
-
-  /* /Botones */
-  
-/* Formulario */
-.contact_form{  
-  width: 300px; 
-  height: auto;
-  margin: 0px auto;
-  border-radius: 10px;  
-  padding-top: 30px;
-  padding-bottom: 20px;  
-  background-color: #fbfbfb; 
-  /* padding-left: 30px;  */
-}
-
-
-input{
-  background-color: #fbfbfb; 
-  width: 300px; 
-  height: 40px; 
-  border-radius: 5px;  
-  border-style: solid; 
-  border-width: 1px; 
-  border-color: #ab4493; 
-  margin-top: 10px;  
-  padding-left: 10px;
-  margin-bottom: 20px; 
-}
-
-
-textarea{
-  background-color: #fbfbfb; 
-  width: 300px; 
-  height: 150px; 
-  border-radius: 5px;  
-  border-style: solid; 
-  border-width: 1px; 
-  border-color: #ab4493; 
-  margin-top: 10px;  
-  padding-left: 10px;
-  margin-bottom: 20px; 
-  padding-top: 15px; 
-}
-
-
-label{
-  display: block; 
-  float: center;  
-}
-
-
-#enviar {
-  height: 45px; 
-  padding-left: 5px;
-  padding-right: 5px;   
-  margin-bottom: 20px; 
-  margin-top: 10px;   
-  text-transform: uppercase;
-  background-color: #ab4493; 
-  border-color: #ab4493; 
-  border-style: solid; 
-  border-radius: 10px;  
-  width: 300px;   
-  cursor: pointer;
-}
-
-
-button p{
-  color: #fff; 
-}
-
-
-span{
-  color: #ab4493; 
-}
-
-
-.aviso{
-  font-size: 13px;  
-  color: #0e0e0e;  
-}
-
-
-h1{
-  font-size: 39px;  
-  text-align: letf; 
-  padding-bottom: 20px; 
-  color: #ab4493;
-}
-
-
-h3{
-  font-size: 16px; 
-  padding-bottom: 30px;
-  color: #0e0e0e;   
-}
-
-
-p{
-  font-size: 14px; 
-  color: #0e0e0e; 
-}
-
-
-::-webkit-input-placeholder {
- color: #a8a8a8;
-}
-
-
-::-webkit-textarea-placeholder {
- color: #a8a8a8;
-}
-
-
-.formulario input:focus{
-  outline:0;
-  border: 1px solid #97d848;
-}
-
-
-.formulario textarea:focus{
-  outline:0;
-  border: 1px solid #97d848;
-}
-
-
-/* /Formulario */
-
-
- 
 
