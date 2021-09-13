@@ -5,25 +5,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Glory:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/css/franco.css">
     <title>Document</title>
 </head>
 
 <body>
-    <header class="nav">
-        <nav>
-            <ul>
-                <li class="nav-link"><a href="#">Home</a></li>
-                <li class="nav-link"><a href="#">Iniciar sesion</a></li>
-                <li class="nav-link"><a href="#">Registrarse</a></li>
-            </ul>
-        </nav>
+    <header class="navbar">
+        <div class="navbar-mobile">
+            <i class="fas fa-user-alt icon-user"></i>
+            <img src="img/LogoBenidiaCook-circle-11.png" alt="logo">
+            <i class="fas fa-bars icon-hamburger"></i>
+        </div>
+        <div class="navbar-destock">
+            <img src="img/LogoBenidiaCook-circle-11.png" alt="logo">
+            <nav class="navbar-list">
+                <ul>
+                    <li>HOME</li>
+                    <li>PRODUCTOS</li>
+                    <li>PEDIDO</li>
+                </ul>
+            </nav>
+            <i class="fas fa-user-alt icon-user"></i>
+        </div>
     </header>
     <main>
+        <section class="product-title">
+            <h1>CHOCOTORTA</h1>
+            <img src="/img/Brownies/Benidia0.jpg" alt="Foto 1 del producto">
+        </section>
+        <section class="product-details">
+            <h2>Detalles</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, maiores. Quaerat quia debitis deleniti
+                voluptas culpa corporis saepe rerum voluptates accusantium in perspiciatis nemo, sed, porro facere!
+                Numquam, aliquid adipisci!
+            </p>
+            <p class="price">Precio <span>$45.50</span></p>
+            <form action="" class="form">
+                <select name="" id="">
+                    <option value="1">Chocolate</option>
+                    <option value="2">Frutilla</option>
+                    <option value="3">Vainilla</option>
+                </select>
+                <button>Agregar al carro</button>
+            </form>
+        </section>
+    </main>
+    <!-- <main>
         <section>
             <div class="product">
                 <h1>DETALLE DEL PRODUCTO</h1>
@@ -47,7 +80,7 @@
                 </div>
             </div>
         </section>
-    </main>
+    </main> -->
     <footer></footer>
 </body>
 
