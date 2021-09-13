@@ -21,6 +21,10 @@ body {
   background-color: #FBFCFF;
 }
 
+footer {
+  display: none;
+}
+
 .navbar {
   background-color: #E9748B;
 }
@@ -34,7 +38,7 @@ body {
   background-color: #7F636E;
   border: 1px transparent solid;
   border-radius: 100%;
-  color: #ffffff;
+  color: #FBFCFF;
   padding: 10px;
 }
 
@@ -55,9 +59,9 @@ body {
   border-radius: 4px;
 }
 
-main .product-title h1 {
+.produc-header {
   text-align: center;
-  font-size: 40px;
+  font-size: 20px;
 }
 
 main .product-title img {
@@ -101,7 +105,7 @@ main .product-details .price {
   border-radius: 8px;
 }
 
-.price span{
+.price span {
   color: #169873;
   font-weight: 700;
 }
@@ -127,5 +131,43 @@ main .product-details .price {
 
   .navbar .navbar-mobile {
     display: none;
+  }
+
+  .product {
+    display: flex;
+    margin: 10px;
+  }
+
+  .product .product-title img {
+    width: 100%;
+    height: auto;
+  }
+
+  main .product-details {
+    padding: 0px 0px 0px 10px;
+    color: #080708;
+  }
+
+  footer {
+    padding: 0px 10px;
+    display: contents;
+  }
+
+  .footer-body {
+    background-color: #7F636E;
+    color: #FBFCFF;
+    margin: 10px 0px;
+    padding:10px;
+  }
+
+  .footer-body ul{
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-body ul li{
+    padding: 0px 5px;
+    list-style: none;
+    font-size: 40px;
   }
 }
