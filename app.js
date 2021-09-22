@@ -27,4 +27,4 @@ app.get('/carrito', (req, res) => {
 
 
 //Server Up
-app.listen(3000, () => console.log('Server running in http://localhost:300'))
+app.listen(3000, () => console.log('Server running in http://localhost:3000'))
