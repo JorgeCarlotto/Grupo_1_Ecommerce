@@ -14,7 +14,6 @@ app.use(express.static(publicFolderPath));
 //Server Up
 app.listen(3000, () => console.log('Server running...'));
 
-
 //URL
 app.use('/products', routersProducts);
 app.use('/', routersMain);
