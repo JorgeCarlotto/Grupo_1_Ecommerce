@@ -31,3 +31,7 @@ Se realizara el diseño de un sitio web responsive el cual tendra la tematica de
 - Ceballos, Elias
 - Carlotto, Jorge
 - Sanchez, Franco
+
+### Links
+<a href="https://trello.com/b/tLtKuQfP/grupo-1-dh" target="_blank">Tablero Trello</a>
+
