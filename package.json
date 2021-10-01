@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/JorgeCarlotto/Grupo_1_Ecommerce#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1"
   }
 }

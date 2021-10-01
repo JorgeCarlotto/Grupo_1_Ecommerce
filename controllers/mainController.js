@@ -2,16 +2,16 @@ let path = require('path');
 
 let mainController = {
     index: function (req, res) {
-        res.sendFile(path.join(__dirname, '../views/index.html'))
+        res.render('index')
     },
     register: function (req, res) {
-        res.sendFile(path.join(__dirname, '../views/register.html'))
+        res.render('register')
     },
     login: function (req, res) {
-        res.sendFile(path.join(__dirname, '../views/login.html'))
+        res.render('login')
     },
     product_car: function (req, res) {
-        res.sendFile(path.join(__dirname, '../views/productCart.html'))
+        res.render('productCart')
     },
 }
 

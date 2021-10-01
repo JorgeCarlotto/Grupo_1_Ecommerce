@@ -7,9 +7,8 @@ const routersProducts = require('./routers/product.js');
 
 const app = express();
 
-//Public folder
-const publicFolderPath = path.resolve(__dirname, './public');
-app.use(express.static(publicFolderPath));
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 //Server Up
 app.listen(3000, () => console.log('Server running...'));
