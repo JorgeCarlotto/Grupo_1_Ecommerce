@@ -1,168 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <title>Luana Cake</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <title>Luana Cake</title>
 </head>
+
 <body>
-    
-      <!-- Header  -->
-     <%- include('partials/navbar.ejs') %>
-      <!-- /Header -->
-             
-  
-   
-  
-<main>
-    
 
-    <div class="contact_form">
-      
+  <!-- Header  -->
+  <%- include('partials/navbar.ejs') %>
+    <!-- /Header -->
+    <main>
+      <div class="contact_form">
 
-        <div class="formulario">      
-      
-              <form action="" method="post">       
-                    <p>
-                      <label for="nombre" class="colocar_nombre">Nombre de Usuario 
-                        <span class="obligatorio">*</span>
-                        <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Escribe tu Usuario">
-                        
-                      </label>
-                        
-                    </p>
+        <div class="formulario">
 
-                    <p>
-                      <label for="contraseña" class="colocar_contraseña">Contraseña
-                        <span class="obligatorio">*</span>
-                        <input type="password" name="introducir_contraseña" id="contraseña" required="obligatorio" placeholder="Escribe una contraseña">
-                      </label>
-                        
-                    </p>
-                  
-                            
-                    <input type="submit" name="enviar_formulario" id="enviar" value="Registrar">
-                   
-              
-    
-                    <p class="aviso">
-                      <span class="obligatorio"> * </span>los campos son obligatorios.
-                    </p>          
-                    
-                    <input type="submit" name="Ingresar_usuario" id="enviar" value="Ingresar">
-              </form>
-
-
-             
-        </div>  
+          <form action="" method="post">
+            <p>
+              <label for="nombre" class="colocar_nombre">Nombre de Usuario
+                <span class="obligatorio">*</span>
+                <input type="text" name="introducir_nombre" id="nombre" required="obligatorio"
+                  placeholder="Escribe tu Usuario">
+              </label>
+            </p>
+            <p>
+              <label for="contraseña" class="colocar_contraseña">Contraseña
+                <span class="obligatorio">*</span>
+                <input type="password" name="introducir_contraseña" id="contraseña" required="obligatorio"
+                  placeholder="Escribe una contraseña">
+              </label>
+            </p>
+            <p class="aviso">
+              <span class="obligatorio"> * </span>los campos son obligatorios.
+            </p>
+            <input type="submit" name="Ingresar_usuario" id="enviar" value="Ingresar">
+          </form>
+        </div>
       </div>
 
     </main>
-     <!-- Footer -->
-     <%- include('partials/footer.ejs') %>
-     <!-- /Footer -->
- 
+    <!-- Footer -->
+    <%- include('partials/footer.ejs') %>
+      <!-- /Footer -->
+
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
