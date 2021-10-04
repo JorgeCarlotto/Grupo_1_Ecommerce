@@ -23,3 +23,23 @@
 **3-** Agregarle nuevas funcionalidades.
 **4-** Debido a la dificultad de coordinar un horario utilizamos herramientas como Trello o Notion para dejar nota a los demás compañeros.
 **5-** Asignábamos tareas según el fuerte de cada uno (Front - Back)
+
+
+Spring 3 : 
+
+1. Comenzar a hacer.
+2. Hacer más.
+3. Continuar haciendo.
+4. Hacer menos.
+5. Dejar de hacer.
+
+**1-**
+Distribuirnos las tareas entre los miembros del equipo entre ellas : Aplicar EJS al proyecto, completar tareas incompletas, mantener el tablero de trabajo al día, organizar las daily, automatizar procesos que se repiten. 
+**2-**
+Seguir manteniendo una comunicación fluida, mantener en constantemente actualizado el tablero de trabajo. 
+**3-**
+Intentar seguir con el proyecto a diario, siguiendo las metas establecidas en el tablero de trabajo para no generar demora y sobre carga de trabajo en el equipo. 
+**4-**
+Controlar las clases repetidas en CSS, intentar lograr que el código quede lo mas limpio y optimizado. 
+**5-**
+Lograr no distraernos en los encuentros, pudiendo aprovechar al máximo el tiempo en el que nos podemos conectar todos juntos. 
