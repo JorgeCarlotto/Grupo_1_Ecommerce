@@ -1,38 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Glory:wght@100;200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/css/franco.css">
-    <title>Document</title>
-</head>
+<%- include('partials/head.ejs', {titulo: 'Producto'}) %>
 
 <body>
-    <header class="navbar">
-        <div class="navbar-mobile">
-            <i class="fas fa-user-alt icon-user"></i>
-            <img src="img/LogoBenidiaCook-circle-11.png" alt="logo">
-            <i class="fas fa-bars icon-hamburger"></i>
-        </div>
-        <div class="navbar-destock">
-            <img src="img/LogoBenidiaCook-circle-11.png" alt="logo">
-            <nav class="navbar-list">
-                <ul>
-                    <li>HOME</li>
-                    <li>PRODUCTOS</li>
-                    <li>PEDIDO</li>
-                </ul>
-            </nav>
-            <i class="fas fa-user-alt icon-user"></i>
-        </div>
-    </header>
+
+    <%- include('partials/navbar.ejs') %>
+
     <main>
         <div class="produc-header">
             <h1><%= producto.nombre %></h1>
@@ -61,14 +35,9 @@
             </section>
         </div>
     </main>
-    <footer class="footer">
-        <div class="footer-body">
-            <ul>
-                <li><i class="fab fa-facebook"></i></li>
-                <li><i class="fab fa-instagram"></i></li>
-                <li><i class="fab fa-whatsapp"></i></li>
-            </ul>
-        </div>
-    </footer>
+
+    <%- include('partials/footer.ejs') %>
+
 </body>
+
 </html>
