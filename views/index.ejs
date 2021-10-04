@@ -5,62 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Glory:ital,wght@0,300;0,400;0,600;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Home Luana</title>
 </head>
 <body>
 
     <!--************************* HEADER *********************************************-->
-    <header>
-        <div class="nav-acount-uno-home">
-        <nav>
-            <ul>
-                <li class="nav-acount-home"><a href="#">Crear Cuenta</a></li>
-                <li class="nav-acount-home"><a href="#">Iniciar Sesión</a></li>
-                <li class="nav-acount-home"><a href="#">Cerrar Sesión</a></li>
-            </ul>
-        </nav>
-        </div>
-        
-        
-        <div class="nav-menu-home">  
-            <img  class="logo-menu-home" src="img/LogoBenidiaCook-circle-11.png" alt="logo" height="40px" >
-        
-            <nav>
-            <ul>
-                <li class="nav-main-header-home"><a href="#">TEXT0 1</a></li>
-                <li class="nav-main-header-home"><a href="#">TEXT0 2</a></li>
-                <li class="nav-main-header-home"><a href="#">TEXT0 3</a></li>
-                <li class="nav-main-header-home"><a href="#">TEXT0 4</a></li>
-                <li class="nav-main-header-home"><a href="#">TEXT0 5</a></li>
-                <li class="nav-main-header-home"><a href="#">TEXT0 6</a></li>
-            </ul>
-            </nav>
+         <header class="header">
 
-            <div class="barraDeBusqueda-home">
-            <input type="search" placeholder="Buscar producto"><i class="fas fa-search-home"></i>
+            <div class="contenedor-header">
+                <div class="iniciar-secion-360-home">
+                    <i class="fas fa-user-alt"></i>
+                </div>
+    
+                <div class="logo">
+                <img  class="logo-menu-home" src="img/LogoBenidiaCook-circle-11.png" alt="logo">
+                </div>
+    
+                <nav>
+                    <ul>
+                        <li class="nav-acount-home"><a href="#">Crear Cuenta</a></li>
+                        <li class="nav-acount-home"><a href="#">Iniciar Sesión</a></li>
+                        <li class="nav-acount-home"><a href="#">Cerrar Sesión</a></li>
+                    </ul>
+                </nav>
+    
+                <div class="icono-menu" id="iconoMenu">
+                    <img src="/img/menu.png"  alt="menu" id="iconoMenu2">
+                    </div>  
             </div>
-
-            <div class="shopping-cart"> 
-            <i class="fas fa-shopping-cart"></i>
-            </div>
-            
-
-        </div>
-
-        <div class="home-360-header"> 
-            <div class="iniciar-secion-360-home">
-                <i class="fas fa-user-alt"></i>
-            </div>
-            <img  class="logo-home-360-home" src="img/LogoBenidiaCook-circle-11.png" alt="logo" >
-        <div class="hamburgesaHeader">
-            <i class="fas fa-bars"></i>
-        </div>
-         </div>
+       
+       
 
     </header>
 
@@ -68,89 +47,166 @@
 
     <main>
 
-        <div class="carruselImagenes-home"> 
-        <img  class="carrusel-home" src="img/Navidad/Benidia Navideño-22.jpeg" alt="carrusel">
-        </div>
+     <!-- Marcas -->
+     <section class="marcas">
+        <h2>Nuestras Tortas</h2>
+    
+          <div class="contenedor-marcas">
+              <div class="product">
+                <picture>
+                  <img src="/img/Navidad/Benidia Navideño-18.jpeg"  alt="">
+                </picture>
+              </div>
+      
+              <div class="product">
+                <picture>
+                  <img src="/img/Navidad/Benidia Navideño-18.jpeg"  alt="">
+                </picture>
+              </div>
+      
+              <div class="product">
+                <picture>
+                  <img src="/img/Navidad/Benidia Navideño-18.jpeg" alt="">
+                </picture>
+              </div>
+      
+              <div class="product">
+                <picture>
+                  <img src="/img/Navidad/Benidia Navideño-18.jpeg" alt="">
+                </picture>
+              </div>
+      
+              <div class="product">
+                <picture>
+                  <img src="/img/Navidad/Benidia Navideño-18.jpeg" alt="">
+                </picture>	
+              </div>
 
-        <div class="destacadas">
-            <article class="destacado">
-            <img  class="destacada" src="img/Bombas/choco.jpg" alt="ChocoOreo">
-            </article>
-            <article class="destacado">
-            <img  class="destacada" src="img/Brownies/Benidia0.jpg" alt="Brownie">
-            </article>
-            <article class="destacado">
-            <img  class="destacada" src="img/Box`s/diadelamadre.jpg" alt="CajaDiaMadre">
-            </article>
-        </div>
+              <div class="product">
+                <picture>
+                  <img src="/img/Navidad/Benidia Navideño-18.jpeg" alt="">
+                </picture>
+              </div>
+    
+          </div>
+      </section>
+      <!-- /Marcas -->
+    
+      <!-- repuestos -->
+   
+      <section class="repuestos">
+        <h2>Nuestros Destacados</h2>
 
-        <div class="productosVarios">
-            <article class="productoVario">
-            <img  class="varios-home" src="img/Bombas/1.jpg" alt="ChocoOreo">
-            </article>
-            <article class="productoVario">
-            <img  class="varios-home" src="img/Bombas/1.jpg" alt="ChocoOreo">
-            </article>
- 
-        </div>
 
-        <h2> VER TODO LOS PRODUCTOS</h2> <!-- link  a pagina de todos los productos-->
-        <div class="mapa-home">
-            <p>MAPA</p>
-        </div>
-        <div class="caja-formulario-home">
-            
-            <form action="nil" method="POST" class="formulario-home"> <!--Consultar tema accion-->       
+        <div class="contenedor-repuestos">
+        <article class="article">
+            <img src="/img/Brownies/Benidia0.jpg"  width="100%">
+             <div>
+                <p>Brownies</p>
+              </div>
+        </article>
+
+
+        <article class="article">
+          <img src="/img/Clásicos/Clásicos.jpg"  width="100%">
+            <div>
+              <p>Clasicos</p>
+            </div>
+        </article>
+     
+
+        <article class="article">
+          <img src="/img/Desayunos/Desayuno-4.jpg"  width="100%">
+            <div>
+              <p>Desayunos</p>
+            </div>
+          </article>
+
+          <article class="article">
+            <img src="/img/Bombas/choco.jpg"  width="100%">   
+              <div>
+                <p>Bombas</p>
+              </div>
+          </article>
+    </div>
+
+    <div class="productos-todos">
+        <a href="#"><h3> VER TODOS LOS PRODUCTOS</h3></a>  <!--link  a pagina de todos los productos-->
+    </div>
+    
+    </section>
+
+
+    <!--Google map-->
+    <h2 class="mapa-titulo">Nuestra Ubicación</h2>
+<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+    <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+      style="border:0" allowfullscreen></iframe>
+  </div>
+  
+  <!--Google Maps-->
+ <!-- Formulario de registro  -->
+ <div class="contact_form">
+    <div class="formulario">      
+  
+          <form action="" method="post">    
+              
+            <h2 class="formulario-titulo">Dejanos tu comentario</h2>
+                <p>
+                  <label for="nombre" class="colocar_nombre">Nombre
+                    <span class="obligatorio">*</span>
+                    <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Escribe tu nombre">
+                    
+                  </label>
+                    
+                </p>
+           
+                <p>
+                  <label for="correo" class="colocar_email">Email
+                    <span class="obligatorio">*</span>
+                    <input type="email" name="introducir_email" id="correo" placeholder="Escribe tu email">
+                  </label>
+                    
+                </p>    
+              
+                <p>
+                    <label for="comentario">Comentario:</label><br/>
+                    <textarea id="comentario" name="texarea">Escribe algo aqui!</textarea><br/>
+                </p>
                 
-                <h2>Dejanos tu comentario</h2>
-
-                <label for="nombre">Nombre:</label><br/>
-                <input type="text" id="nombre" name="nombre" placeholder="Escribi tu nombre" required><br/>
-
-                <label for=email>E-mail:</label><br/>
-                <input type="email" id="email" name="email" placeholder="Correo Electrónico" required><br/>
-
-                <label for="comentario">Comentario:</label><br/>
-                <textarea id="comentario" name="texarea">Escribe algo aqui!</textarea><br/>
-
-                <button type="submit" name="enviar-comentario" id="enviar-comentario-home">Enviar Comentario</button>
-
-                <p class="aviso-formulario-home">
-                  <span> * </span>Todos los campos son obligatorios.
+                <p> 
+                    <button type="submit" name="enviar-comentario" id="enviar-comentario-home">Enviar Comentario</button>
+                </p>
+               
+        
+                <p class="aviso">
+                  <span class="obligatorio"> * </span>los campos son obligatorios.
                 </p>          
+            
           </form>
-        </div>
+    </div>  
+  </div>
+
+
+<!-- /Formulario de registro  -->
+
     </main>
 
     <!--*************************FOOTER*********************************************-->
     <footer>
         <div class="footer-home">
         <div>
-            <nav>
-                <ul>
-                    <li class="linksVarios-home"><a href="#">TEXT0</a></li>
-                    <li class="linksVarios-home"><a href="#">TEXT1</a></li>
-                    <li class="linksVarios-home"><a href="#">TEXT2</a></li>
-                    
-                </ul>
-            </nav>
+            <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
-        <div class="cajaSocialMedia-home">
-            <ul>
-                <li class="socialMedia-home"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li class="socialMedia-home"><a href="#"><i class="fab fa-whatsapp"></i></a></li>
-                <li class="socialMedia-home"><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-            </ul>
+        <div >
+            
+            
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+          
+            
         </div>
         <div>
-            <nav>
-                <ul>
-                    <li class="linksVarios2-home"><a href="#">TEXT0</a></li>
-                    <li class="linksVarios2-home"><a href="#">TEXT1</a></li>
-                    <li class="linksVarios2-home"><a href="#">TEXT2</a></li>
-                    
-                </ul>
-            </nav>
+            <a href="#"><i class="fab fa-facebook-square"></i></a>
         </div>
     </div>
     </footer>
