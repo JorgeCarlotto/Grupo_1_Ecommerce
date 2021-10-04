@@ -13,6 +13,9 @@ let mainController = {
     product_car: function (req, res) {
         res.render('productCart')
     },
+    creacion_producto:function(req, res){
+        res.render('creacionProducto')
+    }
 }
 
 module.exports = mainController;
