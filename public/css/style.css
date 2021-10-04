@@ -47,7 +47,7 @@ nav {display: none;}
 /*/Menu */
 
 
-  /* Marcas */
+  /* Tortas */
   .tortas{
     height: 100%;
     padding: 10px;
@@ -96,10 +96,10 @@ nav {display: none;}
     width: 100%;
   }
   
-  /* /Marcas */
+  /* /Tortas */
 
 
-  /* Pdfs */
+  /* destacados */
   .destacados{
     background-color: #e8e9eb;
     width: 100%;
@@ -161,7 +161,7 @@ nav {display: none;}
     color: #080708;
     font-weight: bold;
 }
-  /* /Pdfs */
+  /* /destacados */
 
 
 /* Mapa */
@@ -189,13 +189,15 @@ nav {display: none;}
  /* /Mapa */
 
  /* Formulario */
+ 
+
 .contact_form{  
     width: 300px; 
     height: auto;
     margin: 0px auto;
     border-radius: 10px;  
-    padding-top: 30px;
-    padding-bottom: 20px;  
+    padding-top: 50px;
+    /* padding-bottom: 50px;   */
     background-color: #fbfbfb; 
   }
   
@@ -302,7 +304,33 @@ nav {display: none;}
     outline:0;
     border: 1px solid #97d848;
   }
-  
+  /* Botones */
+.iniciar{
+    overflow: hidden; 
+    width: 100%;
+    margin: auto;
+    /* padding-top: 15%; */
+    text-align: center;
+}
+
+.redes {
+    height: 45px; 
+    padding-left: 5px; 
+     padding-right: 5px;   
+    margin-top: 70px;   
+    text-align: center;
+    text-transform: uppercase;
+    background-color:#e9748b;
+    border-color:#c76277;
+    border-style: solid; 
+    border-radius: 10px;  
+    width: 70%;   
+    cursor: pointer;
+    color: #080708;
+
+  }
+
+  /* /Botones */
   
   /* /Formulario */
  /* INICIO HOME Footer */

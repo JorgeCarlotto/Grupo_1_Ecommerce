@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/luana.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,32 +14,10 @@
 <body>
     
 
+  <!-- Header -->
+  <%- include('partials/navbar.ejs') %>
   
-    <header class='header-luana'>
-        <div class="cuadro-menu" id="cuadro-menu">
-          <div class="logo">
-            <img  class="logo-menu" src="img/LogoBenidiaCook-circle-11.png" alt="logo" height="40px" >  
-        </div>
-         
-        <!-- <div class="icono-menu" id="iconoMenu">
-          <img src="img/LogoBenidiaCook-circle-11.png"  alt="menu" >
-      </div>  -->
-      <div class="navbar-hamburger">
-        <i class="fas fa-bars"></i>
-  </div>
-               <!--Botones del menu-->
-            <nav class="menu" id="menu">
-
-             <a class="botonesmenu" id="btn-home" href="/">Home</a>
-             <a class="botonesmenu" id="btn-productos" href="#">Productos</a>
-             <a class="botonesmenu" id="btn-contactos" href="#">Contactos</a> 
-
-            </nav> 
-                  
-         </div>        
-    
-     </header>
-             
+  <!-- /Header -->
   <!-- Botones -->
      <section class="iniciar">
          <button class="redes">Iniciar con GOOGLE</button>
@@ -117,15 +95,7 @@
 
     <!-- /Formulario de registro  -->
     <!-- Footer -->
-    <footer class="footer-luana">
-      <div class="footer-body-luana">
-          <ul>
-              <li><i class="fab fa-facebook"></i></li>
-              <li><i class="fab fa-instagram"></i></li>
-              <li><i class="fab fa-whatsapp"></i></li>
-          </ul>
-      </div>
-  </footer>
+    <%- include('partials/footer.ejs') %>
  
 </body>
 </html>

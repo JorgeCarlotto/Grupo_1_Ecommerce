@@ -5,19 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="/css/stylecarro.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="main-nav">
-                <li class="main-nav__item"><a href="">Home</a></li>
-                <li class="main-nav__item"><a href="">Productos</a></li>
-                <li class="main-nav__item"><a href="">Sobre Nosotros</a></li>
-                <li class="main-nav__item"><a href="">Contacto</a></li>
-            </ul>
-        </nav>        
-    </header>
+  
+
+     <!--  ehh bueno por alguna razon que no comprendo no se ve bien está mierda , help  -->
+    <%- include('partials/navbar.ejs') %>
+
+
     <main>
         <h2 class="carro">CARRITO DE COMPRAS</h2>        
         <ul class="carro-nav">
@@ -47,5 +43,12 @@
         <hr/>
         <p class="subtotal">Subtotal: $3.900</p>
     </main>
+
+
+
+       <!--*************************FOOTER*********************************************-->
+         <!--  ehh bueno por alguna razon que no comprendo no se ve bien está mierda , help  -->
+       <%- include('partials/footer.ejs') %>
+    
 </body>
 </html>

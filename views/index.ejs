@@ -15,34 +15,8 @@
 <body>
 
     <!--************************* HEADER *********************************************-->
-         <header class="header">
-
-            <div class="contenedor-header">
-                <div class="iniciar-secion-360-home">
-                    <i class="fas fa-user-alt"></i>
-                </div>
-    
-                <div class="logo">
-                <img  class="logo-menu-home" src="img/LogoBenidiaCook-circle-11.png" alt="logo">
-                </div>
-    
-                <nav>
-                    <ul>
-                        <li class="nav-acount-home"><a href="#">Crear Cuenta</a></li>
-                        <li class="nav-acount-home"><a href="#">Iniciar Sesión</a></li>
-                        <li class="nav-acount-home"><a href="#">Cerrar Sesión</a></li>
-                    </ul>
-                </nav>
-    
-                <div class="icono-menu" id="iconoMenu">
-                    <img src="/img/menu.png"  alt="menu" id="iconoMenu2">
-                    </div>  
-            </div>
-       
-       
-
-    </header>
-
+     
+    <%- include('partials/navbar.ejs') %>
  <!--************************* MAIN *********************************************-->
 
     <main>
@@ -194,23 +168,7 @@
     </main>
 
     <!--*************************FOOTER*********************************************-->
-    <footer>
-        <div class="footer-home">
-        <div>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-        <div >
-            
-            
-              <a href="#"><i class="fab fa-whatsapp"></i></a>
-          
-            
-        </div>
-        <div>
-            <a href="#"><i class="fab fa-facebook-square"></i></a>
-        </div>
-    </div>
-    </footer>
+    <%- include('partials/footer.ejs') %>
     
 </body>
 </html>
