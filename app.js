@@ -16,3 +16,7 @@ app.listen(3000, () => console.log('Server running...'));
 //URL
 app.use('/products', routersProducts);
 app.use('/', routersMain);
+
+app.use((req, res, next)=>{
+    res.status(404).render('error404');
+})
