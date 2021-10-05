@@ -40,3 +40,11 @@ Se implementaron los partials a las distintas vistas de la página, funcionando 
 Ningún impedimento reportado 
 **3-**
 Se debe seguir trabajando en el CSS, comenzar a armar la retro y el archivo daily.md
+
+Daily 
+**1-**
+Se trabajo sobre el CSS general del proyecto, se agregó vistas creación de productos , error 404.  
+**2-**
+Ningún impedimento reportado 
+**3-**
+Continuar trabajando sobre el CSS, crear archivo edicionProducto.ejs

@@ -10,12 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Glory:ital,wght@0,300;0,400;0,600;1,100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Creacion Producto</title>
+    <title>Edición Producto</title>
 </head>
 <body>
     <%- include('partials/navbar.ejs') %>
 
-    <h2>Agregar Producto</h2>
+    <h2>Editar Producto</h2>
     <form action="" method="GET">
         <p>
             <label for="categoria" class="categoria_crearproducto">Categoria
@@ -35,7 +35,7 @@
             <input type="file" name="intruducir_imagen" id="imagen" required="obligatorio" placeholder="Ingresa Imagen del Producto">
             </label>
         </p>
-        <input type="submit" name="enviar_producto_nuevo" id="enviar_producto" value="Subir Producto">
+        <input type="submit" name="editar_producto_nuevo" id="editar_producto" value="Editar Producto">
     </form>
     <%- include('partials/footer.ejs') %>
 </body>

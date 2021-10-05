@@ -16,6 +16,9 @@ let mainController = {
     creacion_producto:function(req, res){
         res.render('creacionProducto')
     },
+    edicion_producto:function(req, res){
+        res.render('edicionProducto')
+    },
     error404: function(req, res){
         res.render('error404')
     }
