@@ -433,6 +433,19 @@ p {
 
 /* /Carrito bootstrap  */
 
+
+/* 404 */
+.imagen-404{
+  display:block;
+  margin:auto;
+}
+
+.error-h1, .error-h2{
+  text-align: center;
+  margin: auto;
+}
+/* /404 */
+
 /* Media queries  */
 
 @media (min-width: 800px) {
