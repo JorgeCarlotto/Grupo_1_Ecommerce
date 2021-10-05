@@ -5,50 +5,188 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-     <!--  ehh bueno por alguna razon que no comprendo no se ve bien está mierda , help  -->
     <%- include('partials/navbar.ejs') %>
 
 
-    <main>
-        <section class="carrito">
-        <h2 class="carro">CARRITO DE COMPRAS</h2>        
-        <ul class="carro-nav">
-            <p class="carro-nav__item">PRECIO</p>
-            <p class="carro-nav__item">CANTIDAD</p>
-            <p class="carro-nav__item">TOTAL</p>
-        </ul>
-        <hr/>
-        <div class="producto">
-            <img class="imagen_producto" src="img/Desayunos/desayuno1.jpg" alt="Desayuno">
-            <p class="caja">$650</p>
-            <p class="caja">2</p>
-            <p class="caja">$1.300</p>
-        </div>     
-        <div class="producto">
-            <img class="imagen_producto" src="img/Desayunos/desayuno2.jpg" alt="Desayuno">
-            <p class="caja">$650</p>
-            <p class="caja">2</p>
-            <p class="caja">$1.300</p>
-        </div> 
-        <div class="producto">
-            <img class="imagen_producto" src="img/Desayunos/desayuno3.jpg" alt="Desayuno">
-            <p class="caja">$650</p>
-            <p class="caja">2</p>
-            <p class="caja">$1.300</p>
-        </div> 
-        <hr/>
-        <p class="subtotal">Subtotal: $3.900</p>
-    </main>
+ 
+  <!-- Carrito de compras con bootstrap -->
+  <section class="store">
+    <div class="container">
+        <div class="items">
+            <div class="row">
 
+                <div class="col-12 col-md-6">
+                    <div class="item shadow mb-4">
+                        <h3 class="item-title">Brownie</h3>
+                        <img class="item-image" src="/img/Brownies/Benidia0.jpg">
+
+                        <div class="item-details">
+                            <h4 class="item-price">9.99€</h4>
+                            <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="item shadow mb-4">
+                        <h3 class="item-title">Desayuno</h3>
+
+                        <img class="item-image" src="/img/Desayunos/Desayuno-5.jpg">
+
+                        <div class="item-details">
+                            <h4 class="item-price">9.99€</h4>
+                            <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="item shadow mb-4">
+                        <h3 class="item-title">Cheesecake</h3>
+
+                        <img class="item-image" src="/img/Clásicos/Sin-título6.jpg">
+
+                        <div class="item-details">
+                            <h4 class="item-price">9.99€</h4>
+                            <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="item shadow mb-4">
+                        <h3 class="item-title">Desayuno</h3>
+
+                        <img class="item-image" src="/img/Desayunos/Desayuno-5.jpg">
+
+                        <div class="item-details">
+                            <h4 class="item-price">19.99€</h4>
+                            <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="item shadow mb-4">
+                        <h3 class="item-title">Desayuno</h3>
+
+                        <img class="item-image" src="/img/Desayunos/Desayuno-6.jpg">
+                        <div class="item-details">
+                            <h4 class="item-price">19.99€</h4>
+                            <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="item shadow mb-4">
+                        <h3 class="item-title">Letter cake</h3>
+
+                        <img class="item-image" src="/img/Letter y number cakes/b.jpg">
+                        <div class="item-details">
+                            <h4 class="item-price">6.99€</h4>
+                            <button class="item-button btn btn-primary addToCart">AÑADIR AL CARRITO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-       <!--*************************FOOTER*********************************************-->
-         <!--  ehh bueno por alguna razon que no comprendo no se ve bien está mierda , help  -->
+<section class="shopping-cart">
+    <div class="container">
+        <h1 class="text-center">CARRITO</h1>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                <div class="shopping-cart-header">
+                    <h6>Producto</h6>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="shopping-cart-header">
+                    <h6 class="text-truncate">Precio</h6>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="shopping-cart-header">
+                    <h6>Cantidad</h6>
+                </div>
+            </div>
+        </div>
+     
+        <div class="shopping-cart-items shoppingCartItemsContainer">
+  
+            <div class="row shoppingCartItem">
+                <div class="col-6">
+                    <div class="shopping-cart-item d-flex align-items-center h-100 border-bottom pb-2 pt-3">
+                        <img src='/img/Clásicos/Sin-título6.jpg' class="shopping-cart-image">
+                        <h6 class="shopping-cart-item-title shoppingCartItemTitle text-truncate ml-3 mb-0">Cheesecake
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="shopping-cart-price d-flex align-items-center h-100 border-bottom pb-2 pt-3">
+                        <p class="item-price mb-0 shoppingCartItemPrice">6.99€</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div
+                        class="shopping-cart-quantity d-flex justify-content-between align-items-center h-100 border-bottom pb-2 pt-3">
+                        <input class="shopping-cart-quantity-input shoppingCartItemQuantity" type="number"
+                            value="1">
+                        <button class="btn btn-danger buttonDelete" type="button">X</button>
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+     
+
+       
+        <div class="row">
+            <div class="col-12">
+                <div class="shopping-cart-total d-flex align-items-center">
+                    <p class="mb-0">Total</p>
+                    <p class="ml-4 mb-0 shoppingCartTotal">0€</p>
+                    <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
+                        data-delay="2000">
+                        <div class="toast-header">
+                            <span>✅</span>
+                            <strong class="mr-auto ml-1 text-secondary">Elemento en el carrito</strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="toast-body text-white">
+                            Se aumentó correctamente la cantidad
+                        </div>
+                    </div>
+                    <button class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
+                        data-target="#comprarModal">Comprar</button>
+                </div>
+            </div>
+        </div>
+
+        
+
+       
+
+
+    </div>
+
+</section>
+<!-- Carrito de compras con bootstrap -->
+
+   
        <%- include('partials/footer.ejs') %>
     
 </body>
-</html>
+</html> 
