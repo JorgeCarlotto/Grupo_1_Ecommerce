@@ -28,7 +28,6 @@ Se realizara el diseño de un sitio web responsive el cual tendra la tematica de
 
 ### INTEGRANTES
 - Mingione, Luana
-- Ceballos, Elias
 - Carlotto, Jorge
 - Sanchez, Franco
 
