@@ -11,23 +11,24 @@
 </head>
 
 <body>
-
   <!-- Header  -->
   <%- include('partials/navbar.ejs') %>
     <!-- /Header -->
     <main>
-      <div class="contact_form">
-
         <div class="formulario">
-
+          <div class="icon-user">
+          <i class="fas fa-birthday-cake"></i>
+        </div>
           <form action="" method="post">
             <p>
-              <label for="nombre" class="colocar_nombre">Nombre de Usuario
+              <label for="nombre" class="colocar_nombre">Nombre de Usuario 
                 <span class="obligatorio">*</span>
                 <input type="text" name="introducir_nombre" id="nombre" required="obligatorio"
                   placeholder="Escribe tu Usuario">
               </label>
+              
             </p>
+
             <p>
               <label for="contraseña" class="colocar_contraseña">Contraseña
                 <span class="obligatorio">*</span>
@@ -35,15 +36,14 @@
                   placeholder="Escribe una contraseña">
               </label>
             </p>
+            <input type="submit" name="Ingresar_usuario" id="enviar" value="Ingresar">
             <p class="aviso">
               <span class="obligatorio"> * </span>los campos son obligatorios.
             </p>
-            <input type="submit" name="Ingresar_usuario" id="enviar" value="Ingresar">
           </form>
         </div>
-      </div>
-
-    </main>
+      
+    </main>   
     <!-- Footer -->
     <%- include('partials/footer.ejs') %>
       <!-- /Footer -->
