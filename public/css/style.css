@@ -199,21 +199,20 @@ nav {
 
 /* Formulario */
 
-.contact.form {
-  height: 100%;
-  margin: auto;
-  position: relative;
+/* .contact_form { */
+  /* height: 100%; */
+  /* margin: auto; */
+  /* position: relative; */
+/*  */
+/* } */
 
-}
-
-.formulario {
+ .formulario {
   width: 300px;
   padding: 10px 0px;
   border-radius: 10px;
-  /* padding-bottom: 10px; */
   margin: auto;
   background-color: #fbfbfb;
-}
+} 
 
 
 input {
@@ -345,6 +344,18 @@ p {
 
 }
 
+.icon-user{
+  text-align: center;
+}
+
+.icon-user i {
+  font-size: 40px;
+  padding: 15px;
+  border-radius: 100%;
+  border:tomato 1px solid;
+  background-color: #e9748b;
+  color: #ffffff;
+}
 /* /Botones */
 
 /* /Formulario */
