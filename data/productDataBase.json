@@ -1,34 +1,73 @@
-[{
-        "id": 1,
-        "name": "Brownie",
-        "price": 5000,
-        "category": 1,
-        "description": "Rico brownie",
-        "image": " "
-    },
-    {
-        "id": 2,
-        "name": "Chocotorta",
-        "price": 999,
-        "category": 3,
-        "description": "rica torta",
-        "image": ""
-    },
-    {
-        "id": 3,
-        "name": "Desayuno dia de la madre",
-        "description": "Desayuno rico",
-        "price": 4300,
-        "image": "",
-        "category": 2
-    },
-    {
-        "id": 4,
-        "name": "Galletita",
-        "description": "galletita.",
-        "price": 500,
-        "image": "",
-        "category": 1
-    }
-
+[
+ {
+  "id": 1,
+  "name": "Brownie",
+  "price": 5000,
+  "category_id": 1,
+  "description": "Rico brownie",
+  "img": "product-default.png"
+ },
+ {
+  "id": 2,
+  "name": "Chocotorta",
+  "price": 999,
+  "category_id": 3,
+  "description": "rica torta",
+  "img": "product-default.png"
+ },
+ {
+  "id": 3,
+  "name": "Desayuno dia de la madre",
+  "description": "Desayuno rico",
+  "price": 4300,
+  "img": "product-default.png",
+  "category_id": 2
+ },
+ {
+  "id": 4,
+  "name": "Galletita",
+  "description": "galletita.",
+  "price": 500,
+  "img": "product-default.png",
+  "category_id": 1
+ },
+ {
+  "id": 5,
+  "name": "dsajkldsalkjdsa",
+  "category_id": "2",
+  "price": "321321312321",
+  "description": "dkjladljkasdlkasjdlas",
+  "img":"product-default.png"
+ },
+ {
+  "id": 6,
+  "name": "321321312",
+  "category_id": "3",
+  "price": "32312321",
+  "description": "dsakdlaslñkdsa",
+  "img":"product-default.png"
+ },
+ {
+  "id": 7,
+  "name": "2easdsadasdsa",
+  "category_id": "2",
+  "price": "2312312",
+  "description": "cxcdsdsadas",
+  "img": "product-1635019882466.jpg"
+ },
+ {
+  "id": 8,
+  "name": "Test",
+  "price": "21312",
+  "description": "test",
+  "img": "product-1635019899407.jpg"
+ },
+ {
+  "id": 9,
+  "name": "test 2",
+  "category_id": "3",
+  "price": "1321321",
+  "description": "test 2 ",
+  "img": "product-1635019936339.jpg"
+ }
 ]
