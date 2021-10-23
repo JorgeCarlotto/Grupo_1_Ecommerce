@@ -20,6 +20,7 @@ let productController = {
         })
     },
     edit: function (req, res) {
+        console.log(categoryProducts);
         let product = products.find(product => product.id == req.params.id);
         res.render('product/edit', {
             product: product,

@@ -2,7 +2,7 @@
         "id": 1,
         "name": "Brownie",
         "price": 5000,
-        "category": "torta",
+        "category": 1,
         "description": "Rico brownie",
         "image": " "
     },
@@ -10,7 +10,7 @@
         "id": 2,
         "name": "Chocotorta",
         "price": 999,
-        "category": "torta",
+        "category": 3,
         "description": "rica torta",
         "image": ""
     },
@@ -20,7 +20,7 @@
         "description": "Desayuno rico",
         "price": 4300,
         "image": "",
-        "category": "desayuno"
+        "category": 2
     },
     {
         "id": 4,
@@ -28,7 +28,7 @@
         "description": "galletita.",
         "price": 500,
         "image": "",
-        "category": "galletas"
+        "category": 1
     }
 
 ]

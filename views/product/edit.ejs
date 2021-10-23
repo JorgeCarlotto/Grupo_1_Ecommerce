@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <body>
-        <h2>Editar Producto #<%= product.id %></h2>
-        <form action="" method="POST" enctype="multipart/form-data">
-            <P>
-                <label for="name">Nombre</label>
-                <input type="text" name="name" id="name" placeholder="Ingresar nombre">
-            </P>
-            <p>
-                <label for="category_id">Categoria</label>
-                <select name="category_id" id="">
-                    <option value="" disabled selected>Seleccione un producto</option>
-                    
-                </select>
-            </p>
-            <p>
-                <label for="price">Precio</label>
-                <input type="number" name="price" placeholder="Ingresa la Precio">
-            </p>
-            <p>
-                <label for="description">Descripción del producto </label>
-                <textarea name="description" cols="30" rows="10"  placeholder="Ingresa la descripción"></textarea>
-            </p>
-            <p>
-                <label for="img">Imagen</label>
-                <input type="file" name="img">
-            </p>
-            <button type="submit">Crear producto</button>
-        </form>
-    </body>
+<body>
+    <h2>Editar Producto #<%= product.id %></h2>
+    <form action="" method="POST" enctype="multipart/form-data">
+        <P>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" placeholder="Ingresar nombre" value="<%= product.name %>">
+        </P>
+        <p>
+            <label for="category_id">Categoria</label>
+            <select name="" id="">
+                <option value="" disabled>Seleccione un producto</option>
+                <% for (category of categoryProducts){ %>
+                <option value="<%= category.id %>" <%= (category.id==product.category) ? 'selected' : null %> >
+                    <%= category.name %>
+                </option>
+
+                <%  } %>
+            </select>
+
+        </p>
+        <p>
+            <label for="price">Precio</label>
+            <input type="number" name="price" placeholder="Ingresa la Precio" value="<%= product.price %>">
+        </p>
+        <p>
+            <label for="description">Descripción del producto </label>
+            <textarea name="description" cols="30" rows="10"
+                placeholder="Ingresa la descripción"><%= product.description %></textarea>
+        </p>
+        <p>
+            <label for="img">Imagen</label>
+            <input type="file" name="img">
+        </p>
+        <button type="submit">Crear producto</button>
+    </form>
+</body>
 
 </html>
