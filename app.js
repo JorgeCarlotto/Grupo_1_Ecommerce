@@ -15,8 +15,8 @@ app.use(express.static('public'));
 app.listen(3001, () => console.log('Server running...'));
 
 //URL
-app.use('/product', routersProducts);
-app.use('/user', routerUser);
+app.use('/products', routersProducts);
+app.use('/users', routerUser);
 app.use('/', routersMain);
 
 app.use((req, res, next) => {
