@@ -1,4 +1,8 @@
-let path = require('path');
+const path = require('path')
+const fs = require('fs')
+
+const productsFilePath = path.join(__dirname, '../data/productDataBase.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const listaProductos = [{
         id: 1,
@@ -20,7 +24,7 @@ const listaProductos = [{
 
 let productController = {
     index: function (req, res) {
-        res.render('product/index')
+        res.render('product/index', {products:products})
     },
     create: function (req, res) {
         res.render('product/create')
