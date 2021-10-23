@@ -15,11 +15,10 @@ app.use(express.static('public'));
 app.listen(3001, () => console.log('Server running...'));
 
 //URL
-app.use('/products', routersProducts);
-app.use('/', routersMain);
+app.use('/product', routersProducts);
 app.use('/user', routerUser);
+app.use('/', routersMain);
 
-
-app.use((req, res, next)=>{
+app.use((req, res, next) => {
     res.status(404).render('error/error404');
 })
