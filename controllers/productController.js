@@ -21,10 +21,21 @@ const listaProductos = [{
 let productController = {
     index: function (req, res) {
         producto = listaProductos.find(producto => producto.id == req.params.id);
-        res.render('productDetail', {
+        res.render('product/productDetail', {
             producto: producto
         })
+    },   
+     product_car: function (req, res) {
+        res.render('product/productCart')
     },
+    creacion_producto:function(req, res){
+        res.render('product/creacionProducto')
+    },
+    edicion_producto:function(req, res){
+        res.render('product/edicionProducto')
+    },
+
 }
+
 
 module.exports = productController;

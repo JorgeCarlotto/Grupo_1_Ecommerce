@@ -15,7 +15,7 @@
 
 <body>
   <!-- Header -->
-  <%- include('partials/navbar.ejs') %>
+  <%- include('../partials/navbar.ejs') %>
   <!-- /Header -->
 
   <main>
@@ -82,6 +82,13 @@
                 placeholder="Escribe una contraseña">
             </label>
 
+            <p>
+              <label for="Imagen" class="imagen_crearproducto">Imagen de perfil
+              <span class="obligatorio">*</span>
+              <input type="file" name="image" id="image" required="obligatorio" placeholder="Ingresa Imagen del Producto">
+              </label>
+          </p>
+
           </p>
 
 
@@ -99,7 +106,7 @@
   </main>
 
   <!-- Footer -->
-  <%- include('partials/footer.ejs') %>
+  <%- include('../partials/footer.ejs') %>
 
 </body>
 

@@ -1,0 +1,35 @@
+[
+    {
+     "id": 2,
+     "name": "Brownie",
+     "price": 5000,
+     "category": "torta",
+     "description": "Rico brownie",
+     "image": " "
+    },
+    {
+     "id": 3,
+     "name": "Chocotorta",
+     "price": 999,
+     "category": "torta",
+     "description": "rica torta",
+     "image": ""
+    },
+    {
+     "id": 4,
+     "name": "Desayuno dia de la madre",
+     "description": "Desayuno rico",
+     "price": 4300,
+     "image": "",
+     "category": "desayuno"
+    },
+    {
+     "id": 5,
+     "name": "Galletita",
+     "description": "galletita.",
+     "price": 500,
+     "image": "",
+     "category": "galletas"
+    }
+
+]

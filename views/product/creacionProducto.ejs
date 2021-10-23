@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('partials/head.ejs', {titulo: 'creacion de producto'}) %>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+
+    <h2>Agregar Producto</h2>
+    <form action="" method="GET">
+        <p>
+            <label for="name" class="nombre_crearproducto">Nombre
+            <span class="obligatorio">*</span>
+            <input type="text" name="name" id="name" required="obligatorio" placeholder="Ingresar nombre">
+            </label>
+        </p>
+        <p>
+            <label for="category" class="categoria_crearproducto">Categoria
+            <span class="obligatorio">*</span>
+            <input type="text" name="category" id="category" required="obligatorio" placeholder="Ingresa la Categoria">
+            </label>
+        </p>
+        <p>
+            <label for="precio" class="precio_crearproducto">Precio
+            <span class="obligatorio">*</span>
+            <input type="number" name="price" id="price" required="obligatorio" placeholder="Ingresa la Precio">
+            </label>
+        </p>
+
+        <p>
+            <label for="description" class="description_crearproducto">descripcion 
+            <span class="obligatorio">*</span>
+            <input type="number" name="description" id="description" required="obligatorio" placeholder="Ingresa la description">
+            </label>
+        </p>
+        
+        <p>
+            <label for="Imagen" class="imagen_crearproducto">Imagen
+            <span class="obligatorio">*</span>
+            <input type="file" name="image" id="image" required="obligatorio" placeholder="Ingresa Imagen del Producto">
+            </label>
+        </p>
+        <input type="submit" name="enviar_producto_nuevo" id="enviar_producto" value="Subir Producto">
+    </form>
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

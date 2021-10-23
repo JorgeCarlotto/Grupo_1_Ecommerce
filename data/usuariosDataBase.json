@@ -1,0 +1,32 @@
+[
+    {
+     "id": 1,
+     "name": "Franco",
+     "lastName": "Sanchez" ,
+     "email": "mingluana@gmail.com",
+     "contraseña": "pinocho",
+     "category": "usuario",
+     "image": " ",
+     "tel": "1152623349"
+    },
+    {
+     "id": 2,
+    "name": "Jorge",
+    "lastName": "Carloto" ,
+    "email": "luana@gmail.com",
+    "contraseña": "pinocho8",
+    "category": "admin",
+    "image": " ",
+    "tel": "1152623348"
+    },
+    {
+    "id": 3,
+    "name": "Elias",
+    "lastName": "Ceballos" ,
+    "email": "melias@gmail.com",
+    "contraseña": "pinocho4",
+    "category": "invitado",
+    "image": " ",
+    "tel": "1152623347"
+    }
+]

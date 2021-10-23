@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('partials/head.ejs', {titulo: 'Producto'}) %>
+<%- include('../partials/head.ejs', {titulo: 'Producto'}) %>
 
 <body>
 
-    <%- include('partials/navbar.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
 
     <main>
         <div class="produc-header">
-            <h1><%= producto.nombre %></h1>
+          
         </div>
         <div class="product">
             <section class="product-title">
@@ -36,7 +36,7 @@
         </div>
     </main>
 
-    <%- include('partials/footer.ejs') %>
+    <%- include('../partials/footer.ejs') %>
 
 </body>
 
