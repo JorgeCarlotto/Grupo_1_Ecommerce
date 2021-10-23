@@ -1,11 +1,18 @@
-let express = require('express');
-let mainController = require('../controllers/mainController.js');
+const express = require('express');
+const router = express.Router();
 
-let router = express.Router();
+
+//controler
+const mainController = require('../controllers/mainController.js');
+
+
 
 router.get('/', mainController.index);
-router.get('/register', mainController.register);
-router.get('/login', mainController.login);
+
+// formulario comentarios
+router.post('/',mainController.comment);
+
+
 router.get('/error',mainController.error404);
 
 module.exports = router;
