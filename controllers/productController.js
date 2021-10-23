@@ -20,19 +20,31 @@ const listaProductos = [{
 
 let productController = {
     index: function (req, res) {
-        producto = listaProductos.find(producto => producto.id == req.params.id);
-        res.render('product/productDetail', {
+        res.render('product/index')
+    },
+    create: function (req, res) {
+        res.render('product/create')
+    },
+    edit: function (req, res) {
+        let producto = listaProductos.find(producto => producto.id == req.params.id);
+        res.render('product/edit', {
             producto: producto
         })
-    },   
-     product_car: function (req, res) {
-        res.render('product/productCart')
     },
-    creacion_producto:function(req, res){
-        res.render('product/creacionProducto')
+    show: function (req, res) {
+        let producto = listaProductos.find(producto => producto.id == req.params.id);
+        res.render('product/show', {
+            producto: producto
+        })
     },
-    edicion_producto:function(req, res){
-        res.render('product/edicionProducto')
+    update: function (req, res) {
+        res.send('Producto actualizado')
+    },
+    delete: function (req, res) {
+        res.send('Eliminar producto')
+    },
+    shoppingCart: function (req, res) {
+        res.render('product/shoppingCart')
     },
 
 }
