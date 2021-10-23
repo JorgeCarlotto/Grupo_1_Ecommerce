@@ -1,40 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<%- include('../partials/head.ejs', {titulo: 'Producto'}) %>
-
 <body>
-
-    <%- include('../partials/navbar.ejs') %>
-
-    <main>
-        <div class="produc-header">
-
-        </div>
-        <div class="product">
-            <section class="product-title">
-                <img src="/img/Brownies/Benidia0.jpg" alt="Foto 1 del producto">
-            </section>
-            <section class="product-details">
-                <h2>Detalles</h2>
-                <p>
-                    <%= product.description %> 
-                </p>
-                <p class="price">Precio <span><%= product.price %></span></p>
-                <form action="" class="form">
-                    <select name="" id="">
-                        <option value="1">Chocolate</option>
-                        <option value="2">Frutilla</option>
-                        <option value="3">Vainilla</option>
-                    </select>
-                    <button>Agregar al carro</button>
-                </form>
-            </section>
-        </div>
-    </main>
-
-    <%- include('../partials/footer.ejs') %>
-
+    <h2>Producto # <%= product.id %> </h2>
+    <table>
+        <tr>
+            <th>Price</th>
+            <th>Descrip</th>
+            <th>Categoria</th>
+        </tr>
+        <tr>
+            <td><%= product.price %></td>
+            <td><%= product.description %></td>
+            <td><%= product.category %></td>
+        </tr>
+    </table>
 </body>
-
 </html>

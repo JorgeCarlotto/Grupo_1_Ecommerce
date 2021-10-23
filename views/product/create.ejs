@@ -1,46 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include('partials/head.ejs', {titulo: 'creacion de producto'}) %>
+
 <body>
-    <%- include('../partials/navbar.ejs') %>
-
-    <h2>Agregar Producto</h2>
-    <form action="" method="GET">
+    <h2>Crear Producto</h2>
+    <form action="" method="POST" enctype="multipart/form-data">
+        <P>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" placeholder="Ingresar nombre">
+        </P>
         <p>
-            <label for="name" class="nombre_crearproducto">Nombre
-            <span class="obligatorio">*</span>
-            <input type="text" name="name" id="name" required="obligatorio" placeholder="Ingresar nombre">
-            </label>
+            <label for="category_id">Categoria</label>
+            <select name="category_id" id="">
+                <option value="" disabled selected>Seleccione un producto</option>
+                <% for (category of categoryProducts){ %>
+                <option value="<%= category.id %>"><%= category.name %></option>
+                <%  } %>
+            </select>
         </p>
         <p>
-            <label for="category" class="categoria_crearproducto">Categoria
-            <span class="obligatorio">*</span>
-            <input type="text" name="category" id="category" required="obligatorio" placeholder="Ingresa la Categoria">
-            </label>
+            <label for="price">Precio</label>
+            <input type="number" name="price" placeholder="Ingresa la Precio">
         </p>
         <p>
-            <label for="precio" class="precio_crearproducto">Precio
-            <span class="obligatorio">*</span>
-            <input type="number" name="price" id="price" required="obligatorio" placeholder="Ingresa la Precio">
-            </label>
+            <label for="description">Descripción del producto </label>
+            <textarea name="description" cols="30" rows="10"  placeholder="Ingresa la descripción"></textarea>
         </p>
-
         <p>
-            <label for="description" class="description_crearproducto">descripcion 
-            <span class="obligatorio">*</span>
-            <input type="number" name="description" id="description" required="obligatorio" placeholder="Ingresa la description">
-            </label>
+            <label for="img">Imagen</label>
+            <input type="file" name="img">
         </p>
-        
-        <p>
-            <label for="Imagen" class="imagen_crearproducto">Imagen
-            <span class="obligatorio">*</span>
-            <input type="file" name="image" id="image" required="obligatorio" placeholder="Ingresa Imagen del Producto">
-            </label>
-        </p>
-        <input type="submit" name="enviar_producto_nuevo" id="enviar_producto" value="Subir Producto">
+        <button type="submit">Crear producto</button>
     </form>
-    <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>
