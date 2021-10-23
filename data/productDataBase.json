@@ -1,6 +1,6 @@
 [
     {
-     "id": 2,
+     "id": 1,
      "name": "Brownie",
      "price": 5000,
      "category": "torta",
@@ -8,7 +8,7 @@
      "image": " "
     },
     {
-     "id": 3,
+     "id": 2,
      "name": "Chocotorta",
      "price": 999,
      "category": "torta",
@@ -16,7 +16,7 @@
      "image": ""
     },
     {
-     "id": 4,
+     "id": 3,
      "name": "Desayuno dia de la madre",
      "description": "Desayuno rico",
      "price": 4300,
@@ -24,7 +24,7 @@
      "category": "desayuno"
     },
     {
-     "id": 5,
+     "id": 4,
      "name": "Galletita",
      "description": "galletita.",
      "price": 500,

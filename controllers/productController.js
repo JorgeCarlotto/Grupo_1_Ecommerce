@@ -24,22 +24,19 @@ const listaProductos = [{
 
 let productController = {
     index: function (req, res) {
-        res.render('product/index', {products:products})
+        res.render('product/index', {
+            products: products
+        })
     },
     create: function (req, res) {
         res.render('product/create')
     },
     edit: function (req, res) {
-        let producto = listaProductos.find(producto => producto.id == req.params.id);
-        res.render('product/edit', {
-            producto: producto
-        })
+        res.render('product/edit')
     },
     show: function (req, res) {
-        let producto = listaProductos.find(producto => producto.id == req.params.id);
-        res.render('product/show', {
-            producto: producto
-        })
+        let product = products.find(product => product.id == req.params.id);
+        res.render('product/show', {product: product})
     },
     update: function (req, res) {
         res.send('Producto actualizado')
@@ -52,6 +49,5 @@ let productController = {
     },
 
 }
-
 
 module.exports = productController;
