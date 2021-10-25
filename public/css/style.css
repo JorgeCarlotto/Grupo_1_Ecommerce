@@ -4,17 +4,16 @@
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
 }
-
+/* 
 body {
-  /* height: 100%; */
-  background-color: #FBFCFF;
-}
+   background-color: #FBFCFF;
+} */
 
 
 /* Menu */
 /*Inicio HOME HEADER*/
 
-.header {
+/* .header {
   width: 100%;
 }
 
@@ -42,17 +41,27 @@ nav {
 
 .header .contenedor-header .logo img {
   height: 6vh;
+} */
+.navbar{
+  background-color: #f5f5f5 !important;
+}
+
+.col{
+  background-color: #f5f5f5 !important;
 }
 
 /*/Menu */
+.main, .album{
+  /* background-color: #e5dde6 !important; */
+}
 
 
 /* Tortas */
 .tortas {
   height: 100%;
   padding: 10px;
-  padding-top: 60px;
-  background-color: #FBFCFF;
+  padding-top:90px;
+  /* background-color: #e8e9eb !important; */
 }
 
 .tortas h2 {
@@ -101,8 +110,59 @@ nav {
 /* /Tortas */
 
 
+/* Imagenes de productos  */
+/* .col{
+  max-width: 200px;
+} */
+.bd-placeholder-img {
+  width:100%;
+}
+
+/* Titulo productos */
+.jumbotron-heading{
+  text-align: center;
+}
+
+
+.allProducts{
+  padding: 10px;
+ margin: auto;
+ text-align: center;
+}
+
+
+.todosProductos{
+  text-align: center;
+  text-decoration: none;
+  color: rgb(109, 106, 106);
+  font-size: 25px;
+}
+
+.mapa{
+  margin-top: 25px;
+}
+
+.ubicacion-titulo{
+   text-align: left;
+   padding: auto;
+   color: rgb(34, 34, 34);
+   font-size: 35px;
+}
+
+
+.formulario{
+  margin: 20px;
+}
+
+
+.formulario .formulario-titulo{
+   text-align: center;
+   margin: auto;
+   font-size: 30px;
+   color: rgb(58, 57, 57);
+}
 /* destacados */
-.destacados {
+/* .destacados {
   background-color: #e8e9eb;
   width: 100%;
   padding: 15px;
@@ -164,13 +224,13 @@ nav {
   font-size: 20px;
   color: #080708;
   font-weight: bold;
-}
+} */
 
 /* /destacados */
 
 
 /* Mapa */
-.mapa-titulo {
+/* .mapa-titulo {
   color: #080708;
   font-weight: 300;
   font-size: 30px;
@@ -193,7 +253,7 @@ nav {
   height: 100%;
   width: 100%;
   position: absolute;
-}
+} */
 
 /* /Mapa */
 
@@ -206,7 +266,7 @@ nav {
 /*  */
 /* } */
 
- .formulario {
+ /* .formulario {
   width: 300px;
   padding: 10px 0px;
   border-radius: 10px;
@@ -316,14 +376,13 @@ p {
 .formulario textarea:focus {
   outline: 0;
   border: 1px solid #97d848;
-}
+} */
 
 /* Botones */
-.iniciar {
+/* .iniciar {
   overflow: hidden;
   width: 100%;
   margin: auto;
-  /* padding-top: 15%; */
   text-align: center;
 }
 
@@ -355,7 +414,7 @@ p {
   border:tomato 1px solid;
   background-color: #e9748b;
   color: #ffffff;
-}
+} */
 /* /Botones */
 
 /* /Formulario */
