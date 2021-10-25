@@ -14,5 +14,8 @@
             <td><%= product.category %></td>
         </tr>
     </table>
+    <form action="/products/show/<%= product.id %>?_method=DELETE" method="POST">
+        <button type="submit">ELIMINAR</button>
+    </form>
 </body>
 </html>

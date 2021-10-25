@@ -63,6 +63,13 @@ let productController = {
     shoppingCart: function (req, res) {
         res.render('product/shoppingCart')
     },
+
+    destroy : (req, res) => {
+        let id = req.params.id;
+        let finalProducts = products.filter(product => product.id != id);
+        fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
+        res.redirect('/');
+    }
 }
 
 module.exports = productController;

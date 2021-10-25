@@ -48,3 +48,4 @@ Se trabajo sobre el CSS general del proyecto, se agregó vistas creación de pro
 Ningún impedimento reportado 
 **3-**
 Continuar trabajando sobre el CSS, crear archivo edicionProducto.ejs
+

@@ -16,14 +16,6 @@
   "img": "product-default.png"
  },
  {
-  "id": 3,
-  "name": "Desayuno dia de la madre",
-  "description": "Desayuno rico",
-  "price": 4300,
-  "img": "product-default.png",
-  "category_id": 2
- },
- {
   "id": 4,
   "name": "Galletita",
   "description": "galletita.",
@@ -37,7 +29,7 @@
   "category_id": "2",
   "price": "321321312321",
   "description": "dkjladljkasdlkasjdlas",
-  "img":"product-default.png"
+  "img": "product-default.png"
  },
  {
   "id": 6,
@@ -45,7 +37,7 @@
   "category_id": "3",
   "price": "32312321",
   "description": "dsakdlaslñkdsa",
-  "img":"product-default.png"
+  "img": "product-default.png"
  },
  {
   "id": 7,
