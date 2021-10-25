@@ -2,7 +2,7 @@ let path = require('path');
 
 let mainController = {
     index: function (req, res) {
-        res.render('main/index')
+        res.render('main/bootstrapIndex')
     },
     register: function (req, res) {
         res.render('register')
