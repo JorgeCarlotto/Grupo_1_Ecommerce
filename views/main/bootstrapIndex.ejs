@@ -19,21 +19,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <title>Luana Cake</title>
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
   </head>
   <body>
  
@@ -46,8 +31,7 @@
 <!-- <br><br> -->
         <!-- Agregar estilo porque el header se "come" el h1 -->
 
-
-
+    
 
              <!-- tortas -->
      <section class="tortas">
@@ -105,7 +89,7 @@
      
             <h2 class="jumbotron-heading">Algunos de nuestros productos</h2>
      
-          <div class="row row-cols-1 row-cols-sm-3 row-cols-md-3 g-3">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
             <!-- Foto 1 -->
             <div class="col">
@@ -405,7 +389,7 @@
             <h2 class="formulario-titulo">Dejanos Tu comentario</h2>
 
 
-        <form >
+        <form  action="/" method="POST" >
             <div class="mb-3"> 
                   <label for="nombre" class="colocar_nombre">Nombre</label ><span class="obligatorio">*</span>
                   <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre" required name="nombre"/>

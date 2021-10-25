@@ -4,6 +4,48 @@
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
 }
+
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+
+
+/* Pagina create */
+  .card-body {
+     margin-top: 80px;
+  }
+
+  .galleta img{
+    height: 140px;
+    display:block;
+    margin:auto;
+  }
+/* Fin pagina create */
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 
 body {
    background-color: #FBFCFF;
