@@ -43,3 +43,24 @@ Intentar seguir con el proyecto a diario, siguiendo las metas establecidas en el
 Controlar las clases repetidas en CSS, intentar lograr que el código quede lo mas limpio y optimizado. 
 **5-**
 Lograr no distraernos en los encuentros, pudiendo aprovechar al máximo el tiempo en el que nos podemos conectar todos juntos. 
+
+
+
+Spring 4 : 
+
+1. Comenzar a hacer.
+2. Hacer más.
+3. Continuar haciendo.
+4. Hacer menos.
+5. Dejar de hacer.
+
+**1-**
+Tenemos que comenzar a pulir con CSS las nuevas vistas que vamos aplicando al proyecto. Asumir la responsabilidad de cumplir las tareas adquiridas en el proyecto.
+**2-**
+Seguir el tablero de trabajo para que todos los puntos del proyecto tengan la debida atención. Mantener una comunicación entre el equipo de las tareas que realizamos de forma individual.
+**3-**
+Lograr mantener las reuniones continuas en la semana, dividir las tareas y asumir la responsabilidad de cumplirlas.   
+**4-**
+Dejar actividades para ultimo momento. 
+**5-**
+Nuevamente dejar de perder tiempo cuando nos conectamos todos juntos, y enfocarnos en trabajar en el proyecto. 
