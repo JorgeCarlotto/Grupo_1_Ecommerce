@@ -41,11 +41,49 @@ Ningún impedimento reportado
 **3-**
 Se debe seguir trabajando en el CSS, comenzar a armar la retro y el archivo daily.md
 
-Daily 
+Daily 5
 **1-**
 Se trabajo sobre el CSS general del proyecto, se agregó vistas creación de productos , error 404.  
 **2-**
 Ningún impedimento reportado 
 **3-**
 Continuar trabajando sobre el CSS, crear archivo edicionProducto.ejs
+
+
+
+******* Sprint 4 ******* 
+
+Daily 4.1
+**1-**
+Planificamos las reuniones semanales, evaluamos las tareas para el sprint 4. 
+**2-**
+Ningún impedimento.
+**3-**
+Desarrollar el ruteo y controlador de los usuarios. Aplicar la lógica a los formularios de registro.
+
+Daily 4.2
+**1-**
+Finalizamos archivos Json que simulan la base de datos. Dividimos en dos el equipo para trabajar en el área de Productos y Usuarios. 
+**2-**
+Problemas con el CSS. 
+**3-**
+Finalizar el CRUD de productos. Actualizar el CSS de las vistas ya finalizadas. Modularizar las vistas de Productos y Usuarios.  
+
+
+Daily 4.3
+**1-**
+Avanzamos con el CRUD de productos queda implementar Eliminar producto 
+**2-**
+Problemas con el CSS. 
+**3-**
+Finalizar el CRUD de productos y detalles del Sprint 4.
+
+
+Daily 4.4
+**1-**
+Finalizamos el sprint 4 sobre el proyecto, estamos actualizando el CSS de las vistas, se actualizo el cuadro semanal de trabajo.
+**2-**
+Ningún impedimento 
+**3-**
+Terminar y subir la Retro y el archivo Daily. 
 
