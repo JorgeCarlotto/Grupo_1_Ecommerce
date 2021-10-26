@@ -21,7 +21,6 @@ let productController = {
         })
     },
     store: function (req, res) {
-        let product
         let img
 
         if (req.file != undefined) {
@@ -57,14 +56,10 @@ let productController = {
     update: function (req, res) {
         res.send('Producto actualizado')
     },
-    delete: function (req, res) {
-        res.send('Eliminar producto')
-    },
     shoppingCart: function (req, res) {
         res.render('product/shoppingCart')
     },
-
-    destroy : (req, res) => {
+    destroy: (req, res) => {
         let id = req.params.id;
         let finalProducts = products.filter(product => product.id != id);
         fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));

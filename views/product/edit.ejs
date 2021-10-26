@@ -36,33 +36,21 @@
     <!-- Header -->
     <%- include('../partials/navbar.ejs') %>
     <!-- /Header -->
-
-    <div class="card bg-light">
-        <article class="card-body mx-auto" style="max-width: 400px;">
-
-
-            <h4 class="card-title mt-3 text-center">Editar Producto</h4>
-            <p class="text-center">Edita tus productos</p>
-
-
-            <div class="galleta"> <img src="/img/cookies.png" alt="">
+    <div class="card">
+        <article class="card-body mx-auto">
+            <h4 class="card-title text-center"><%= product.name %></h4>
+            <div class="galleta">
+                <img src="/img/cookies.png" alt="">
             </div>
 
             <form action="/products/create" method="POST" enctype="multipart/form-data">
 
-                <!-- Nombre -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input name="name" class="form-control" placeholder="Ingresa el nombre" type="text">
+                    <input name="name" class="form-control" value="<%= product.name %>" type="text">
                 </div>
-
-                <!-- /Nombre -->
-
-                <!-- Categoria -->
-
-                <!-- /Categoria -->
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
@@ -71,64 +59,44 @@
                     <select class="form-control">
                         <option selected=""> Categorias</option>
                         <% for (category of categoryProducts){ %>
-                        <option value="<%= category.id %>"><%= category.name %></option>
+                        <option value="<%= category.id %>" <%= (category.id == product.category_id) ? 'selected':'' %>>
+                            <%= category.name %></option>
                         <%  } %>
                     </select>
                 </div>
 
-                <!-- Precio -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-money-bill-alt"></i></span>
                     </div>
-                    <input class="form-control" name="price" placeholder="Ingresa el precio" type="number">
+                    <input class="form-control" name="price" value="<%= product.price %>" type="number">
                 </div>
-                <!-- /Precio -->
-
-                <!-- Descripcion -->
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="far fa-file-alt"></i> </span>
                     </div>
 
-                    <textarea name="description" class="form-control" cols="30" rows="10"
-                        placeholder="Ingresa una descripción"></textarea>
+                    <textarea name="description" class="form-control" cols="20"
+                        rows="5"><%= product.description %></textarea>
                 </div>
-                <!-- /Descripcion-->
-
-
-                <!-- Imagen -->
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-images"></i> </span>
                     </div>
-
                     <input type="file" name="img">
                 </div>
-
-
-                <!-- /Imagen -->
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block"> Crear producto </button>
                 </div>
-                <!--/Imagen-->
-
             </form>
         </article>
     </div>
 
-
-    </div>
-
-
-
-
-    <!-- Footer -->
     <%- include('../partials/footer.ejs') %>
-    <!-- /Footer -->
+
 </body>
 
 </html>

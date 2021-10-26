@@ -22,6 +22,7 @@ const upload = multer({
 })
 
 router.get('/', productController.index);
+
 //Routes CRUD
 router.get('/create', productController.create);
 router.post('/create',upload.single('img') ,productController.store);
@@ -29,8 +30,7 @@ router.get('/show/:id', productController.show);
 router.delete('/show/:id', productController.destroy);
 router.get('/edit/:id', productController.edit);
 router.put('/edit/:id/update', productController.update);
-// router.delete('/:id', productController.destroy);
-// 
+
 //Routes ShoppingCar
 router.get('/shoppingCart', productController.shoppingCart);
 
