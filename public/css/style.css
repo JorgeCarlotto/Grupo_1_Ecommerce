@@ -301,14 +301,14 @@ nav {
 
 /* Formulario */
 
-/* .contact_form { */
-  /* height: 100%; */
-  /* margin: auto; */
-  /* position: relative; */
-/*  */
-/* } */
+/* .contact_form { 
+   height: 100%; 
+   margin: auto; 
+position: relative; 
 
- /* .formulario {
+ } 
+
+  .formulario {
   width: 300px;
   padding: 10px 0px;
   border-radius: 10px;
@@ -420,8 +420,8 @@ p {
   border: 1px solid #97d848;
 } */
 
-/* Botones */
-/* .iniciar {
+
+ .iniciar {
   overflow: hidden;
   width: 100%;
   margin: auto;
@@ -456,11 +456,10 @@ p {
   border:tomato 1px solid;
   background-color: #e9748b;
   color: #ffffff;
-} */
-/* /Botones */
+}  
 
-/* /Formulario */
-/* INICIO HOME Footer */
+
+
 .footer-home {
   height: 100%;
   padding: 20px;
@@ -479,7 +478,7 @@ p {
   text-decoration: none;
   color: #FBFCFF;
   font-size: 30px;
-}
+} */
 
 /* /Footer */
 
