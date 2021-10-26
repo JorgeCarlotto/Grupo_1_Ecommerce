@@ -1,12 +1,12 @@
 [
  {
-  "id": 1,
-  "name": "Brownie",
-  "price": 5000,
-  "category_id": 1,
-  "description": "Rico brownie",
-  "img": "product-default.png"
- },
+    "id": 1,
+    "name": "Brownie",
+    "price": 1500,
+    "category_id": 3,
+    "description": "rico brownie",
+    "img": "product-default.png"
+       },
  {
   "id": 2,
   "name": "Chocotorta",
