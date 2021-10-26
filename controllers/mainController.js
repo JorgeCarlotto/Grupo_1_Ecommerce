@@ -8,7 +8,7 @@ const commenst  = JSON.parse(fs.readFileSync(commenstsFilePath, 'utf-8'));
 
 let mainController = {
     index: function (req, res) {
-        res.render('main/bootstrapIndex')
+        res.render('main/index')
     },
 
     comment: (req, res) => {
