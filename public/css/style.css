@@ -485,12 +485,12 @@ p {
 
 
 /* Carrito bootstrap  */
-.store{
-  margin-top: 15px;
-}
 .item {
   padding: 10px;
   border-radius: 20px;
+  margin-top: 85px;
+
+
 }
 
 .item-title {
@@ -502,6 +502,7 @@ p {
 .item-image {
   height: 300px;
   width: 100%;
+
 }
 
 .item-details {
