@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h2> Usario # <%= user.id %> </h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>telefono</th>
+            <th>Dirección</th>
+        </tr>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.lastName %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phone %></td>
+            <td><%= user.address %></td>
+            <td><%= user.img %></td>
+        </tr>
+    </table>
+
+    <form action="/users/show/<%= user.id %>?_method=DELETE" method="POST">
+
+        <button type="submit" class="action-button delete">ELIMINAR</button>
+    </form>
+</body>
+</html>
