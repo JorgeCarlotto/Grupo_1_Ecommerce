@@ -1,41 +1,20 @@
 [
  {
   "id": 1,
-  "name": "Franco",
-  "lastName": "Sanchez",
-  "email": "mingluana@gmail.com",
-  "contraseña": "pinocho",
-  "category": "usuario",
-  "image": " ",
-  "tel": "1152623349"
+  "name": "user1",
+  "lastName": "lastname1",
+  "email": "email@email.com",
+  "tel": "1122",
+  "adress": "simpreviva",
+  "img": "person-default.jpg"
  },
  {
   "id": 2,
-  "name": "Jorge",
-  "lastName": "Carloto",
-  "email": "luana@gmail.com",
-  "contraseña": "pinocho8",
-  "category": "admin",
-  "image": " ",
-  "tel": "1152623348"
- },
- {
-  "id": 3,
-  "name": "Elias",
-  "lastName": "Ceballos",
-  "email": "melias@gmail.com",
-  "contraseña": "pinocho4",
-  "category": "invitado",
-  "image": " ",
-  "tel": "1152623347"
- },
- {
-  "id": 4,
-  "name": "leo",
-  "lastName": "Rojas",
+  "name": "user2",
+  "lastName": "lastname2",
   "email": "email@email.com",
-  "tel": "11223344",
+  "tel": "1122",
   "adress": "simpreviva",
-  "img": "img-1635375901446.png"
+  "img": "img-1635810648546.png"
  }
 ]

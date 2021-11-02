@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-    <h2> Usario # <%= user.id %> </h2>
+    <h2> Usuario <%= users.id %></h2>
     <table>
         <tr>
             <th>ID</th>
@@ -12,7 +12,7 @@
             <th>Dirección</th>
         </tr>
         <tr>
-            <td><%= user.id %></td>
+            <td><%=  %></td>
             <td><%= user.name %></td>
             <td><%= user.lastName %></td>
             <td><%= user.email %></td>
@@ -22,13 +22,8 @@
         </tr>
     </table>
 
-    <form action="/users/show/<%= user.id %>?_method=DELETE" method="POST">
-
-        <button type="submit" class="action-button delete">ELIMINAR</button>
+    <form action="/users/edit/<%= user.id %>?_method=PUT" method="POST">
+        <button type="submit" class="action-button delete">Actualizar</button>
     </form>
-    <br>
-
-        <a href="/users/edit/<%=user.id%>"><button type="submit" class="action-button delete">EDITAR</button
-        </a>
 </body>
 </html>

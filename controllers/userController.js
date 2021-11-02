@@ -8,6 +8,10 @@ const usersFilePath = path.join(__dirname, '../data/usuariosDataBase.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 let userController = {
+
+    index : function (req, res) {
+        res.render('user/index', {users : users });
+    },
     register: function (req, res) {
         res.render('user/register')
     },
@@ -23,12 +27,12 @@ let userController = {
          }
          let ids = users.map(u => u.id);
          let newUser = {
-             id: Math.max (...ids)+1,...req.body,
+             id: Math.max (...ids) + 1,...req.body,
              img :img   
          };
          users.push(newUser)
-         fs.writeFileSync(usersFilePath,JSON.stringify(users,null, ' '));
-         res.redirect('/users/register')
+         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
+         res.redirect('/users')
      },
      show: function (req, res) {
         let user = users.find( user => user.id == req.params.id );
@@ -37,10 +41,18 @@ let userController = {
      },
      destroy : (req, res) => {
 		let id = req.params.id;
-		let finalUsers = users.filter(product => user.id != id);
+		let finalUsers = users.filter(user => user.id != id);
 		fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, ' '));
-		res.redirect('/');
-	}
+		res.redirect('/users/register');
+	},
+      edit:(req,res)=> {
+        let user = users.find( user => user.id == req.params.id );
+        res.render('user/edit', {
+            users : users})
+      },
+      update: (req,res) =>{
+        
+      }
     }
 
 module.exports = userController;

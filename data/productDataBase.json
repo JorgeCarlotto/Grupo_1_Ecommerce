@@ -1,12 +1,12 @@
 [
  {
-    "id": 1,
-    "name": "Brownie",
-    "price": 1500,
-    "category_id": 3,
-    "description": "rico brownie",
-    "img": "product-default.png"
-       },
+  "id": 1,
+  "name": "Brownie",
+  "price": 1500,
+  "category_id": 3,
+  "description": "rico brownie",
+  "img": "product-default.png"
+ },
  {
   "id": 2,
   "name": "Chocotorta",
@@ -61,5 +61,33 @@
   "price": "1321321",
   "description": "test 2 ",
   "img": "product-1635019936339.jpg"
+ },
+ {
+  "id": 10,
+  "name": "test 2",
+  "price": "1321321",
+  "description": "test 2 ",
+  "img": "product-default.png"
+ },
+ {
+  "id": 11,
+  "name": "test 2",
+  "price": "132132",
+  "description": "test 2 ",
+  "img": "product-default.png"
+ },
+ {
+  "id": 12,
+  "name": "test 2",
+  "price": "13213",
+  "description": "test 2 ",
+  "img": "product-default.png"
+ },
+ {
+  "id": 13,
+  "name": "test",
+  "price": "11",
+  "description": "22",
+  "img": "product-default.png"
  }
 ]
