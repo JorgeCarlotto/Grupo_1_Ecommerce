@@ -16,5 +16,15 @@
   "tel": "112233",
   "address": "SimpreViva",
   "password": "1233"
+ },
+ {
+  "id": 3,
+  "name": "Jorge",
+  "lastName": "Carlotto",
+  "email": "jorgemcarlotto@gmail.com",
+  "tel": "1155840072",
+  "address": "San Lorenzo 3193",
+  "password": "1234",
+  "img": "img-1636847719176.jpg"
  }
 ]

@@ -31,7 +31,13 @@ let userController = {
             oldData : req.body 
         }) 
     }
-        User.create(req.body)
+        let userToCreate = {
+            ...req.body,
+            img: req.file.filename
+        }
+
+        User.create(userToCreate)
+        // User.create(req.body)
         return res.send("validaciones pasadas sin errores")
 }
 
