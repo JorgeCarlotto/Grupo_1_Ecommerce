@@ -183,30 +183,13 @@
   color: #ffffff;
 }  
 
-/*  */
-/*  */
-/* .footer-home { */
-  /* height: 100%; */
-  /* padding: 20px; */
-  /* background-color: #7F636E; */
-  /* display: flex; */
-  /* justify-content: space-between; */
-/*  */
-/*  */
-/* } */
-/*  */
-/* .footer-home ul { */
-  /* list-style-type: none; */
-/* } */
-/*  */
-/* .footer-home a { */
-  /* text-decoration: none; */
-  /* color: #FBFCFF; */
-  /* font-size: 30px; */
-/* } */ */
-/*  */
+/* Login /recordar usuario y contraseña */ 
+   .remember{
+     display: flex;
+     flex-direction: column; 
+   }
 
-
+/* Fin css Login /recordar usuario y contraseña */ 
 
 
 /* Carrito bootstrap  */
