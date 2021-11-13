@@ -1,11 +1,14 @@
+
 //Require modols //
-const  path = require('path');
-const fs = require('fs');
+/* const  path = require('path');
+const fs = require('fs'); */
+const {validationResult} = require('express-validator')
+const User = require('../models/User')
 
 // data base //
-const usersFilePath = path.join(__dirname, '../data/usuariosDataBase.json');
+/* const usersFilePath = path.join(__dirname, '../data/usuariosDataBase.json');
 
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); */
 
 let userController = {
 
@@ -18,8 +21,22 @@ let userController = {
     login: function (req, res) {
         res.render('user/login')
     },
-     store: function (req, res) {
-        let img
+
+     processRegister: function (req, res) {
+           
+        const resultValidation = validationResult(req);
+      
+       if(resultValidation.errors.length > 0){
+           return res.render('user/register',{ errors : resultValidation.mapped(),
+            oldData : req.body 
+        }) 
+    }
+        User.create(req.body)
+        return res.send("validaciones pasadas sin errores")
+}
+
+}
+        /* let img
          if( req.file != undefined){
            img = req.file.filename;
          }else {
@@ -32,27 +49,27 @@ let userController = {
          };
          users.push(newUser)
          fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
-         res.redirect('/users')
-     },
-     show: function (req, res) {
+         res.redirect('/users') */
+     /* } */
+     /* profile: function (req, res) {
         let user = users.find( user => user.id == req.params.id );
-        res.render('user/showUsers', {
+        res.render('user/profile', {
             user : user})
-     },
-     destroy : (req, res) => {
+     }, */
+     /* destroy : (req, res) => {
 		let id = req.params.id;
 		let finalUsers = users.filter(user => user.id != id);
 		fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, ' '));
 		res.redirect('/users/register');
-	},
-      edit:(req,res)=> {
+	}, */
+      /* dit:(req,res)=> {
         let user = users.find( user => user.id == req.params.id );
         res.render('user/edit', {
             users : users})
       },
       update: (req,res) =>{
         
-      }
-    }
+      } */
+   /*  } */
 
-module.exports = userController;
+module.exports = userController; 

@@ -3,6 +3,7 @@ let userController = require('../controllers/userController');
 let router = express.Router();
 const multer = require('multer');
 const path = require('path');
+const {body} = require('express-validator');
 
 //configuracion multer //
 const storage = multer.diskStorage({
@@ -17,19 +18,47 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage: storage
 })
+
+const validations = [
+    body('name').notEmpty().withMessage('Ingresa tu nombre'),
+    body('lastName').notEmpty().withMessage('Ingresa tu apellido'),
+    body('email').notEmpty().withMessage('Ingresa tu email').bail().isEmail().withMessage('Debe introducir un formato de correo valido'),
+    body('tel').notEmpty().withMessage('ingresa tu número de teléfono'),
+    body('address').notEmpty().withMessage('Ingresa tu dirección'),
+    body('password').notEmpty().withMessage('ingresa tu contraseña'),
+    body('img').custom((value,{ req }) => {
+        let file = req.file;
+        let acceptedExtensions = ['.jpg','.png','.gif']
+        if(!file){
+            throw new Error('Sube una foto')
+        }else{
+            let fileExtension= path.extname(file.originalname)
+            if(!acceptedExtensions.includes(fileExtension)){
+                throw new Error(`Debe ser formato ${acceptedExtensions.join(',')}`)
+            }
+        }
+       
+        return true;
+    })
+]
+
+
 router.get('/',userController.index)
+//Form register //
 router.get('/register', userController.register);
+// Form login //
 router.get('/login', userController.login);
 
-/* router.post(/register) */
-router.post('/register',upload.single('img'),userController.store);
+//process register //
+router.post('/register',upload.single('img'),validations,userController.processRegister);
 
-router.get('/show/:id', userController.show)
-router.delete('/show/:id', userController.destroy)
+//show user profile //
+/* router.get('/profile/:id', userController.profile) */
+/* router.delete('/profile/:id', userController.destroy) */
 
 /* router edit and update */
-router.get('/edit/:id',userController.edit );
-router.put('/edit', userController.update);
-;
+/* router.get('/edit/:id',userController.edit );
+router.put('/edit', userController.update); */
+/* ; */
 
 module.exports = router;

@@ -3,18 +3,18 @@
   "id": 1,
   "name": "user1",
   "lastName": "lastname1",
-  "email": "email@email.com",
-  "tel": "1122",
-  "adress": "simpreviva",
-  "img": "person-default.jpg"
+  "email": "levisrojas@hotmail.es",
+  "tel": "112233",
+  "address": "SimpreViva",
+  "password": "1233"
  },
  {
   "id": 2,
-  "name": "user2",
-  "lastName": "lastname2",
+  "name": "Leo",
+  "lastName": "Rojas",
   "email": "email@email.com",
-  "tel": "1122",
-  "adress": "simpreviva",
-  "img": "img-1635810648546.png"
+  "tel": "112233",
+  "address": "SimpreViva",
+  "password": "1233"
  }
 ]
