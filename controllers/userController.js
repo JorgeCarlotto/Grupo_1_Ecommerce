@@ -4,6 +4,7 @@
 const fs = require('fs'); */
 const {validationResult} = require('express-validator')
 const User = require('../models/User')
+const bcrypt = require('bcryptjs');
 
 // data base //
 /* const usersFilePath = path.join(__dirname, '../data/usuariosDataBase.json');
@@ -33,6 +34,7 @@ let userController = {
     }
         let userToCreate = {
             ...req.body,
+            password : bcrypt.hashSync(req.body.password, 10),
             img: req.file.filename
         }
 

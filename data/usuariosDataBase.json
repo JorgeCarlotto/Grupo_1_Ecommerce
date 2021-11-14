@@ -24,7 +24,17 @@
   "email": "jorgemcarlotto@gmail.com",
   "tel": "1155840072",
   "address": "San Lorenzo 3193",
-  "password": "1234",
-  "img": "img-1636847719176.jpg"
+  "password": "$2a$10$LCh6s89baEqA/Se2PSj0GuwJs6cIj8fbBomxm7eAbfLC6A5dI6FOy",
+  "img": "img-1636848472694.jpg"
+ },
+ {
+  "id": 4,
+  "name": "Jorgeasd",
+  "lastName": "Carlottoasd",
+  "email": "jorgemcarlotto@gmail.com",
+  "tel": "1155840072",
+  "address": "San Lorenzo 3193",
+  "password": "$2a$05$CI2e9OGQanJgySiCZ2O0YOJjVocGmE0x07iU7INzGmIIFu8IjvIA.",
+  "img": "img-1636848551547.jpg"
  }
 ]
