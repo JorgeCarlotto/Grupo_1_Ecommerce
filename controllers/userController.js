@@ -22,9 +22,38 @@ let userController = {
     login: function (req, res) {
         res.render('user/login')
     },
+    // loginProcess: function (req, res) {
+            
+        //  let userToLogin = User.findByField('email', req.body.email);
+         
+        // if(userToLogin){
+
+        //     let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+
+        //     if(isOkThePassword) {
+        //         return res.send('Ok puedes ingresar')
+        // }
+        // return res.render('user/login',{ 
+        //     errors : {
+        //     email: {
+        //         msg : 'Password invalido'
+        //     }
+        //     }
+        // });
+
+        // }
+        
+        // return res.render('user/login', {
+        //     errors: {
+        //         email:{
+        //             msg :'No se encuentra el email en la base de datos'
+        //         }
+        //     }
+        // })
+        // },
 
      processRegister: function (req, res) {
-           
+     
         const resultValidation = validationResult(req);
       
        if(resultValidation.errors.length > 0){
@@ -51,9 +80,9 @@ let userController = {
             img: req.file.filename
         }
 
-        User.create(userToCreate)
-        // User.create(req.body)
-        return res.send("validaciones pasadas sin errores")
+         let userCreate = User.create(userToCreate)
+        
+        return res.redirect('/users/login')
 }
             
      }

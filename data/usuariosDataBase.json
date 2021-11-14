@@ -1,40 +1,12 @@
 [
  {
   "id": 1,
-  "name": "user1",
-  "lastName": "lastname1",
-  "email": "levisrojas@hotmail.es",
-  "tel": "112233",
-  "address": "SimpreViva",
-  "password": "1233"
- },
- {
-  "id": 2,
-  "name": "Leo",
-  "lastName": "Rojas",
-  "email": "email@email.com",
-  "tel": "112233",
-  "address": "SimpreViva",
-  "password": "1233"
- },
- {
-  "id": 3,
-  "name": "Jorge",
-  "lastName": "Carlotto",
-  "email": "jorgemcarlotto@gmail.com",
-  "tel": "1155840072",
-  "address": "San Lorenzo 3193",
-  "password": "$2a$10$LCh6s89baEqA/Se2PSj0GuwJs6cIj8fbBomxm7eAbfLC6A5dI6FOy",
-  "img": "img-1636848472694.jpg"
- },
- {
-  "id": 4,
-  "name": "Jorgeasd",
-  "lastName": "Carlottoasd",
-  "email": "jorgemcarlotto@gmail.com",
-  "tel": "1155840072",
-  "address": "San Lorenzo 3193",
-  "password": "$2a$05$CI2e9OGQanJgySiCZ2O0YOJjVocGmE0x07iU7INzGmIIFu8IjvIA.",
-  "img": "img-1636848551547.jpg"
+  "name": "goku",
+  "lastName": "vegetta",
+  "email": "goku@asd.com",
+  "tel": "123",
+  "address": "123asd",
+  "password": "$2a$10$AbBRG6Qwg1E4tKxni4T/3OS4bFjDMlmrxZBdK98nFcH9pWITNabIC",
+  "img": "img-1636856102604.jpg"
  }
 ]
