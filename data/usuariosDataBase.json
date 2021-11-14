@@ -1,20 +1,12 @@
 [
  {
   "id": 1,
-  "name": "user1",
-  "lastName": "lastname1",
-  "email": "levisrojas@hotmail.es",
-  "tel": "112233",
-  "address": "SimpreViva",
-  "password": "1233"
- },
- {
-  "id": 2,
-  "name": "Leo",
-  "lastName": "Rojas",
-  "email": "email@email.com",
-  "tel": "112233",
-  "address": "SimpreViva",
-  "password": "1233"
+  "name": "pepa",
+  "lastName": "Pig",
+  "email": "pepa@gmail.com",
+  "tel": "123456",
+  "address": "asd123",
+  "password": "$2a$10$YUw1CqKD5HXR1.ohuRc67eI0jAVknFFnjKfOJn0hDKvScnB9Wn9A6",
+  "img": "img-1636886882256.jpg"
  }
 ]

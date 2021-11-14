@@ -49,6 +49,10 @@ router.get('/register', userController.register);
 // Form login //
 router.get('/login', userController.login);
 
+//Procesar el login 
+ // ******************************************************* pendiente validacion del login
+router.post('/login', userController.loginProcess);
+
 //process register //
 router.post('/register',upload.single('img'),validations,userController.processRegister);
 

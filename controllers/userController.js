@@ -2,9 +2,11 @@
 //Require modols //
 /* const  path = require('path');
 const fs = require('fs'); */
+const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator')
 const User = require('../models/User')
 const bcryptjs = require('bcryptjs');
+
 
 // data base //
 /* const usersFilePath = path.join(__dirname, '../data/usuariosDataBase.json');
@@ -19,12 +21,7 @@ let userController = {
     register: function (req, res) {
         res.render('user/register')
     },
-    login: function (req, res) {
-        res.render('user/login')
-    },
-
      processRegister: function (req, res) {
-           
         const resultValidation = validationResult(req);
       
        if(resultValidation.errors.length > 0){
@@ -32,11 +29,64 @@ let userController = {
             oldData : req.body 
         }) 
     }
+        let userInDB = User.findByField('email',req.body.email);
         
-    },
-    
+        if(userInDB){
+            return res.render('user/register',{ 
+                errors : {
+                email: {
+                    msg : 'Este Email ya se encuentra registrado'
+                }
+            },
+                oldData : req.body 
+        });
+    }
+        // Incriptacion de contraseña    
+        let userToCreate = {
+            ...req.body,
+            password : bcrypt.hashSync(req.body.password, 10),
+            img: req.file.filename
+        }
 
-}
+         let userCreate = User.create(userToCreate)
+        
+        return res.redirect('/users/login')
+},
+login: function (req, res) {
+    res.render('user/login')
+},
+loginProcess: function (req, res) {
+    let userToLogin = User.findByField('email', req.body.email);
+
+        if(userToLogin){
+
+            let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+
+            if(isOkThePassword) {
+                return res.send('Usuario encontrado')
+        }
+        return res.render('user/login',{ 
+            errors : {
+            email: {
+                msg : 'Password invalido'
+            }
+            }
+        });
+
+        }
+
+        return res.render('user/login', {
+            errors: {
+                email:{
+                    msg :'No se encuentra el email en la base de datos'
+                }
+            }
+        })
+        
+},
+
+            
+     }
         /* let img
          if( req.file != undefined){
            img = req.file.filename;
