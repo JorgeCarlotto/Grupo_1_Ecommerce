@@ -1,12 +1,12 @@
 [
  {
   "id": 1,
-  "name": "goku",
-  "lastName": "vegetta",
-  "email": "goku@asd.com",
-  "tel": "123",
-  "address": "123asd",
-  "password": "$2a$10$AbBRG6Qwg1E4tKxni4T/3OS4bFjDMlmrxZBdK98nFcH9pWITNabIC",
-  "img": "img-1636856102604.jpg"
+  "name": "pepa",
+  "lastName": "Pig",
+  "email": "pepa@gmail.com",
+  "tel": "123456",
+  "address": "asd123",
+  "password": "$2a$10$YUw1CqKD5HXR1.ohuRc67eI0jAVknFFnjKfOJn0hDKvScnB9Wn9A6",
+  "img": "img-1636886882256.jpg"
  }
 ]
