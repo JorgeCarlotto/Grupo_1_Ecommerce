@@ -32,6 +32,19 @@ let userController = {
             oldData : req.body 
         }) 
     }
+        let userInDB = User.findByField('email',req.body.email);
+        
+        if(userInDB){
+            return res.render('user/register',{ 
+                errors : {
+                email: {
+                    msg : 'Este Email ya se encuentra registrado'
+                }
+            },
+                oldData : req.body 
+        });
+    }
+
         let userToCreate = {
             ...req.body,
             password : bcrypt.hashSync(req.body.password, 10),
@@ -42,8 +55,8 @@ let userController = {
         // User.create(req.body)
         return res.send("validaciones pasadas sin errores")
 }
-
-}
+            
+     }
         /* let img
          if( req.file != undefined){
            img = req.file.filename;
