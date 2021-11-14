@@ -4,6 +4,7 @@
 const fs = require('fs'); */
 const {validationResult} = require('express-validator')
 const User = require('../models/User')
+const bcryptjs = require('bcryptjs');
 
 // data base //
 /* const usersFilePath = path.join(__dirname, '../data/usuariosDataBase.json');
@@ -31,9 +32,9 @@ let userController = {
             oldData : req.body 
         }) 
     }
-        User.create(req.body)
-        return res.send("validaciones pasadas sin errores")
-}
+        
+    },
+    
 
 }
         /* let img
