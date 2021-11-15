@@ -5,7 +5,6 @@ const fs = require('fs'); */
 const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator')
 const User = require('../models/User')
-const bcryptjs = require('bcryptjs');
 
 
 // data base //
@@ -50,9 +49,10 @@ let userController = {
 
          let userCreate = User.create(userToCreate)
         
-        return res.redirect('/users/login')
+        return res.redirect('users/login')
 },
 login: function (req, res) {
+    
     res.render('user/login')
 },
 loginProcess: function (req, res) {
@@ -63,7 +63,9 @@ loginProcess: function (req, res) {
             let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
 
             if(isOkThePassword) {
-                return res.send('Usuario encontrado')
+                delete userToLogin.password;
+                req.session.userLogged = userToLogin;
+                return res.redirect('profile')
         }
         return res.render('user/login',{ 
             errors : {
@@ -84,6 +86,14 @@ loginProcess: function (req, res) {
         })
         
 },
+profile: function (req, res) {
+    /* console.log(req.session.userLogged); */
+    console.log("profile")
+    console.log(req.session)
+    return res.render('user/profile', {
+        user : req.session.userLogged
+    });
+}
 
             
      }
@@ -122,5 +132,5 @@ loginProcess: function (req, res) {
         
       } */
    /*  } */
-
+/* console.log(userController.profile()); */
 module.exports = userController; 
