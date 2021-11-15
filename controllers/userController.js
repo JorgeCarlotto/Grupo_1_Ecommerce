@@ -93,6 +93,10 @@ profile: function (req, res) {
     return res.render('user/profile', {
         user : req.session.userLogged
     });
+},
+logout : function (req, res) {
+    req.session.destroy();
+    return res.redirect('/');
 }
 
             

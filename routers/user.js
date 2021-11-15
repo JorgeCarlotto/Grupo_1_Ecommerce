@@ -62,6 +62,8 @@ router.post('/register',upload.single('img'),validations,userController.processR
 //show user profile //
 
 router.get('/profile/',authMiddleware , userController.profile);
+
+router.get('/logout/', userController.logout)
 /* router.delete('/profile/:id', userController.destroy) */
 
 /* router edit and update */
