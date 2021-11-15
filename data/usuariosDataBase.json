@@ -11,12 +11,22 @@
  },
  {
   "id": 2,
-  "name": "Luana",
-  "lastName": "Mingione",
-  "email": "mingluana2020@gmail.com",
-  "tel": "01152623349",
-  "address": "Almirante Brown",
-  "password": "$2a$10$nQxui//2mjk5438V093eMe.8VbQVpdnzDmh2/h.Xg2LbR3P6YPsii",
-  "img": "img-1637007910537.jpg"
+  "name": "leo",
+  "lastName": "rojas",
+  "email": "email@email.com",
+  "tel": "11223344",
+  "address": "Avenidad siempre viva",
+  "password": "$2a$10$MGMtbDr5XK9wN9f5HOq2ue8IIm5Chvb/MTLF4bNzY0/1f5z8Bx64K",
+  "img": "img-1636928224023.png"
+ },
+ {
+  "id": 3,
+  "name": "leo",
+  "lastName": "rojas",
+  "email": "email2@email.com",
+  "tel": "11223344",
+  "address": "SimpreViva12",
+  "password": "$2a$10$LIwWfWJcRfnTSxBBXexPxeUMkeEYxjlyu/f3iTgfC.W7YkNRRzL/.",
+  "img": "img-1636928334453.png"
  }
 ]

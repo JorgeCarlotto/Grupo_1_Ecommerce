@@ -4,6 +4,9 @@ let router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const {body} = require('express-validator');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware')
+
 
 //configuracion multer //
 const storage = multer.diskStorage({
@@ -45,9 +48,9 @@ const validations = [
 
 router.get('/',userController.index)
 //Form register //
-router.get('/register', userController.register);
+router.get('/register',guestMiddleware, userController.register);
 // Form login //
-router.get('/login', userController.login);
+router.get('/login',guestMiddleware, userController.login);
 
 //Procesar el login 
  // ******************************************************* pendiente validacion del login
@@ -57,7 +60,10 @@ router.post('/login', userController.loginProcess);
 router.post('/register',upload.single('img'),validations,userController.processRegister);
 
 //show user profile //
-/* router.get('/profile/:id', userController.profile) */
+
+router.get('/profile/',authMiddleware , userController.profile);
+
+router.get('/logout/', userController.logout)
 /* router.delete('/profile/:id', userController.destroy) */
 
 /* router edit and update */
