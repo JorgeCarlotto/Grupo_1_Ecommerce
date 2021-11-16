@@ -48,5 +48,15 @@
   "address": "asd123",
   "password": "$2a$10$oElU4qmXI2hKemeTAce5UujTnltjkKZHDXNoi6QBUS/hzqeq6Kezq",
   "img": "img-1637054893559.jpg"
+ },
+ {
+  "id": 6,
+  "name": "Luana",
+  "lastName": "Mingione",
+  "email": "mingluana@gmail.com",
+  "tel": "01152623348",
+  "address": "Calle falsa 123",
+  "password": "$2a$10$1BIFuDYj53qAajkMlz5ANebOvLSLYKkU3NRgYAk31Nun4sZtg7caC",
+  "img": "img-1637087301520.jpg"
  }
 ]

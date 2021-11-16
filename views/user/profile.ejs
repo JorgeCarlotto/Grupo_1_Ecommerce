@@ -43,8 +43,8 @@
 <article class="card-body mx-auto" style="max-width: 400px;">
 
    <% if (locals.user) { %>
-    <h2 class="card-title mt-3 text-center">Hola<%= user.name%></h2>
-    <div  class="galleta" > <img src="/img/users/<%=user.img%>"  alt="">
+    <h2 class="card-title mt-3 text-center">Hola: <%= user.name%></h2>
+    <div  class="galleta" > <img src="/img/users/<%=user.img%>"   alt="">
     </div>
     <p class="text-center"><%=user.email%></p>
     <% } %>

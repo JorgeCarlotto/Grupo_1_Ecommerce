@@ -15,8 +15,17 @@
 }
 
 
+/* Header */
 
+.header .nav-item{
+  list-style:none
+}
 
+.header   .usuario{
+
+  display: flex;
+  flex-direction: column; 
+}
 
 /* Pagina create */
 
