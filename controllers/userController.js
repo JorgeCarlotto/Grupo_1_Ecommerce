@@ -18,6 +18,7 @@ let userController = {
         res.render('user/index', {users : users });
     },
     register: function (req, res) {
+        res.cookie('testing', 'hola', {maxAge: 1000 * 30})
         res.render('user/register')
     },
      processRegister: function (req, res) {
@@ -49,13 +50,14 @@ let userController = {
 
          let userCreate = User.create(userToCreate)
         
-        return res.redirect('users/login')
+        return res.redirect('/users/login')
 },
 login: function (req, res) {
-    
+   
     res.render('user/login')
 },
 loginProcess: function (req, res) {
+   
     let userToLogin = User.findByField('email', req.body.email);
 
         if(userToLogin){
@@ -65,6 +67,10 @@ loginProcess: function (req, res) {
             if(isOkThePassword) {
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
+                if(req.body.recordUser){
+                    res.cookie('userEmail',req.body.email,{maxAge : (1000 * 60) })
+                }
+
                 return res.redirect('profile')
         }
         return res.render('user/login',{ 

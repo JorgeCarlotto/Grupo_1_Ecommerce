@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
+const cookies = require('cookie-parser');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 //Routing files
@@ -16,6 +17,7 @@ app.use(session({
     resave:false,
     saveUninitialized:false,
 }));
+app.use(cookies());
 app.use(userLoggedMiddleware);
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
