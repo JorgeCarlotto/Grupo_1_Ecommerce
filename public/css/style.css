@@ -17,16 +17,31 @@
 
 /* Header */
 
+
+.navbar{
+  background-color: #f5f5f5 !important;
+}
+
+.col{
+  background-color: #f5f5f5 !important;
+}
+
 .header .nav-item{
   list-style:none
 }
 
-.header   .usuario{
+.header .usuario{
 
   display: flex;
   flex-direction: column; 
 }
 
+.header .usuario .offcanvas-title {
+font-size: 30px;
+}
+
+
+/*  Fin  Header */
 /* Pagina create */
 
 .create-card {
@@ -39,14 +54,6 @@
     margin:auto;
   }
 /* Fin pagina create */
-
-.navbar{
-  background-color: #f5f5f5 !important;
-}
-
-.col{
-  background-color: #f5f5f5 !important;
-}
 
 
 
@@ -413,6 +420,35 @@
  
 /* Fin detalle del producto */
 
+
+/* Pagina usuario */
+
+.usuarioRegistrado{
+  font-family: 'Cormorant Garamond', serif;
+color: #000;
+}
+
+.usuarioRegistrado .nombreUsuario{
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 500;
+
+}
+
+.usuarioRegistrado .emailUsuario{
+  font-size: 25px;
+padding-top: 10px;
+  font-weight: 500;
+  font-family: 'Cormorant Garamond', serif;
+  
+}
+
+.card{
+  line-height: 2em;
+}
+
+
+/* Fin Pagina usuario */
 /* 404 */
 .imagen-404{
   display:block;
