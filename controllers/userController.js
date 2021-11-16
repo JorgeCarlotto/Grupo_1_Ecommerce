@@ -49,7 +49,7 @@ let userController = {
 
          let userCreate = User.create(userToCreate)
         
-        return res.redirect('users/login')
+        return res.redirect('/users/login')
 },
 login: function (req, res) {
     
