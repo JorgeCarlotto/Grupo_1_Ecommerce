@@ -10,6 +10,11 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <!------ Include the above in your HEAD tag ---------->
 
  <!-- Bootstrap  -->
@@ -40,16 +45,21 @@
 
 
 <div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
+<article class="card-body mx-auto usuarioRegistrado" style="max-width: 400px;">
 
    <% if (locals.user) { %>
-    <h2 class="card-title mt-3 text-center">Hola: <%= user.name%></h2>
+    <h2 class="card-title mt-3 text-center nombreUsuario ">Bienvenid@: <%= user.name%></h2>
     <div  class="galleta" > <img src="/img/users/<%=user.img%>"   alt="">
     </div>
-    <p class="text-center"><%=user.email%></p>
+    <p class="text-center emailUsuario">Estas registrado con el email: <%=user.email%></p>
     <% } %>
     	
 </article>
+
+<p>
+    <a href="/" class="btn btn-block "> <i class="fas fa-home"></i> Ir al home</a>
+    <a href="/products" class="btn btn-block"> <i class="fas fa-cookie-bite"></i> Ver todos los productos</a>
+  </p>
 </div> 
 
 
