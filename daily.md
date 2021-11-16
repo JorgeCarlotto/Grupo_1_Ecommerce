@@ -87,3 +87,18 @@ Ningún impedimento
 **3-**
 Terminar y subir la Retro y el archivo Daily. 
 
+
+
+******* Sprint 5 ******* 
+
+Por no poder coordinar horarios entre los miembros del equipo este sprint solo pudimos hacer Weekly. 
+
+
+*Primera Weekly*   : 
+Analizamos las tareas para el sprint, nos dividimos las responsabilidades y las tareas entre los miembros del equipo. Actualizamos el tablero de trabajo. 
+
+*Segunda Weekly*: 
+Actualizamos las entidades de Usuarios , aplicamos las rutas ,las vistas  y la base de datos usando .json.
+
+*Tercer Weekly*:
+Se termino el Login de usuarios con los campos y las funcionales requeridas.

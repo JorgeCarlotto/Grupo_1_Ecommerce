@@ -64,3 +64,25 @@ Lograr mantener las reuniones continuas en la semana, dividir las tareas y asumi
 Dejar actividades para ultimo momento. 
 **5-**
 Nuevamente dejar de perder tiempo cuando nos conectamos todos juntos, y enfocarnos en trabajar en el proyecto. 
+
+
+
+
+Spring 5 : 
+
+1. Comenzar a hacer.
+2. Hacer más.
+3. Continuar haciendo.
+4. Hacer menos.
+5. Dejar de hacer.
+
+**1-**
+Organizarnos mejor los tiempos individuales para lograr cumplir las metas de forma satisfactoria. Poner mas detalle en el CSS para que mejore la apariencia de la página.  
+**2-**
+Organizarnos mejor en ramas con Git. Llevar un control de la realización de las tareas individuales, para no atrasarnos.  
+**3-**
+Mantener el nivel de compromiso por parte del equipo con el proyecto, brindándonos ayuda mutua entre nosotros. 
+**4-**
+Dejar pasar el tiempo de las actividades, provocando mayor carga de trabajo días antes de la entrega del sprint. Trabajar únicamente en la rama “master”. 
+**5-**
+Desperdiciar el tiempo que tenemos al momento de conectarnos todos juntos. No comunicarnos entre nosotros cuando tenemos algún problema que nos tiene demorados en el cumplimiento de la actividad asignada. 
