@@ -18,7 +18,7 @@ let userController = {
         res.render('user/index', {users : users });
     },
     register: function (req, res) {
-        res.cookie('testing', 'hola', {maxAge: 1000 * 30})
+        
         res.render('user/register')
     },
      processRegister: function (req, res) {
@@ -68,7 +68,7 @@ loginProcess: function (req, res) {
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
                 if(req.body.recordUser){
-                    res.cookie('userEmail',req.body.email,{maxAge : (1000 * 60) })
+                    res.cookie('userEmail',req.body.email,{maxAge : (1000 * 60) * 60 })
                 }
 
                 return res.redirect('profile')
@@ -94,13 +94,13 @@ loginProcess: function (req, res) {
 },
 profile: function (req, res) {
     /* console.log(req.session.userLogged); */
-    console.log("profile")
-    console.log(req.session)
+    console.log(req.cookies.userEmail)
     return res.render('user/profile', {
         user : req.session.userLogged
     });
 },
 logout : function (req, res) {
+    res.clearCookie('userEmail')
     req.session.destroy();
     return res.redirect('/');
 }
