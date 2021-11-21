@@ -1,7 +1,7 @@
 
 //Require modols //
-/* const  path = require('path');
-const fs = require('fs'); */
+const  path = require('path');
+const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator')
 const User = require('../models/User')
@@ -15,7 +15,7 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); */
 let userController = {
 
     index : function (req, res) {
-        res.render('user/index', {users : users });
+        res.render('user/index', {user : User.getData() });
     },
     register: function (req, res) {
         
@@ -54,7 +54,7 @@ let userController = {
 },
 login: function (req, res) {
    
-    res.render('user/login')
+    res.render('user/login',{user : User.getData()})
 },
 loginProcess: function (req, res) {
    
@@ -71,7 +71,7 @@ loginProcess: function (req, res) {
                     res.cookie('userEmail',req.body.email,{maxAge : (1000 * 60) * 60 })
                 }
 
-                return res.redirect('profile')
+                return res.redirect(`profile/${userToLogin.id}`)
         }
         return res.render('user/login',{ 
             errors : {
@@ -103,7 +103,49 @@ logout : function (req, res) {
     res.clearCookie('userEmail')
     req.session.destroy();
     return res.redirect('/');
+},
+destroy : function (req, res) {
+    res.clearCookie('userEmail')
+    req.session.destroy();
+    let id = req.params.id;
+    let finalUsers = User.getData().filter(user => user.id != id);
+    fs.writeFileSync(User.fileName,JSON.stringify(finalUsers, null, ' '));
+    res.redirect('/')
 }
+/* edit:(req,res)=> {
+    let user = User.getData().find(user => user.id == req.params.id)
+
+    res.render('user/edit', {user : user})
+  }, */
+/*update: (req, res) => {
+    let id = req.params.id;
+		let userToEdit = User.getData().find(user => user.id == id)
+        let img
+
+		/* let image */
+		/* if(req.file != undefined){
+			image = req.file.filename
+		} else {
+			image = productToEdit.image
+		} */
+        /*    
+		userToEdit = {
+			id: userToEdit.id,
+			...req.body,
+			img: img,
+		}; 
+		
+		let newUser = User.getData().map(user => {
+			if (user.id == userToEdit.id) {
+				return user = {...userToEdit};
+			}
+			return user;
+		})
+
+		fs.writeFileSync('./data/usuariosDataBase.json', JSON.stringify(newUser, null, ' '));
+		res.redirect('/');
+        */
+
 
             
      }

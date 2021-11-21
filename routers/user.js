@@ -61,14 +61,16 @@ router.post('/register',upload.single('img'),validations,userController.processR
 
 //show user profile //
 
-router.get('/profile/',authMiddleware , userController.profile);
+router.get('/profile/:id/',authMiddleware , userController.profile);
 
 router.get('/logout/', userController.logout)
-/* router.delete('/profile/:id', userController.destroy) */
 
-/* router edit and update */
-/* router.get('/edit/:id',userController.edit );
-router.put('/edit', userController.update); */
-/* ; */
+router.delete('/profile/:id', userController.destroy)
+
+
+//router edit and update//
+//router.get('/edit/:id',userController.edit );
+
+//router.put('/edit/:id', userController.update); //
 
 module.exports = router;

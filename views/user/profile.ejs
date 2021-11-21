@@ -55,7 +55,10 @@
     <% } %>
     	
 </article>
-
+<!-- Delete user -->
+<form action="/users/profile/<%=user.id%>?_method=DELETE"method="POST" >
+    <button type="submit" class="action button delete">Eliminar Cuenta</button>
+</form>
 <p>
     <a href="/" class="btn btn-block "> <i class="fas fa-home"></i> Ir al home</a>
     <a href="/products" class="btn btn-block"> <i class="fas fa-cookie-bite"></i> Ver todos los productos</a>

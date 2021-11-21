@@ -20,16 +20,6 @@
   "img": "img-1636928224023.png"
  },
  {
-  "id": 3,
-  "name": "leo",
-  "lastName": "rojas",
-  "email": "email2@email.com",
-  "tel": "11223344",
-  "address": "SimpreViva12",
-  "password": "$2a$10$LIwWfWJcRfnTSxBBXexPxeUMkeEYxjlyu/f3iTgfC.W7YkNRRzL/.",
-  "img": "img-1636928334453.png"
- },
- {
   "id": 4,
   "name": "jorge",
   "lastName": "carlotto",
