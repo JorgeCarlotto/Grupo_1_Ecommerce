@@ -48,5 +48,15 @@
   "address": "Calle falsa 123",
   "password": "$2a$10$1BIFuDYj53qAajkMlz5ANebOvLSLYKkU3NRgYAk31Nun4sZtg7caC",
   "img": "img-1637087301520.jpg"
+ },
+ {
+  "id": 7,
+  "name": "goku5",
+  "lastName": "lastname1",
+  "email": "email7@email.com",
+  "tel": "11223344",
+  "address": "SimpreViva12",
+  "password": "$2a$10$CHSwv8qMGtlVxhExSY7cpOQHpAkFTJbPSuVFsQ/lbKGtBvI.6o1qW",
+  "img": "img-1637587508558.png"
  }
 ]
