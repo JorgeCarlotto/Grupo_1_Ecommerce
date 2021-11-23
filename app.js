@@ -28,6 +28,7 @@ app.use(methodOverride('_method'));
 app.listen(3000, () => console.log('Server running...'));
 
 //URL
+//app.use('/admin', routersAdmin);
 app.use('/products', routersProducts);
 app.use('/users', routerUser);
 app.use('/', routersMain);

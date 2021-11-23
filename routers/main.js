@@ -9,8 +9,4 @@ router.get('/', mainController.index);
 router.post('/', mainController.comment);
 router.get('/error', mainController.error404);
 
-//Panel de administracion
-router.get('/admin', mainController.admin);
-router.get('/admin/products', mainController.adminProducts);
-
 module.exports = router;
