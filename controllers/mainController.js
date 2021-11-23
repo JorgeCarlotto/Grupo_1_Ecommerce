@@ -25,7 +25,10 @@ let mainController = {
         res.render('error404');
     },
     admin: function (req,res){
-        res.render('main/adminPanel');
+        res.render('admin/adminPanel');
+    },
+    adminProducts: function(req, res){
+        res.render('admin/adminProducts');
     }
 };
 
