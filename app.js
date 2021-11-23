@@ -5,9 +5,10 @@ const cookies = require('cookie-parser');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 //Routing files
-const routersMain = require('./routers/main.js');
+const routersAdmin = require('./routers/admin.js');
 const routersProducts = require('./routers/product.js');
 const routerUser = require('./routers/user.js');
+const routersMain = require('./routers/main.js');
 const methodOverride = require('method-override');
 const app = express();
 
@@ -28,7 +29,7 @@ app.use(methodOverride('_method'));
 app.listen(3000, () => console.log('Server running...'));
 
 //URL
-//app.use('/admin', routersAdmin);
+app.use('/admin', routersAdmin);
 app.use('/products', routersProducts);
 app.use('/users', routerUser);
 app.use('/', routersMain);
