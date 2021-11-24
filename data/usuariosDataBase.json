@@ -20,16 +20,6 @@
   "img": "img-1636928224023.png"
  },
  {
-  "id": 3,
-  "name": "leo",
-  "lastName": "rojas",
-  "email": "email2@email.com",
-  "tel": "11223344",
-  "address": "SimpreViva12",
-  "password": "$2a$10$LIwWfWJcRfnTSxBBXexPxeUMkeEYxjlyu/f3iTgfC.W7YkNRRzL/.",
-  "img": "img-1636928334453.png"
- },
- {
   "id": 4,
   "name": "jorge",
   "lastName": "carlotto",
@@ -61,12 +51,12 @@
  },
  {
   "id": 7,
-  "name": "Luana",
-  "lastName": "Mingione",
-  "email": "mingluana202@gmail.com",
-  "tel": "01152623349",
-  "address": "Almirante Brown",
-  "password": "$2a$10$CYiWQjbfTBCcFRrt1ZLHwOnG1vtKJ.1fczozEUHIupnIN.7sc13gS",
-  "img": "img-1637261788319.jpg"
+  "name": "goku5",
+  "lastName": "lastname1",
+  "email": "email7@email.com",
+  "tel": "11223344",
+  "address": "SimpreViva12",
+  "password": "$2a$10$CHSwv8qMGtlVxhExSY7cpOQHpAkFTJbPSuVFsQ/lbKGtBvI.6o1qW",
+  "img": "img-1637587508558.png"
  }
 ]

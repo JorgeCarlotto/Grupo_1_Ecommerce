@@ -8,14 +8,6 @@
   "img": "product-default.png"
  },
  {
-  "id": 2,
-  "name": "Chocotorta",
-  "price": 999,
-  "category_id": 3,
-  "description": "rica torta",
-  "img": "product-default.png"
- },
- {
   "id": 4,
   "name": "Galletita",
   "description": "galletita.",

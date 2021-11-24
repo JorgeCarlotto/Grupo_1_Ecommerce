@@ -51,7 +51,3 @@ const User = {
 }
 
 module.exports = User;
-/* console.log(User.genereID()) */
-/* console.log(User.create({name:"Pedro", lastName:"Rojas", email:"email@email",tel:1234, address:"Zarate", password:1234})); */
-
-/* console.log(User.delete(3)) */

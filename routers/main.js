@@ -1,18 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-
-//controler
+//Controlador
 const mainController = require('../controllers/mainController.js');
 
-
-
+//Rutas
 router.get('/', mainController.index);
-
-// formulario comentarios
-router.post('/',mainController.comment);
-
-
-router.get('/error',mainController.error404);
+router.post('/', mainController.comment);
+router.get('/error', mainController.error404);
 
 module.exports = router;
