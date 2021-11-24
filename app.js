@@ -30,7 +30,7 @@ app.use(methodOverride('_method'));
 app.listen(3000, () => console.log('Server running...'));
 
 //URL
-app.use('/admin', routersAdmin);
+app.use(routersAdmin);
 app.use(routerCategory);
 app.use('/products', routersProducts);
 app.use('/users', routerUser);

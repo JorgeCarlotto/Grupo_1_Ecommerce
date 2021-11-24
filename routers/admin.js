@@ -5,7 +5,7 @@ const router = express.Router();
 const adminController = require('../controllers/adminController');
 
 //Panel de administracion
-router.get('/', adminController.admin);
-router.get('/products', adminController.adminProducts);
+router.get('/admin', adminController.admin);
+router.get('/admin/products', adminController.adminProducts);
 
 module.exports = router;
