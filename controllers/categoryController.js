@@ -3,7 +3,9 @@ const db = require('../src/database/models');
 
 let categoryController = {
     list: function (req,res){
-        res.render('admin/category/list');
+        db.Category
+        .findAll()
+        .then(categories => res.render('admin/category/list',{categories}))
     }
 };
 
