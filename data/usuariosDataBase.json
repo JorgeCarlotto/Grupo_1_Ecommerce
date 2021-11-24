@@ -58,5 +58,15 @@
   "address": "Calle falsa 123",
   "password": "$2a$10$1BIFuDYj53qAajkMlz5ANebOvLSLYKkU3NRgYAk31Nun4sZtg7caC",
   "img": "img-1637087301520.jpg"
+ },
+ {
+  "id": 7,
+  "name": "Luana",
+  "lastName": "Mingione",
+  "email": "mingluana202@gmail.com",
+  "tel": "01152623349",
+  "address": "Almirante Brown",
+  "password": "$2a$10$CYiWQjbfTBCcFRrt1ZLHwOnG1vtKJ.1fczozEUHIupnIN.7sc13gS",
+  "img": "img-1637261788319.jpg"
  }
 ]
