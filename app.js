@@ -9,6 +9,7 @@ const routersAdmin = require('./routers/admin.js');
 const routersProducts = require('./routers/product.js');
 const routerUser = require('./routers/user.js');
 const routersMain = require('./routers/main.js');
+const routerCategory = require('./routers/category');
 const methodOverride = require('method-override');
 const app = express();
 
@@ -30,6 +31,7 @@ app.listen(3000, () => console.log('Server running...'));
 
 //URL
 app.use('/admin', routersAdmin);
+app.use(routerCategory);
 app.use('/products', routersProducts);
 app.use('/users', routerUser);
 app.use('/', routersMain);
