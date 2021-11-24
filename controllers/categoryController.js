@@ -6,6 +6,9 @@ let categoryController = {
         db.Category
         .findAll()
         .then(categories => res.render('admin/category/list',{categories}))
+    },
+    create: function(req,res){
+        res.render('admin/category/create');
     }
 };
 
