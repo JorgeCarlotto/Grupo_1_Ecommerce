@@ -1,6 +1,7 @@
 //Require
 const path = require('path')
-const fs = require('fs')
+const fs = require('fs');
+
 
 //Database JSON
 const productsFilePath = path.join(__dirname, '../data/productDataBase.json');
