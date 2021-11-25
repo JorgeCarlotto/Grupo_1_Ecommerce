@@ -1,20 +1,22 @@
-//Require
-const path = require('path')
-const fs = require('fs');
 
+const db = require('../src/database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
 
-//Database JSON
-const productsFilePath = path.join(__dirname, '../data/productDataBase.json');
-const categoryProductsFilePath = path.join(__dirname, '../data/categoryDataBase.json');
-
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const categoryProducts = JSON.parse(fs.readFileSync(categoryProductsFilePath, 'utf-8'));
 
 let productController = {
     index: function (req, res) {
-        res.render('product/index', {
-            products: products
+        db.Product
+        .findAll()
+        .then(products => res.render('product/index', {
+            products
+        }))
+        .catch(error  => {
+            console.log(error)
+            res.send(error)
         })
+
+        
     },
     create: function (req, res) {
         res.render('product/create', {
