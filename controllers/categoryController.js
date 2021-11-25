@@ -47,7 +47,7 @@ let categoryController = {
             }));
     },
     destroy: function (req, res) {
-        db.category
+        db.Category
             .destroy({
                 where: {
                     id: req.params.id

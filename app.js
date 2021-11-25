@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 //Server Up
-app.listen(3000, () => console.log('Server running...'));
+app.listen(3001, () => console.log('Server running...'));
 
 //URL
 app.use(routersAdmin);
