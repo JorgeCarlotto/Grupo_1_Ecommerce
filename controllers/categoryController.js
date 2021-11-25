@@ -26,7 +26,7 @@ let categoryController = {
     },
     store: function (req, res) {
         const validation = validationResult(req);
-        
+
         if (validation.errors.length > 0) {
             res.render('admin/category/create', {
                 errors: validation.mapped(),
@@ -41,16 +41,25 @@ let categoryController = {
         }
     },
     update: function (req, res) {
-        
-        db.Category
-            .update({
-                name: req.body.name
-            }, {
-                where: {
-                    id: req.params.id
-                }
-            })
-            .then(() => res.redirect('/admin/categories'))
+        const validation = validationResult(req);
+
+        if (validation.errors.length > 0) {
+            res.render('admin/category/edit', {
+                errors: validation.mapped(),
+                oldData: req.body,
+                category: {id: req.params.id}
+            });
+        } else {
+            db.Category
+                .update({
+                    name: req.body.name
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
+                })
+                .then(() => res.redirect('/admin/categories'))
+        }
     },
     delete: function (req, res) {
         db.Category
