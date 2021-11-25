@@ -18,9 +18,13 @@
         </div>
         <div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Nombre de categoria</label>
-            <input type="text" class="form-control" name="name">
-            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            <label for="name" class="form-label">Nombre de categoria</label>
+            <input type="text" class="form-control <%= (locals.errors && errors.name) ? 'is-invalid' : null %>" name="name" value="<% locals.oldDate ? oldDate.name : null %>">
+            <div id="emailHelp" class="form-text text-danger">
+              <% if (locals.errors && errors.name) { %>
+                <%= errors.name.msg %>
+              <% } %>
+            </div>
           </div>
         </div>
       </form>

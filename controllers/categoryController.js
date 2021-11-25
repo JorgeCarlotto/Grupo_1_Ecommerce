@@ -1,6 +1,9 @@
 const {
     render
 } = require('ejs');
+const {
+    validationResult
+} = require('express-validator');
 const db = require('../src/database/models');
 
 let categoryController = {
@@ -22,13 +25,23 @@ let categoryController = {
             }));
     },
     store: function (req, res) {
-        db.Category
-            .create({
-                name: req.body.name
-            })
-            .then(() => res.redirect('/admin/categories'))
+        const validation = validationResult(req);
+        
+        if (validation.errors.length > 0) {
+            res.render('admin/category/create', {
+                errors: validation.mapped(),
+                oldData: req.body
+            });
+        } else {
+            db.Category
+                .create({
+                    name: req.body.name
+                })
+                .then(() => res.redirect('/admin/categories'))
+        }
     },
     update: function (req, res) {
+        
         db.Category
             .update({
                 name: req.body.name
