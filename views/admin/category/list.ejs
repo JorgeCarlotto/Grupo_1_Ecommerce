@@ -29,8 +29,12 @@
                         <tr>
                             <td> <%= category.id%></td>
                             <td> <%= category.name%></td>
-                            <td>5</td>
-                            <td class="text-end">Editar | Eliminar</td>
+                            <td></td>
+                            <td class="text-end">
+                                <a href="/admin/categories/<%= category.id%>/edit">Editar</a>
+                                |
+                                <a href="/admin/categories/<%= category.id%>/delete">Eliminar</a>
+                            </td>
                         </tr>
                         <% });%>
                     </tbody>

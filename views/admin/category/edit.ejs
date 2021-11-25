@@ -5,10 +5,10 @@
     <%- include('../../admin/partials/navbar.ejs') %>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <form method="POST" action="/admin/categories/create">
+      <form method="POST" action="/admin/categories/<%= category.id %>/edit?_method=PUT">
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">CREAR CATEGORIA</h1>
+          <h1 class="h2">EDITAR CATEGORIA</h1>
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
               <button type="submit" class="btn btn-sm btn-outline-success"
@@ -18,8 +18,8 @@
         </div>
         <div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Nombre de categoria</label>
-            <input type="text" class="form-control" name="name">
+            <label class="form-label" >Nombre de categoria</label>
+            <input type="text" class="form-control" value="<%= category.name%>" name="name">
             <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
           </div>
         </div>
