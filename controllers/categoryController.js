@@ -9,7 +9,11 @@ const db = require('../src/database/models');
 let categoryController = {
     list: function (req, res) {
         db.Category
-            .findAll()
+            .findAll(
+                {
+                    include: [{association: 'products'}]
+                }
+            )
             .then(categories => res.render('admin/category/list', {
                 categories
             }))
