@@ -18,10 +18,14 @@ let productController = {
 
         
     },
-    create: function (req, res) {
-        res.render('product/create', {
-            categoryProducts: categoryProducts
-        })
+    create: async function (req, res) {
+        try {
+            let Categories = await db.Category.findAll();
+            return res.render('product/create',{Categories})
+        } catch (error) {
+            res.send(error)
+        }
+    
     },
     store: function (req, res) {
         let img
