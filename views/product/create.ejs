@@ -70,11 +70,11 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-cookie"></i> </span>
 		</div>
-		<select class="form-control">
-			<option selected=""> Categorias</option>
-            <% for (category of categoryProducts){ %>
-                <option value="<%= category.id %>"><%= category.name %></option>
-                <%  } %>
+		<select class="form-control" name="category_id">
+			<option selected="" disabled selected> Categorias</option>
+            <% Categories.forEach(category => { %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+            <% }); %>
 		</select>
 	</div> 
     
