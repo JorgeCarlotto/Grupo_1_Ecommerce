@@ -18,13 +18,13 @@ let flavorController = {
         create: function (req, res) {
             res.render('admin/flavor/create');
         },
-    //     edit: function (req, res) {
-    //         db.Category
-    //             .findByPk(req.params.id)
-    //             .then(category => res.render('admin/category/edit', {
-    //                 category
-    //             }));
-    //     },
+        edit: function (req, res) {
+            db.Flavor
+                .findByPk(req.params.id)
+                .then(category => res.render('admin/flavor/edit', {
+                    category
+                }));
+        },
         store: function (req, res) {
             const validation = validationResult(req)
             if(validation.errors.length > 0){
@@ -41,27 +41,27 @@ let flavorController = {
                     .then(() => res.redirect('/admin/flavors'))
                 };
         },
-    //     update: function (req, res) {
-    //         const validation = validationResult(req);
+        update: function (req, res) {
+            const validation = validationResult(req);
 
-    //         if (validation.errors.length > 0) {
-    //             res.render('admin/category/edit', {
-    //                 errors: validation.mapped(),
-    //                 oldData: req.body,
-    //                 category: {id: req.params.id}
-    //             });
-    //         } else {
-    //             db.Category
-    //                 .update({
-    //                     name: req.body.name
-    //                 }, {
-    //                     where: {
-    //                         id: req.params.id
-    //                     }
-    //                 })
-    //                 .then(() => res.redirect('/admin/categories'))
-    //         }
-    //     },
+            if (validation.errors.length > 0) {
+                res.render('admin/flavors/edit', {
+                    errors: validation.mapped(),
+                    oldData: req.body,
+                    flavor: {id: req.params.id}
+                });
+            } else {
+                db.Flavor
+                    .update({
+                        name: req.body.name
+                    }, {
+                        where: {
+                            id: req.params.id
+                        }
+                    })
+                    .then(() => res.redirect('/admin/flavors'))
+            }
+        },
     //     delete: function (req, res) {
     //         db.Category
     //             .findByPk(req.params.id)

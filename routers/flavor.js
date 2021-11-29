@@ -16,8 +16,8 @@ const flavorController = require('../controllers/flavorController');
  router.get('/admin/flavors', flavorController.list);
  router.get('/admin/flavors/create', flavorController.create);
  router.post('/admin/flavors/create',validation, flavorController.store);
-// router.get('/admin/categories/:id/edit', categoryController.edit);
-// router.put('/admin/categories/:id/edit', validation, categoryController.update);
+ router.get('/admin/flavors/:id/edit', flavorController.edit);
+ router.put('/admin/flavors/:id/edit', validation, flavorController.update);
 // router.get('/admin/categories/:id/delete', categoryController.delete);
 // router.delete('/admin/categories/:id/delete', categoryController.destroy);
 
