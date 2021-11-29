@@ -1,0 +1,45 @@
+<%- include('../../admin/partials/header.ejs') %>
+
+<div class="container-fluid">
+    <div class="row">
+        <%- include('../../admin/partials/navbar.ejs') %>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <form class="row g-3">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">DATOS DE LA EMPRESA</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <a class="btn btn-sm btn-outline-success" href="/admin/company/edit">EDITAR</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <label class="form-label">Nombre de la empresa</label>
+                    <input type="text" class="form-control" value="<%= company.name  %>" disabled>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Telefono</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><span data-feather="phone"></span></span>
+                        <input type="text" class="form-control" disabled value="<%= company.phone  %>">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">CUIT</label>
+                    <input type="text" class="form-control" disabled value="<%= company.cuit  %>">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">E-mail</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><span data-feather="mail"></span></span>
+                        <input type="text" class="form-control" disabled value="<%= company.email  %>">
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
+
+<%- include('../../admin/partials/footer.ejs') %>

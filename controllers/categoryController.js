@@ -9,11 +9,11 @@ const db = require('../src/database/models');
 let categoryController = {
     list: function (req, res) {
         db.Category
-            .findAll(
-                {
-                    include: [{association: 'products'}]
-                }
-            )
+            .findAll({
+                include: [{
+                    association: 'products'
+                }]
+            })
             .then(categories => res.render('admin/category/list', {
                 categories
             }))
@@ -51,7 +51,9 @@ let categoryController = {
             res.render('admin/category/edit', {
                 errors: validation.mapped(),
                 oldData: req.body,
-                category: {id: req.params.id}
+                category: {
+                    id: req.params.id
+                }
             });
         } else {
             db.Category
