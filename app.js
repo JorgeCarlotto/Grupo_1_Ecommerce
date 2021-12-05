@@ -9,7 +9,9 @@ const routersAdmin = require('./routers/admin.js');
 const routersProducts = require('./routers/product.js');
 const routerUser = require('./routers/user.js');
 const routersMain = require('./routers/main.js');
+const routerCategory = require('./routers/category');
 const methodOverride = require('method-override');
+const routerFlavor = require('./routers/flavor.js');
 const app = express();
 
 
@@ -29,10 +31,13 @@ app.use(methodOverride('_method'));
 app.listen(3000, () => console.log('Server running...'));
 
 //URL
-app.use('/admin', routersAdmin);
+app.use(routerFlavor);
+app.use(routersAdmin);
+app.use(routerCategory);
 app.use('/products', routersProducts);
 app.use('/users', routerUser);
 app.use('/', routersMain);
+
 
 app.use((req, res, next) => {
     res.status(404).render('error/error404');
