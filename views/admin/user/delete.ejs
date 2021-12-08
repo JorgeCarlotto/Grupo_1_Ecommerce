@@ -1,0 +1,29 @@
+<%- include('../../admin/partials/header.ejs') %>
+
+<div class="container-fluid">
+  <div class="row">
+    <%- include('../../admin/partials/navbar.ejs') %>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <form method="POST" action="/admin/categories/<%= category.id %>/delete?_method=DELETE">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">ELIMINAR CATEGORIA</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+              <button type="submit" class="btn btn-sm btn-outline-danger"
+                href="/admin/categories/create">ELIMINAR</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="mb-3">
+            <p>Seguro que desea eliminar la categoría <strong class="text-success">"<%= category.name %>" </strong>?</p>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>
+
+<%- include('../../admin/partials/footer.ejs') %>

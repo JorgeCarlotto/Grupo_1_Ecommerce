@@ -12,6 +12,7 @@ const routersMain = require('./routers/main.js');
 const routerCategory = require('./routers/category');
 const methodOverride = require('method-override');
 const routerFlavor = require('./routers/flavor.js');
+const routerUserAdm = require('./routers/userAdm.js');
 const app = express();
 
 

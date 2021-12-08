@@ -5,6 +5,10 @@ const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator')
 const User = require('../models/User')
+const db = require('../src/database/models')
+const sequelize = db.sequelize;
+const {Op}= require('sequelize');
+;
 
 
 // data base //
@@ -13,6 +17,36 @@ const User = require('../models/User')
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); */
 
 let userController = {
+
+    create : function (req, res) {
+        db.Users.create({
+           name:req.body.name,
+            lastName:req.body.name,
+            email: req.body.email,
+            tel: req.body.tel,
+            address : req.body.address,
+            password: req.body.password
+        })
+        .then(function(user){
+            res.render()
+        })
+    },
+
+    list: function (req, res) {
+       /*  res.send(db.Users) */
+       db.Users.findAll()
+        .then(function (users){
+
+            res.render('admin/user/list',{users:users})
+        })
+    },
+    detail: function (req, res) {
+        db.Users.findByPk(req.params.id)
+            .then(function(user){
+                res.render("userDetail",{user : user})
+            })
+    },
+
 
     index : function (req, res) {
         res.render('user/index', {user : User.getData() });
@@ -111,44 +145,15 @@ destroy : function (req, res) {
     let finalUsers = User.getData().filter(user => user.id != id);
     fs.writeFileSync(User.fileName,JSON.stringify(finalUsers, null, ' '));
     res.redirect('/')
-}
-/* edit:(req,res)=> {
-    let user = User.getData().find(user => user.id == req.params.id)
+},
 
-    res.render('user/edit', {user : user})
-  }, */
-/*update: (req, res) => {
-    let id = req.params.id;
-		let userToEdit = User.getData().find(user => user.id == id)
-        let img
+//Codigo con Sequelize y BD
 
-		/* let image */
-		/* if(req.file != undefined){
-			image = req.file.filename
-		} else {
-			image = productToEdit.image
-		} */
-        /*    
-		userToEdit = {
-			id: userToEdit.id,
-			...req.body,
-			img: img,
-		}; 
-		
-		let newUser = User.getData().map(user => {
-			if (user.id == userToEdit.id) {
-				return user = {...userToEdit};
-			}
-			return user;
-		})
-
-		fs.writeFileSync('./data/usuariosDataBase.json', JSON.stringify(newUser, null, ' '));
-		res.redirect('/');
-        */
+    
 
 
             
-     }
+}
         /* let img
          if( req.file != undefined){
            img = req.file.filename;
