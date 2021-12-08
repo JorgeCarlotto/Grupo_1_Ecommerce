@@ -48,10 +48,19 @@ const validations = [
 
 router.get('/',userController.index)
 //Form register //
-router.get('/register',guestMiddleware, userController.register);
+/* router.get('/register',guestMiddleware, userController.register); */
+router.get('/register',guestMiddleware, userController.create);
+
+router.get('/admin/user/create', userController.create)
+
+
 // Form login //
 router.get('/login',guestMiddleware, userController.login);
 
+// USERLIST //
+router.get('/admin/user/list', userController.list); 
+// USERLIST detail //
+/* router.get('/usersList/:id', userController.detail);  */
 //Procesar el login 
  // ******************************************************* pendiente validacion del login
 router.post('/login', userController.loginProcess); 
@@ -66,6 +75,8 @@ router.get('/profile/:id/',authMiddleware , userController.profile);
 router.get('/logout/', userController.logout)
 
 router.delete('/profile/:id', userController.destroy)
+
+
 
 
 //router edit and update//

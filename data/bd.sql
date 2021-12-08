@@ -9,7 +9,7 @@ CREATE TABLE `categories` (
 );
 
 CREATE TABLE `products` (
-    `id` INT,
+    `id` INT AUTO_INCREMENT,
     `category_id` INT,
     `flavor_id` INT,
     `name` VARCHAR(255) NOT NULL,
@@ -117,8 +117,6 @@ ALTER TABLE
     `images`
 ADD
     CONSTRAINT `FK_ef05006e-3501-463d-bfd1-70931406daae` FOREIGN KEY (`product_id`) REFERENCES `products`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-insert into company (id, name, phone, email, cuit) values (1, 'LuanaCake', '+5492995099601', 'contacto@luanacake.com.ar', '20.36435341-3');
 
 insert into categories (id, name) values (1, 'Tortas');
 insert into categories (id, name) values (2, 'Cookie');
