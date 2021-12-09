@@ -29,14 +29,15 @@
             <% if (products.length == 0) { %>
               <h1>Producto no encontrado</h1>
             <% } else { %>
+                <tr>
+                    <th class="text-center">Nombre</th>
+                    <th>Price</th>
+                    <th>Descripcion</th>
+                    <th>Categoria</th>
+                    
+                </tr>
                 <% for (product of products){ %>
-                    <tr>
-                        <th class="text-center">Nombre</th>
-                        <th>Price</th>
-                        <th>Descripcion</th>
-                        <th>Categoria</th>
-                        
-                    </tr>
+                   
                 <tr>
                     <td class="text-center"> <%= product.name %></td>
                     <td>$<%= product.price %></td>
