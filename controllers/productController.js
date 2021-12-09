@@ -1,9 +1,12 @@
 
+
 const db = require('../src/database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
 
+ const Products = db.Product
+ 
 let productController = {
     index: function (req, res) {
         db.Product
@@ -18,60 +21,136 @@ let productController = {
 
         
     },
-    create: async function (req, res) {
-        try {
-            let Categories = await db.Category.findAll();
-            return res.render('product/create',{Categories})
-        } catch (error) {
+    create: function (req, res) {
+        
+        db.Category.findAll()
+        .then(function(categorias){
+            return res.render('product/create',{categorias})
+        })
+        .catch((error) =>{
             res.send(error)
-        }
+        })
     
     },
+
+     //PROBLEMITA ACÁ //
+     //hacerlo desde el admin 
     store: function (req, res) {
-        let img
+        // let img
+        // if (req.file != undefined) {
+        //     img = req.file.filename
+        // } else {
+        //     img = 'product-default.png'
+        // }
+     
+        db.Product
+        .create(
+            {
+            name: req.body.name,
+            category_id : req.body.category_id,
+            price: req.body.price,
+            description : req.body.description,
+            stock: req.body.stock,
+            flavor_id: req.body.flavor_id,
+            // img : img
+           }
+         
+        )
+        .then(()=> {
+             res.redirect('/products')})            
+        .catch(error => res.send(error))
 
-        if (req.file != undefined) {
-            img = req.file.filename
-        } else {
-            img = 'product-default.png'
-        }
+        },
+    // PROBLEMITA ARRIBA //
+   
 
-        let ids = products.map(p => p.id)
+//
+    edit:   function (req, res) {
+            //hacerlo desde el admin 
+    
+            let productos = db.Product.findByPk(req.params.id);
+            let categorias = db.Category.findAll();
 
-        let newProduct = {
-            id: Math.max(...ids) + 1,
-            ...req.body,
-            img: img
-        };
-        products.push(newProduct)
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
-        res.redirect('/products');
-    },
-    edit: function (req, res) {
-        let product = products.find(product => product.id == req.params.id);
-        res.render('product/edit', {
-            product: product,
-            categoryProducts: categoryProducts
-        })
-    },
-    show: function (req, res) {
-        let product = products.find(product => product.id == req.params.id);
-        res.render('product/show', {
-            product: product
-        })
-    },
+            Promise.all([productos, categorias])
+            .then(function ([producto, categoria]) {
+                res.render('product/edit', {producto, categoria})
+            })
+
+     },
+
+
+
     update: function (req, res) {
-        res.send('Producto actualizado')
+
+      
+        console.log('update')
+        const productId = req.params.id
+        console.log(req.body)
+        db.Product
+        .update({
+            name: req.body.name,
+            category_id : req.body.category_id,
+            price: req.body.price,
+            description : req.body.description,
+            stock: req.body.stock,
+        },{
+            where: {id: productId}
+        })
+        .then(() =>{
+           console.log('actualizado')
+            return res.redirect('/products/show/'+ productId)
+        })
+        .catch(error => res.send(error))
+
+     
     },
+//
+
+    show: function (req, res) {
+      
+        db.Product.findByPk(req.params.id, {
+            include: [{association: 'category'}]
+        })
+        .then(product =>{
+            res.render('product/show', {product})
+        })
+    },
+  
     shoppingCart: function (req, res) {
         res.render('product/shoppingCart')
     },
-    destroy: (req, res) => {
-        let id = req.params.id;
-        let finalProducts = products.filter(product => product.id != id);
-        fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
-        res.redirect('/');
+
+    //
+    destroy:  (req, res) => {
+        //mandar el delete al admin product
+        let productId = req.params.id;
+   
+        db.Product
+        .destroy({where: {id: productId}, force: true})
+        .then(()=>{
+            return res.redirect('/')})
+        .catch(error => res.send(error))
+        
+    },
+
+    search: (req,res) =>{
+        let productoBuscado = req.query.search;
+    
+        db.Product.findAll({
+            where: {
+                name:{[Op.like]: '%' + productoBuscado + '%'}      
+            }
+        })
+        .then( products => {
+            console.log(products)
+            res.render('product/findProducts', {products})
+        })
+        .catch(error => res.send(error))
+    
+   
+
     }
+   
 }
 
 module.exports = productController;
