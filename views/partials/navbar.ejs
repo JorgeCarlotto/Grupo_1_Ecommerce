@@ -79,9 +79,10 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
+          <form class="d-flex" action="/products/search" method="GET">
+            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="search">
+            <!-- <button class="btn btn-outline-success" type="submit" value="search">Buscar</button> -->
+            <input type="submit" value="Buscar">
           </form>
         </div>
       </div>
@@ -97,3 +98,6 @@
             <!-- <li class="nav-item">
                         <a class="nav-link active nav-acount-home" aria-current="page" href="users/login">Cerrar sesion</a>
                     </li> -->
+
+
+                    
