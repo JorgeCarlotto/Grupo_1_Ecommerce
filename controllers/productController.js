@@ -1,5 +1,4 @@
 
-
 const db = require('../src/database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
@@ -33,8 +32,7 @@ let productController = {
     
     },
 
-     //PROBLEMITA ACÁ //
-     //hacerlo desde el admin 
+    
     store: function (req, res) {
         // let img
         // if (req.file != undefined) {
@@ -61,12 +59,12 @@ let productController = {
         .catch(error => res.send(error))
 
         },
-    // PROBLEMITA ARRIBA //
+
    
 
-//
+
     edit:   function (req, res) {
-            //hacerlo desde el admin 
+     
     
             let productos = db.Product.findByPk(req.params.id);
             let categorias = db.Category.findAll();
@@ -122,7 +120,7 @@ let productController = {
 
     //
     destroy:  (req, res) => {
-        //mandar el delete al admin product
+      
         let productId = req.params.id;
    
         db.Product
@@ -154,3 +152,4 @@ let productController = {
 }
 
 module.exports = productController;
+
