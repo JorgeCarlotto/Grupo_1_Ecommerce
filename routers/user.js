@@ -76,6 +76,10 @@ router.get('/logout/', userController.logout)
 
 router.delete('/profile/:id', userController.destroy)
 
+//create user from adm //
+
+router.get('/admin/user/create',userController.create)
+router.post('/admin/user/create',userController.ProcessCreate)
 
 
 

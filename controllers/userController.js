@@ -17,18 +17,22 @@ const {Op}= require('sequelize');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); */
 
 let userController = {
+    
+    create: function (req, res){
+        res.render('admin/user/create')
+    },
 
-    create : function (req, res) {
+    createProcess : function (req, res) {
         db.Users.create({
-           name:req.body.name,
+            name:req.body.name,
             lastName:req.body.name,
             email: req.body.email,
             tel: req.body.tel,
             address : req.body.address,
             password: req.body.password
         })
-        .then(function(user){
-            res.render()
+        .then(function(users){
+            res.redirect('admin/user/create',{users:users})
         })
     },
 
