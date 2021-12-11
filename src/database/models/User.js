@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) =>{
         timestamps: false
     }
 const User = sequelize.define(alias,cols,config);
-
+/* 
 User.associate = function (models){
     User.hasMany(models.Sales,{
         as:"sale",
@@ -36,7 +36,8 @@ User.associate = function (models){
     User.belongsTo(models.Profiles,{
         as:"profile",
         foreignKey:"user_id"
-    })
+    }) */
+
+    return User;
 }
-return User;
-};
+;
