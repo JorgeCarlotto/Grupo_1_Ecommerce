@@ -21,15 +21,19 @@ let productController = {
         
     },
     create: function (req, res) {
-        
-        db.Category.findAll()
-        .then(function(categorias){
-            return res.render('product/create',{categorias})
+         
+        Promise.all([
+            db.Category.findAll(),
+            db.Flavor.findAll()
+        ])
+        .then(([categorias,flavors])=>{
+            res.render('product/create',{categorias,flavors})
         })
+
         .catch((error) =>{
             res.send(error)
         })
-    
+
     },
 
     
