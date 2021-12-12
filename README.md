@@ -30,6 +30,7 @@ Se realizara el diseño de un sitio web responsive el cual tendra la tematica de
 - Mingione, Luana
 - Carlotto, Jorge
 - Sanchez, Franco
+- Rojas, Leonel
 
 ### Links
 <a href="https://trello.com/b/tLtKuQfP/grupo-1-dh" target="_blank">Tablero Trello</a>
