@@ -1,0 +1,62 @@
+[
+    {
+     "id": 1,
+     "name": "pepa",
+     "lastName": "Pig",
+     "email": "pepa@gmail.com",
+     "tel": "123456",
+     "address": "asd123",
+     "password": "$2a$10$YUw1CqKD5HXR1.ohuRc67eI0jAVknFFnjKfOJn0hDKvScnB9Wn9A6",
+     "img": "img-1636886882256.jpg"
+    },
+    {
+     "id": 2,
+     "name": "leo",
+     "lastName": "rojas",
+     "email": "email@email.com",
+     "tel": "11223344",
+     "address": "Avenidad siempre viva",
+     "password": "$2a$10$MGMtbDr5XK9wN9f5HOq2ue8IIm5Chvb/MTLF4bNzY0/1f5z8Bx64K",
+     "img": "img-1636928224023.png"
+    },
+    {
+     "id": 4,
+     "name": "jorge",
+     "lastName": "carlotto",
+     "email": "jorge@gmail.com",
+     "tel": "1234",
+     "address": "1234asd",
+     "password": "$2a$10$UU56Gbkx0Lhea8aqyYr3gOlvRYKHqKzCRYvPoJJyubzh8f0X0XUKi",
+     "img": "img-1637054537372.jpg"
+    },
+    {
+     "id": 5,
+     "name": "picachu",
+     "lastName": "pokemon",
+     "email": "poke@gmail.com",
+     "tel": "1234",
+     "address": "asd123",
+     "password": "$2a$10$oElU4qmXI2hKemeTAce5UujTnltjkKZHDXNoi6QBUS/hzqeq6Kezq",
+     "img": "img-1637054893559.jpg"
+    },
+    {
+     "id": 6,
+     "name": "Luana",
+     "lastName": "Mingione",
+     "email": "mingluana@gmail.com",
+     "tel": "01152623348",
+     "address": "Calle falsa 123",
+     "password": "$2a$10$1BIFuDYj53qAajkMlz5ANebOvLSLYKkU3NRgYAk31Nun4sZtg7caC",
+     "img": "img-1637087301520.jpg"
+    },
+    {
+     "id": 7,
+     "name": "goku5",
+     "lastName": "lastname1",
+     "email": "email7@email.com",
+     "tel": "11223344",
+     "address": "SimpreViva12",
+     "password": "$2a$10$CHSwv8qMGtlVxhExSY7cpOQHpAkFTJbPSuVFsQ/lbKGtBvI.6o1qW",
+     "img": "img-1637587508558.png"
+    }
+   ]
