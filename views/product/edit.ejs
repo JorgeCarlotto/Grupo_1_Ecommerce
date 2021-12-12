@@ -38,30 +38,29 @@
     <!-- /Header -->
     <div class="card">
         <article class="card-body mx-auto">
-            <h4 class="card-title text-center"><%= product.name %></h4>
+            <h4 class="card-title text-center"><%= producto.name %></h4>
             <div class="galleta">
                 <img src="/img/cookies.png" alt="">
             </div>
 
-            <form action="/products/create" method="POST" enctype="multipart/form-data">
+            <form action="/products/edit/<%= producto.id %>" method="POST" enctype="multipart/form-data">
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input name="name" class="form-control" value="<%= product.name %>" type="text">
+                    <input name="name" class="form-control" value="<%= producto.name %>" type="text">
                 </div>
 
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-cookie"></i> </span>
                     </div>
-                    <select class="form-control">
+                    <select class="form-control"  name="category_id">
                         <option selected=""> Categorias</option>
-                        <% for (category of categoryProducts){ %>
-                        <option value="<%= category.id %>" <%= (category.id == product.category_id) ? 'selected':'' %>>
-                            <%= category.name %></option>
-                        <%  } %>
+                        <% categoria.forEach(category => { %>
+                            <option value="<%= category.id %>" <% if (category.id ==producto.category_id) { %><%= 'selected' %><% }; %>><%= category.name %></option>
+                            <% }); %>
                     </select>
                 </div>
 
@@ -69,7 +68,14 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-money-bill-alt"></i></span>
                     </div>
-                    <input class="form-control" name="price" value="<%= product.price %>" type="number">
+                    <input class="form-control" name="price" value="<%= producto.price %>" type="number">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-money-bill-alt"></i></span>
+                    </div>
+                    <input class="form-control" name="stock" value="<%= producto.stock%>" type="number">
                 </div>
 
                 <div class="form-group input-group">
@@ -78,7 +84,7 @@
                     </div>
 
                     <textarea name="description" class="form-control" cols="20"
-                        rows="5"><%= product.description %></textarea>
+                        rows="5"><%= producto.description %></textarea>
                 </div>
 
                 <div class="form-group input-group">
@@ -89,7 +95,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block"> Crear producto </button>
+                    <button type="submit"  class="btn btn-primary btn-block"> Editar producto </button>
                 </div>
             </form>
         </article>

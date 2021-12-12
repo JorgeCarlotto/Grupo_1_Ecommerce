@@ -12,7 +12,6 @@ const routersMain = require('./routers/main.js');
 const routerCategory = require('./routers/category');
 const methodOverride = require('method-override');
 const routerFlavor = require('./routers/flavor.js');
-const routerUserAdm = require('./routers/userAdm.js');
 const app = express();
 
 
@@ -29,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
 //Server Up
-app.listen(3001, () => console.log('Server running...'));
+app.listen(3003, () => console.log('Server running...'));
 
 //URL
 app.use(routerFlavor);

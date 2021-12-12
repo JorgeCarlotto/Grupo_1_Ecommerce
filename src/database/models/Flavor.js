@@ -17,6 +17,13 @@ module.exports = (sequelize, dataTypes) => {
     };
     const Flavor = sequelize.define(alias, cols, config)
 
+    Flavor.associate = function (models){
+        Flavor.hasMany(models.Product,{
+            as: 'products',
+            foreignKey: 'flavor_id'
+        })
+    }
+
 
     return Flavor;
 }

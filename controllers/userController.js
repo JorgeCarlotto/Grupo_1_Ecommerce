@@ -19,6 +19,10 @@ const {
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); */
 
 let userController = {
+    
+    create: function (req, res){
+        res.render('admin/user/create')
+    },
 
     create: function (req, res) {
         db.Users.create({

@@ -3,8 +3,8 @@ let express = require('express');
 let productController = require('../controllers/productController.js');
 const path = require('path');
 const multer = require('multer');
+const router = express.Router();
 
-let router = express.Router();
 
 //Config multer
 const storage = multer.diskStorage({
@@ -25,11 +25,14 @@ router.get('/', productController.index);
 
 //Routes CRUD
 router.get('/create', productController.create);
-router.post('/create',upload.single('img') ,productController.store);
+router.post('/create',productController.store);
 router.get('/show/:id', productController.show);
 router.delete('/show/:id', productController.destroy);
 router.get('/edit/:id', productController.edit);
-router.put('/edit/:id/update', productController.update);
+router.post('/edit/:id', productController.update);
+//router.put('/edit/update/:id', productController.update)
+//buscar
+router.get('/search', productController.search)
 
 //Routes ShoppingCar
 router.get('/shoppingCart', productController.shoppingCart);
