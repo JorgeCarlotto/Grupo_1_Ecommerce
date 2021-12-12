@@ -85,6 +85,9 @@ router.get('/admin/user/create',userController.create)
 router.post('/admin/user/create',userController.createProcess)
 
 
+//edit //
+router.get('/admin/user/:id/edit',userController.edit)
+router.put('/admin/user/:id/edit',userController.update)
 
 //router edit and update//
 //router.get('/edit/:id',userController.edit );

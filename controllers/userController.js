@@ -84,6 +84,38 @@ let userController = {
                 })
             })
     },
+    edit: function (req, res) {
+        db.Users
+            .findByPk(req.params.id)
+            .then(users => res.render('admin/user/edit', {users}))
+            .catch(err => console.log(err));
+    },
+    update: function (req, res) {
+        const validation = validationResult(req);
+/* 
+        if (validation.errors.length > 0) {
+            res.render('admin/category/edit', {
+                errors: validation.mapped(),
+                oldData: req.body,
+                category: {
+                    id: req.params.id
+                }
+            });
+        } */ //else {//
+            db.Users
+                .update({
+                    email: req.body.email
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
+                })
+                .then(() => res.redirect('/users/admin/user/list'))
+        //}//
+    },
+
+
+
     detail: function (req, res) {
         db.Users.findByPk(req.params.id)
             .then(function (user) {
@@ -92,6 +124,7 @@ let userController = {
                 })
             })
     },
+
 
 
     index: function (req, res) {
