@@ -24,8 +24,8 @@ let flavorController = {
     edit: function (req, res) {
         db.Flavor
             .findByPk(req.params.id)
-            .then(category => res.render('admin/flavor/edit', {
-                category
+            .then(flavor => res.render('admin/flavor/edit', {
+                flavor
             }));
     },
     store: function (req, res) {
