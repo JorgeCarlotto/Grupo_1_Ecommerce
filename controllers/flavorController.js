@@ -66,6 +66,22 @@ let flavorController = {
                 })
                 .then(() => res.redirect('/admin/flavors'))
         }
+    },
+    delete: function (req, res) {
+        db.Flavor
+            .findByPk(req.params.id)
+            .then(flavor => res.render('admin/flavor/delete', {
+                flavor
+            }));
+    },
+    destroy: function (req, res) {
+        db.Flavor
+            .destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(() => res.redirect('/admin/flavors'))
     }
 };
 
