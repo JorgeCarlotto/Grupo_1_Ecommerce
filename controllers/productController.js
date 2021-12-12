@@ -4,6 +4,14 @@ const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
 
+const {
+    render
+} = require('ejs');
+const {
+    validationResult
+} = require('express-validator');
+
+
  const Products = db.Product
  
 let productController = {
@@ -38,29 +46,25 @@ let productController = {
 
     
     store: function (req, res) {
-        // let img
-        // if (req.file != undefined) {
-        //     img = req.file.filename
-        // } else {
-        //     img = 'product-default.png'
-        // }
-     
-        db.Product
-        .create(
-            {
-            name: req.body.name,
-            category_id : req.body.category_id,
-            price: req.body.price,
-            description : req.body.description,
-            stock: req.body.stock,
-            flavor_id: req.body.flavor_id,
-            // img : img
-           }
-         
-        )
-        .then(()=> {
-             res.redirect('/products')})            
-        .catch(error => res.send(error))
+        const validation = validationResult(req);
+        if (validation.errors.length > 0) {
+            res.render('product/create.ejs', {
+                errors: validation.mapped(),
+                oldData: req.body
+            });
+        } else {
+            db.Product
+                .create({
+                    name: req.body.name,
+                    category_id : req.body.category_id,
+                    price: req.body.price,
+                    description : req.body.description,
+                    stock: req.body.stock,
+                    flavor_id: req.body.flavor_id,
+                })
+                .then(() => res.redirect('/products'))
+        }
+    
 
         },
 
@@ -68,14 +72,15 @@ let productController = {
 
 
     edit:   function (req, res) {
-     
-    
-            let productos = db.Product.findByPk(req.params.id);
-            let categorias = db.Category.findAll();
+   
 
-            Promise.all([productos, categorias])
-            .then(function ([producto, categoria]) {
-                res.render('product/edit', {producto, categoria})
+            Promise.all([
+                db.Category.findAll(),
+                db.Flavor.findAll(),
+                db.Product.findByPk(req.params.id)
+            ])
+            .then(function ([categoria, flavors, producto]) {
+                res.render('product/edit', {categoria, flavors, producto})
             })
 
      },
