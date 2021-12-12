@@ -49,7 +49,7 @@ const validations = [
 router.get('/',userController.index)
 //Form register //
 /* router.get('/register',guestMiddleware, userController.register); */
-router.get('/register',guestMiddleware, userController.create);
+router.get('/register',guestMiddleware, userController.register);
 
 router.get('/admin/user/create', userController.create)
 
@@ -65,8 +65,14 @@ router.get('/admin/user/list', userController.list);
  // ******************************************************* pendiente validacion del login
 router.post('/login', userController.loginProcess); 
 
-//process register //
-router.post('/register',upload.single('img'),validations,userController.processRegister);
+//process register con JSON //
+
+/* router.post('/register',upload.single('img'),validations,userController.processRegister); */
+
+//process register con Sequelize //
+
+/* router.post('/register',upload.single('img'),validations,userController.createProcess); */
+router.post('/register',userController.createProcess);
 
 //show user profile //
 
@@ -79,7 +85,7 @@ router.delete('/profile/:id', userController.destroy)
 //create user from adm //
 
 router.get('/admin/user/create',userController.create)
-/* router.post('/admin/user/create',userController.ProcessCreate) */
+router.post('/admin/user/create',userController.createProcess)
 
 
 

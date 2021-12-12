@@ -32,7 +32,7 @@ let userController = {
             password: req.body.password
         })
         .then(function(users){
-            res.redirect('admin/user/create',{users:users})
+            res.redirect('/users/login',{users:users})
         })
     },
 
