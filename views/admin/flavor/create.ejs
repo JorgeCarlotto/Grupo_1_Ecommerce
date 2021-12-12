@@ -11,18 +11,18 @@
           <h1 class="h2">CREAR SABOR</h1>
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-              <button type="submit" class="btn btn-sm btn-outline-success"
-                href="/admin/flavors/create">GUARDAR</button>
+              <button type="submit" class="btn btn-sm btn-outline-success" href="/admin/flavors/create">GUARDAR</button>
             </div>
           </div>
         </div>
         <div>
           <div class="mb-3">
             <label for="name" class="form-label">Nombre de Sabor</label>
-            <input type="text" class="form-control <%= (locals.errors && errors.name) ? 'is-invalid' : null %>" name="name" value="<% locals.oldDate ? oldDate.name : null %>">
+            <input type="text" class="form-control <%= (locals.errors && errors.name) ? 'is-invalid' : null %>"
+              name="name" value="<% locals.oldDate ? oldDate.name : null %>">
             <div id="emailHelp" class="form-text text-danger">
               <% if (locals.errors && errors.name) { %>
-                <%= errors.name.msg %>
+              <%= errors.name.msg %>
               <% } %>
             </div>
           </div>
