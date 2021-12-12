@@ -5,10 +5,10 @@
     <%- include('../../admin/partials/navbar.ejs') %>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <form method="POST" action="/admin/categories/<%= category.id %>/delete?_method=DELETE">
+      <form method="POST" action="/users/admin/user/<%= users.id %>/delete?_method=DELETE">
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">ELIMINAR CATEGORIA</h1>
+          <h1 class="h2">ELIMINAR USUARIO</h1>
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
               <button type="submit" class="btn btn-sm btn-outline-danger"
@@ -18,7 +18,7 @@
         </div>
         <div>
           <div class="mb-3">
-            <p>Seguro que desea eliminar la categoría <strong class="text-success">"<%= category.name %>" </strong>?</p>
+            <p>¿Seguro que desea eliminar el usuario? <strong class="text-success">"<%= users.email %>" </strong>?</p>
           </div>
         </div>
       </form>

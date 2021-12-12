@@ -19,24 +19,60 @@ const {
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); */
 
 let userController = {
-    
-    create: function (req, res){
+
+    create: function (req, res) {
         res.render('admin/user/create')
     },
 
-    create: function (req, res) {
+    createProcess: function (req, res) {
+
+        // const resultValidation = validationResult(req);
+
+        // if (resultValidation.errors.length > 0) {
+        //     return res.render('user/register', {
+        //         errors: resultValidation.mapped(),
+        //         oldData: req.body
+        //     })
+        // }
+
+        // let userInDB = db.Users.findOne({
+        //     where: {
+        //         email: req.body.email
+        //     }
+        // })
+        // .then(resultado => {
+        //     res.send(resultado)
+        // });
+
+        // res.send(userInDB);
+
         db.Users.create({
-                name: req.body.name,
-                lastName: req.body.name,
                 email: req.body.email,
-                tel: req.body.tel,
-                address: req.body.address,
-                password: req.body.password
+                password: req.body.password,
+                admin: 0,
             })
-            .then(function (user) {
-                res.render()
+            .then(function (users) {
+                res.redirect('/users/login')
             })
     },
+
+    delete: function (req, res) {
+        db.Users
+            .findByPk(req.params.id)
+            .then(users => res.render('admin/user/delete',{users}))
+            .catch(err => console.log(err));
+    },
+    destroy: function (req, res) {
+        db.Users
+            .destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(() => res.redirect('/users/admin/user/list'))
+            .catch(err => console.log(err));
+    },
+
 
     list: function (req, res) {
         /*  res.send(db.Users) */
@@ -48,6 +84,38 @@ let userController = {
                 })
             })
     },
+    edit: function (req, res) {
+        db.Users
+            .findByPk(req.params.id)
+            .then(users => res.render('admin/user/edit', {users}))
+            .catch(err => console.log(err));
+    },
+    update: function (req, res) {
+        const validation = validationResult(req);
+/* 
+        if (validation.errors.length > 0) {
+            res.render('admin/category/edit', {
+                errors: validation.mapped(),
+                oldData: req.body,
+                category: {
+                    id: req.params.id
+                }
+            });
+        } */ //else {//
+            db.Users
+                .update({
+                    email: req.body.email
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
+                })
+                .then(() => res.redirect('/users/admin/user/list'))
+        //}//
+    },
+
+
+
     detail: function (req, res) {
         db.Users.findByPk(req.params.id)
             .then(function (user) {
@@ -56,6 +124,7 @@ let userController = {
                 })
             })
     },
+
 
 
     index: function (req, res) {
@@ -67,38 +136,37 @@ let userController = {
 
         res.render('user/register')
     },
-    processRegister: function (req, res) {
-        const resultValidation = validationResult(req);
+    //      processRegister: function (req, res) {
+    //         const resultValidation = validationResult(req);
 
-        if (resultValidation.errors.length > 0) {
-            return res.render('user/register', {
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            })
-        }
-        let userInDB = User.findByField('email', req.body.email);
+    //        if(resultValidation.errors.length > 0){
+    //            return res.render('user/register',{ errors : resultValidation.mapped(),
+    //             oldData : req.body 
+    //         }) 
+    //     }
+    //         let userInDB = User.findByField('email',req.body.email);
 
-        if (userInDB) {
-            return res.render('user/register', {
-                errors: {
-                    email: {
-                        msg: 'Este Email ya se encuentra registrado'
-                    }
-                },
-                oldData: req.body
-            });
-        }
-        // Incriptacion de contraseña    
-        let userToCreate = {
-            ...req.body,
-            password: bcrypt.hashSync(req.body.password, 10),
-            img: req.file.filename
-        }
+    //         if(userInDB){
+    //             return res.render('user/register',{ 
+    //                 errors : {
+    //                 email: {
+    //                     msg : 'Este Email ya se encuentra registrado'
+    //                 }
+    //             },
+    //                 oldData : req.body 
+    //         });
+    //     }
+    //         // Incriptacion de contraseña    
+    //         let userToCreate = {
+    //             ...req.body,
+    //             password : bcrypt.hashSync(req.body.password, 10),
+    //             img: req.file.filename
+    //         }
 
-        let userCreate = User.create(userToCreate)
+    //          let userCreate = User.create(userToCreate)
 
-        return res.redirect('/users/login')
-    },
+    //         return res.redirect('/users/login')
+    // },
     login: function (req, res) {
 
         res.render('user/login', {
@@ -155,14 +223,14 @@ let userController = {
         req.session.destroy();
         return res.redirect('/');
     },
-    destroy: function (req, res) {
-        res.clearCookie('userEmail')
-        req.session.destroy();
-        let id = req.params.id;
-        let finalUsers = User.getData().filter(user => user.id != id);
-        fs.writeFileSync(User.fileName, JSON.stringify(finalUsers, null, ' '));
-        res.redirect('/')
-    },
+    // destroy: function (req, res) {
+    //     res.clearCookie('userEmail')
+    //     req.session.destroy();
+    //     let id = req.params.id;
+    //     let finalUsers = User.getData().filter(user => user.id != id);
+    //     fs.writeFileSync(User.fileName, JSON.stringify(finalUsers, null, ' '));
+    //     res.redirect('/')
+    // },
 
     //Codigo con Sequelize y BD
 
