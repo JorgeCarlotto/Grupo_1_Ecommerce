@@ -35,19 +35,6 @@ CREATE TABLE `users` (
     PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `profiles` (
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `user_id` INT,
-    `name` VARCHAR(100),
-    `lastname` VARCHAR(100),
-    `phone` VARCHAR(100),
-    `facebook` VARCHAR(255),
-    `twitter` VARCHAR(255),
-    `instagram` VARCHAR(255),
-    `image` VARCHAR(255),
-    PRIMARY KEY (`id`)
-);
-
 CREATE TABLE `product_sale` (
     `id` INT NOT NULL,
     `product_id` INT,
@@ -93,11 +80,6 @@ SET
     NULL ON UPDATE
 SET
     NULL;
-
-ALTER TABLE
-    `profiles`
-ADD
-    CONSTRAINT `FK_938139e6-c9f9-46a7-9a42-93d5607bbe91` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE
     `product_sale`
@@ -180,27 +162,6 @@ insert into users (id, email, password, admin) values (17, 'fmairg@prnewswire.co
 insert into users (id, email, password, admin) values (18, 'gbushellh@berkeley.edu', 'CgAqcuDg', true);
 insert into users (id, email, password, admin) values (19, 'cabbotsi@mediafire.com', 'ufWs6PC', true);
 insert into users (id, email, password, admin) values (20, 'eroantreej@behance.net', 'uQixgs18', false);
-
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (1, 1, 'Cameron', 'Muldownie', '243-271-2510', '123-reg.co.uk', 'marketwatch.com', 'indiatimes.com', 'https://robohash.org/quosadipiscinumquam.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (2, 2, 'Humberto', 'Lomax', '625-126-5788', 'symantec.com', 'ucla.edu', 'yellowbook.com', 'https://robohash.org/rationenisideleniti.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (3, 3, 'Bonnie', 'Lutas', '254-915-8162', 'amazon.com', 'wikia.com', 'jimdo.com', 'https://robohash.org/impeditaliquiddolorem.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (4, 4, 'Rupert', 'McGuire', '809-807-6548', 'deviantart.com', 't-online.de', 'simplemachines.org', 'https://robohash.org/eiusestmagni.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (5, 5, 'Silvia', 'Barrott', '917-966-6289', 'aol.com', 'shop-pro.jp', 'hubpages.com', 'https://robohash.org/suscipitasperioresdeleniti.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (6, 6, 'Alejandro', 'Ubee', '556-146-5431', 'nasa.gov', 'usatoday.com', 'jalbum.net', 'https://robohash.org/etcupiditatetenetur.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (7, 7, 'Isidoro', 'Mcall', '400-337-8974', 'netlog.com', 'dyndns.org', 'youtu.be', 'https://robohash.org/totammolestiaedelectus.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (8, 8, 'Raven', 'de Savery', '740-127-8654', 'example.com', 'pinterest.com', 'umich.edu', 'https://robohash.org/debitissuntipsum.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (9, 9, 'Sigvard', 'Merill', '714-589-4933', 'google.co.jp', 'wisc.edu', 'over-blog.com', 'https://robohash.org/asperioresautnon.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (10, 10, 'Sidnee', 'Kermeen', '378-486-9154', 'disqus.com', 'hubpages.com', 'telegraph.co.uk', 'https://robohash.org/eaquevelmaxime.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (11, 11, 'Ulberto', 'Boutell', '746-354-2632', 'patch.com', 'mozilla.com', 'github.io', 'https://robohash.org/esseetdolorum.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (12, 12, 'Violette', 'Jamrowicz', '590-930-6275', 'google.com.br', 'netvibes.com', 'ow.ly', 'https://robohash.org/officiasedtempora.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (13, 13, 'Jordan', 'Du Hamel', '363-434-4643', 'columbia.edu', 'time.com', 'tinyurl.com', 'https://robohash.org/quianonsit.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (14, 14, 'Orelee', 'McTurlough', '877-837-4273', 'marketwatch.com', 'vinaora.com', 'github.io', 'https://robohash.org/explicaboprovidentquia.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (15, 15, 'Merry', 'Sprey', '818-738-3115', 'slate.com', 'wikipedia.org', 'xinhuanet.com', 'https://robohash.org/suntdistinctiosed.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (16, 16, 'Nomi', 'Gornall', '701-258-6833', 'apple.com', 'ihg.com', 'multiply.com', 'https://robohash.org/laudantiumidplaceat.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (17, 17, 'Elton', 'Sabater', '796-536-0567', 'webeden.co.uk', 'nps.gov', 'angelfire.com', 'https://robohash.org/sitdoloremlabore.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (18, 18, 'Dierdre', 'Grigsby', '380-740-6349', 'infoseek.co.jp', 'hugedomains.com', 'miitbeian.gov.cn', 'https://robohash.org/exercitationemdoloreos.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (19, 19, 'Viviyan', 'Storck', '781-874-4485', 'weather.com', 'discuz.net', 'weibo.com', 'https://robohash.org/estexplicaboveritatis.png?size=50x50&set=set1');
-insert into profiles (id, user_id, name, lastname, phone, facebook, twitter, instagram, image) values (20, 20, 'Isa', 'Slee', '908-239-8447', 'aboutads.info', 'patch.com', 'altervista.org', 'https://robohash.org/magnamutpraesentium.png?size=50x50&set=set1');
 
 insert into sales (id, user_id, total, created_at, updated_at) values (1, 11, 5551.6, '8/1/2021', '1/9/2021');
 insert into sales (id, user_id, total, created_at, updated_at) values (2, 16, 2094.23, '2/10/2021', '7/31/2021');
