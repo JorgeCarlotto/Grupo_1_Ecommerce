@@ -45,6 +45,10 @@ const validations = [
     // })
 ]
 
+const validationUpDate = [
+    body('email').notEmpty().withMessage('Ingresa tu email').bail().isEmail().withMessage('Debe introducir un formato de correo valido'),
+]
+
 
 router.get('/',userController.index)
 //Form register //
@@ -87,7 +91,7 @@ router.post('/admin/user/create',userController.createProcess)
 
 //edit //
 router.get('/admin/user/:id/edit',userController.edit)
-router.put('/admin/user/:id/edit',userController.update)
+router.put('/admin/user/:id/edit',validationUpDate,userController.update)
 
 //router edit and update//
 //router.get('/edit/:id',userController.edit );

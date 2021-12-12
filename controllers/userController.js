@@ -32,29 +32,32 @@ let userController = {
       where: {
         email: req.body.email,
       },
-    }).then((user) => {
-      if (user) {
-        res.render("user/register", {
-          errors: {
-            email: {
-              msg: "Este Email ya se encuentra registrado",
+    })
+      .then((user) => {
+        if (user) {
+          res.render("user/register", {
+            errors: {
+              email: {
+                msg: "Este Email ya se encuentra registrado",
+              },
             },
-          },
-        });
-      }
-    });
+          });
+        }
+      })
+      .catch((err) => console.log(err));
 
     let UserPassword = req.body.password;
     let passwordEncry = bcrypt.hashSync(UserPassword, 10);
-    console.log(encriPass);
 
     db.Users.create({
       email: req.body.email,
       password: passwordEncry,
       admin: 0,
-    }).then(function () {
-      res.redirect("/users/login");
-    });
+    })
+      .then(function () {
+        res.redirect("/users/login");
+      })
+      .catch((err) => console.log(err));
   },
 
   delete: function (req, res) {
@@ -73,7 +76,6 @@ let userController = {
   },
 
   list: function (req, res) {
-    /*  res.send(db.Users) */
     db.Users.findAll().then(function (users) {
       res.render("admin/user/list", {
         users: users,
@@ -87,27 +89,28 @@ let userController = {
   },
   update: function (req, res) {
     const validation = validationResult(req);
-    /* 
-        if (validation.errors.length > 0) {
-            res.render('admin/category/edit', {
-                errors: validation.mapped(),
-                oldData: req.body,
-                category: {
-                    id: req.params.id
-                }
-            });
-        } */ //else {//
-    db.Users.update(
-      {
-        email: req.body.email,
-      },
-      {
-        where: {
+    if (validation.errors.length > 0) {
+      res.render("admin/user/edit", {
+        errors: validation.mapped(),
+        oldData: req.body,
+        users: {
           id: req.params.id,
         },
-      }
-    ).then(() => res.redirect("/users/admin/user/list"));
-    //}//
+      });
+    } else {
+      db.Users.update(
+        {
+          email: req.body.email,
+        },
+        {
+          where: {
+            id: req.params.id,
+          },
+        }
+      )
+        .then(() => res.redirect('/users/admin/user/list'))
+        .catch((errors) => console.log(console.log(errors)));
+    }
   },
 
   detail: function (req, res) {
