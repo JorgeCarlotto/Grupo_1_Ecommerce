@@ -1,17 +1,12 @@
 //Require modols //
-const path = require('path');
-const fs = require('fs');
-const bcrypt = require('bcryptjs');
-const {
-    validationResult
-} = require('express-validator')
-const User = require('../models/User')
-const db = require('../src/database/models')
+const path = require("path");
+const fs = require("fs");
+const bcrypt = require("bcryptjs");
+const { validationResult } = require("express-validator");
+const User = require("../models/User");
+const db = require("../src/database/models");
 const sequelize = db.sequelize;
-const {
-    Op
-} = require('sequelize');;
-
+const { Op } = require("sequelize");
 
 // data base //
 /* const usersFilePath = path.join(__dirname, '../data/usuariosDataBase.json');
@@ -19,80 +14,80 @@ const {
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8')); */
 
 let userController = {
+  create: function (req, res) {
+    res.render("admin/user/create");
+  },
 
-    create: function (req, res) {
-        res.render('admin/user/create')
-    },
+  createProcess: function (req, res) {
+    const resultValidation = validationResult(req);
 
-    createProcess: function (req, res) {
+    if (resultValidation.errors.length > 0) {
+      return res.render("user/register", {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    }
 
-        // const resultValidation = validationResult(req);
+    let userInDB = db.Users.findOne({
+      where: {
+        email: req.body.email,
+      },
+    }).then((user) => {
+      if (user) {
+        res.render("user/register", {
+          errors: {
+            email: {
+              msg: "Este Email ya se encuentra registrado",
+            },
+          },
+        });
+      }
+    });
 
-        // if (resultValidation.errors.length > 0) {
-        //     return res.render('user/register', {
-        //         errors: resultValidation.mapped(),
-        //         oldData: req.body
-        //     })
-        // }
+    let UserPassword = req.body.password;
+    let passwordEncry = bcrypt.hashSync(UserPassword, 10);
+    console.log(encriPass);
 
-        // let userInDB = db.Users.findOne({
-        //     where: {
-        //         email: req.body.email
-        //     }
-        // })
-        // .then(resultado => {
-        //     res.send(resultado)
-        // });
+    db.Users.create({
+      email: req.body.email,
+      password: passwordEncry,
+      admin: 0,
+    }).then(function () {
+      res.redirect("/users/login");
+    });
+  },
 
-        // res.send(userInDB);
+  delete: function (req, res) {
+    db.Users.findByPk(req.params.id)
+      .then((users) => res.render("admin/user/delete", { users }))
+      .catch((err) => console.log(err));
+  },
+  destroy: function (req, res) {
+    db.Users.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => res.redirect("/users/admin/user/list"))
+      .catch((err) => console.log(err));
+  },
 
-        db.Users.create({
-                email: req.body.email,
-                password: req.body.password,
-                admin: 0,
-            })
-            .then(function (users) {
-                res.redirect('/users/login')
-            })
-    },
-
-    delete: function (req, res) {
-        db.Users
-            .findByPk(req.params.id)
-            .then(users => res.render('admin/user/delete',{users}))
-            .catch(err => console.log(err));
-    },
-    destroy: function (req, res) {
-        db.Users
-            .destroy({
-                where: {
-                    id: req.params.id
-                }
-            })
-            .then(() => res.redirect('/users/admin/user/list'))
-            .catch(err => console.log(err));
-    },
-
-
-    list: function (req, res) {
-        /*  res.send(db.Users) */
-        db.Users.findAll()
-            .then(function (users) {
-
-                res.render('admin/user/list', {
-                    users: users
-                })
-            })
-    },
-    edit: function (req, res) {
-        db.Users
-            .findByPk(req.params.id)
-            .then(users => res.render('admin/user/edit', {users}))
-            .catch(err => console.log(err));
-    },
-    update: function (req, res) {
-        const validation = validationResult(req);
-/* 
+  list: function (req, res) {
+    /*  res.send(db.Users) */
+    db.Users.findAll().then(function (users) {
+      res.render("admin/user/list", {
+        users: users,
+      });
+    });
+  },
+  edit: function (req, res) {
+    db.Users.findByPk(req.params.id)
+      .then((users) => res.render("admin/user/edit", { users }))
+      .catch((err) => console.log(err));
+  },
+  update: function (req, res) {
+    const validation = validationResult(req);
+    /* 
         if (validation.errors.length > 0) {
             res.render('admin/category/edit', {
                 errors: validation.mapped(),
@@ -102,143 +97,131 @@ let userController = {
                 }
             });
         } */ //else {//
-            db.Users
-                .update({
-                    email: req.body.email
-                }, {
-                    where: {
-                        id: req.params.id
-                    }
-                })
-                .then(() => res.redirect('/users/admin/user/list'))
-        //}//
-    },
+    db.Users.update(
+      {
+        email: req.body.email,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    ).then(() => res.redirect("/users/admin/user/list"));
+    //}//
+  },
 
+  detail: function (req, res) {
+    db.Users.findByPk(req.params.id).then(function (user) {
+      res.render("userDetail", {
+        user: user,
+      });
+    });
+  },
 
+  index: function (req, res) {
+    res.render("user/index", {
+      user: User.getData(),
+    });
+  },
+  register: function (req, res) {
+    res.render("user/register");
+  },
+  //      processRegister: function (req, res) {
+  //         const resultValidation = validationResult(req);
 
-    detail: function (req, res) {
-        db.Users.findByPk(req.params.id)
-            .then(function (user) {
-                res.render("userDetail", {
-                    user: user
-                })
-            })
-    },
+  //        if(resultValidation.errors.length > 0){
+  //            return res.render('user/register',{ errors : resultValidation.mapped(),
+  //             oldData : req.body
+  //         })
+  //     }
+  //         let userInDB = User.findByField('email',req.body.email);
 
+  //         if(userInDB){
+  //             return res.render('user/register',{
+  //                 errors : {
+  //                 email: {
+  //                     msg : 'Este Email ya se encuentra registrado'
+  //                 }
+  //             },
+  //                 oldData : req.body
+  //         });
+  //     }
+  //         // Incriptacion de contraseña
+  //         let userToCreate = {
+  //             ...req.body,
+  //             password : bcrypt.hashSync(req.body.password, 10),
+  //             img: req.file.filename
+  //         }
 
+  //          let userCreate = User.create(userToCreate)
 
-    index: function (req, res) {
-        res.render('user/index', {
-            user: User.getData()
-        });
-    },
-    register: function (req, res) {
+  //         return res.redirect('/users/login')
+  // },
+  login: function (req, res) {
+    res.render("user/login", {
+      user: User.getData(),
+    });
+  },
+  loginProcess: function (req, res) {
+    let userToLogin = User.findByField("email", req.body.email);
 
-        res.render('user/register')
-    },
-    //      processRegister: function (req, res) {
-    //         const resultValidation = validationResult(req);
+    if (userToLogin) {
+      let isOkThePassword = bcrypt.compareSync(
+        req.body.password,
+        userToLogin.password
+      );
 
-    //        if(resultValidation.errors.length > 0){
-    //            return res.render('user/register',{ errors : resultValidation.mapped(),
-    //             oldData : req.body 
-    //         }) 
-    //     }
-    //         let userInDB = User.findByField('email',req.body.email);
-
-    //         if(userInDB){
-    //             return res.render('user/register',{ 
-    //                 errors : {
-    //                 email: {
-    //                     msg : 'Este Email ya se encuentra registrado'
-    //                 }
-    //             },
-    //                 oldData : req.body 
-    //         });
-    //     }
-    //         // Incriptacion de contraseña    
-    //         let userToCreate = {
-    //             ...req.body,
-    //             password : bcrypt.hashSync(req.body.password, 10),
-    //             img: req.file.filename
-    //         }
-
-    //          let userCreate = User.create(userToCreate)
-
-    //         return res.redirect('/users/login')
-    // },
-    login: function (req, res) {
-
-        res.render('user/login', {
-            user: User.getData()
-        })
-    },
-    loginProcess: function (req, res) {
-
-        let userToLogin = User.findByField('email', req.body.email);
-
-        if (userToLogin) {
-
-            let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
-
-            if (isOkThePassword) {
-                delete userToLogin.password;
-                req.session.userLogged = userToLogin;
-                if (req.body.recordUser) {
-                    res.cookie('userEmail', req.body.email, {
-                        maxAge: (1000 * 60) * 60
-                    })
-                }
-
-                return res.redirect(`profile/${userToLogin.id}`)
-            }
-            return res.render('user/login', {
-                errors: {
-                    email: {
-                        msg: 'Password invalido'
-                    }
-                }
-            });
-
+      if (isOkThePassword) {
+        delete userToLogin.password;
+        req.session.userLogged = userToLogin;
+        if (req.body.recordUser) {
+          res.cookie("userEmail", req.body.email, {
+            maxAge: 1000 * 60 * 60,
+          });
         }
 
-        return res.render('user/login', {
-            errors: {
-                email: {
-                    msg: 'No se encuentra el email en la base de datos'
-                }
-            }
-        })
+        return res.redirect(`profile/${userToLogin.id}`);
+      }
+      return res.render("user/login", {
+        errors: {
+          email: {
+            msg: "Password invalido",
+          },
+        },
+      });
+    }
 
-    },
-    profile: function (req, res) {
-        /* console.log(req.session.userLogged); */
-        console.log(req.cookies.userEmail)
-        return res.render('user/profile', {
-            user: req.session.userLogged
-        });
-    },
-    logout: function (req, res) {
-        res.clearCookie('userEmail')
-        req.session.destroy();
-        return res.redirect('/');
-    },
-    // destroy: function (req, res) {
-    //     res.clearCookie('userEmail')
-    //     req.session.destroy();
-    //     let id = req.params.id;
-    //     let finalUsers = User.getData().filter(user => user.id != id);
-    //     fs.writeFileSync(User.fileName, JSON.stringify(finalUsers, null, ' '));
-    //     res.redirect('/')
-    // },
+    return res.render("user/login", {
+      errors: {
+        email: {
+          msg: "No se encuentra el email en la base de datos",
+        },
+      },
+    });
+  },
+  profile: function (req, res) {
+    /* console.log(req.session.userLogged); */
+    console.log(req.cookies.userEmail);
+    return res.render("user/profile", {
+      user: req.session.userLogged,
+    });
+  },
+  logout: function (req, res) {
+    res.clearCookie("userEmail");
+    req.session.destroy();
+    return res.redirect("/");
+  },
+  // destroy: function (req, res) {
+  //     res.clearCookie('userEmail')
+  //     req.session.destroy();
+  //     let id = req.params.id;
+  //     let finalUsers = User.getData().filter(user => user.id != id);
+  //     fs.writeFileSync(User.fileName, JSON.stringify(finalUsers, null, ' '));
+  //     res.redirect('/')
+  // },
 
-    //Codigo con Sequelize y BD
-
-
-
-
-
-}
+  //Codigo con Sequelize y BD
+};
 /* let img
  if( req.file != undefined){
    img = req.file.filename;

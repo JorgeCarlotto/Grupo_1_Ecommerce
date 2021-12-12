@@ -81,7 +81,7 @@ router.get('/logout/', userController.logout)
 
 //create user from adm //
 
-router.get('/admin/user/create',userController.create)
+router.get('/admin/user/create',userController.register)
 router.post('/admin/user/create',userController.createProcess)
 
 
