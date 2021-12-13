@@ -17,18 +17,20 @@ const app = express();
 
 app.use(session({
     secret: 'cualquier cosa',
-    resave:false,
-    saveUninitialized:false,
+    resave: false,
+    saveUninitialized: false,
 }));
 app.use(cookies());
 app.use(userLoggedMiddleware);
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+    extended: false
+}));
 app.use(methodOverride('_method'));
 
 //Server Up
-app.listen(3000, () => console.log('Server running...'));
+app.listen(3002, () => console.log('Server running...'));
 
 //URL
 app.use(routerFlavor);
