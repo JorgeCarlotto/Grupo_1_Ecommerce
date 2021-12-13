@@ -31,61 +31,58 @@
   <%- include('../partials/navbar.ejs') %>
   <!-- /Header -->
 
-  <div class="container">
-
-    <div class="container-fluid">
-      <div class="mt-4 mb-4">
-        <div class="rounded d-flex justify-content-center">
-          <div class="col-md-6 col-sm-12 shadow-lg p-4 bg-light">
-            <div class="text-center">
-              <h3><strong>CREA TU CUENTA</strong></h3>
-            </div>
-            <div class="galleta">
-              <img src="/img/cookies.png" alt="">
-            </div>
-            <form action="/users/register" method="POST">
-              <div class="p-4">
-                <div class="input-group mb-3">
-                  <span class="input-group-text bg-primary"><i class="fa fa-envelope text-white"></i></span>
-                  <input name="email" type="text"
-                    class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="E-mail"
-                    type="email" <% if (locals.oldData) { %> value="<%=oldData.email%>" <% }%>>
-                </div>
-                <div class="input-group">
-                  <% if (locals.errors && errors.email) { %>
-                  <p class="text-danger"> <%= errors.email.msg %> </p>
-                  <% } %>
-                </div>
-                <div class="input-group mb-3">
-                  <span class="input-group-text bg-primary"><i class="fa fa-lock text-white"></i></span>
-                  <input type="password" name="password"
-                    class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
-                    placeholder="Contraseña" <% if (locals.oldData) { %> value="<%=oldData.password%>" <% }%>>
-                </div>
-                <div class="input-group">
-                  <% if (locals.errors && errors.password) { %>
-                  <p class="text-danger"> <%= errors.password.msg %> </p>
-                  <% } %>
-                </div>
-                <button class="btn btn-primary text-center mt-2 btn-block" type="submit">
-                  Crear cuenta
-                </button>
-                <p class="text-center mt-3">Ya tienes una cuenta? <a href="/users/login">Iniciar sesión</a> </p>
-                <hr>
-                <p class="text-center">Iniciar sesion con</p>
-                <div class="btn-group btn-block">
-                  <a class="btn btn-primary text-white"><i class="fab fa-facebook-f"></i></a>
-                  <a class="btn btn-danger text-white"><i class="fab fa-google"></i></a>
-                  <a class="btn btn-info text-white"><i class="fab fa-twitter"></i></a>
-                </div>
-              </div>
-            </form>
+  <div class="container-fluid">
+    <div class="mt-4 mb-4">
+      <div class="rounded d-flex justify-content-center">
+        <div class="col-md-6 col-sm-12 shadow-lg p-4 bg-light">
+          <div class="text-center">
+            <h3><strong>CREA TU CUENTA</strong></h3>
           </div>
+          <div class="galleta">
+            <img src="/img/cookies.png" alt="">
+          </div>
+          <form action="/users/register" method="POST">
+            <div class="p-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text bg-primary"><i class="fa fa-envelope text-white"></i></span>
+                <input name="email" type="text"
+                  class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" placeholder="E-mail"
+                  type="email" <% if (locals.oldData) { %> value="<%=oldData.email%>" <% }%>>
+              </div>
+              <div class="input-group">
+                <% if (locals.errors && errors.email) { %>
+                <p class="text-danger"> <%= errors.email.msg %> </p>
+                <% } %>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text bg-primary"><i class="fa fa-lock text-white"></i></span>
+                <input type="password" name="password"
+                  class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                  placeholder="Contraseña" <% if (locals.oldData) { %> value="<%=oldData.password%>" <% }%>>
+              </div>
+              <div class="input-group">
+                <% if (locals.errors && errors.password) { %>
+                <p class="text-danger"> <%= errors.password.msg %> </p>
+                <% } %>
+              </div>
+              <button class="btn btn-primary text-center mt-2 btn-block" type="submit">
+                Crear cuenta
+              </button>
+              <p class="text-center mt-3">Ya tienes una cuenta? <a href="/users/login">Iniciar sesión</a> </p>
+              <hr>
+              <p class="text-center">Registrarte con</p>
+              <div class="btn-group btn-block">
+                <a class="btn btn-primary text-white"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-danger text-white"><i class="fab fa-google"></i></a>
+                <a class="btn btn-info text-white"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-
+  
   <!-- Footer -->
   <%- include('../partials/footer.ejs') %>
   <!-- /Footer -->
