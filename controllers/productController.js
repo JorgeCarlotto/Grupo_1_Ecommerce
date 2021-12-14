@@ -10,6 +10,7 @@ const {
 const {
     validationResult
 } = require('express-validator');
+const { restart } = require('nodemon');
 
 
  const Products = db.Product
@@ -22,36 +23,43 @@ let productController = {
             products
         }))
         .catch(error  => {
-            console.log(error)
+   
             res.send(error)
         })
 
         
     },
     create: function (req, res) {
-         
         Promise.all([
             db.Category.findAll(),
-            db.Flavor.findAll()
+            db.Flavor.findAll(),
+           
         ])
-        .then(([categorias,flavors])=>{
-            res.render('product/create',{categorias,flavors})
+        .then(function ([categoria,flavors]) {
+          res.render('product/create',{categoria,flavors})
         })
 
         .catch((error) =>{
             res.send(error)
         })
-
     },
 
     
     store: function (req, res) {
         const validation = validationResult(req);
         if (validation.errors.length > 0) {
-            res.render('product/create.ejs', {
-                errors: validation.mapped(),
-                oldData: req.body
-            });
+            Promise.all([
+                db.Category.findAll(),
+                db.Flavor.findAll(),    
+            ])
+            .then(function ([categoria,flavors]) {
+              res.render('product/create',{
+                  errors: validation.mapped(),
+                oldData: req.body, 
+                categoria,flavors}
+              )          
+            })
+    
         } else {
             db.Product
                 .create({
@@ -63,17 +71,9 @@ let productController = {
                     flavor_id: req.body.flavor_id,
                 })
                 .then(() => res.redirect('/products'))
-        }
-    
-
-        },
-
-   
-
+        }},
 
     edit:   function (req, res) {
-   
-
             Promise.all([
                 db.Category.findAll(),
                 db.Flavor.findAll(),
@@ -85,36 +85,46 @@ let productController = {
 
      },
 
-
-
     update: function (req, res) {
-
-      
-        console.log('update')
+        const validation = validationResult(req)
         const productId = req.params.id
-        console.log(req.body)
-        db.Product
-        .update({
-            name: req.body.name,
-            category_id : req.body.category_id,
-            price: req.body.price,
-            description : req.body.description,
-            stock: req.body.stock,
-        },{
-            where: {id: productId}
-        })
-        .then(() =>{
-           console.log('actualizado')
-            return res.redirect('/products/show/'+ productId)
-        })
-        .catch(error => res.send(error))
+        if (validation.errors.length > 0) {
+            Promise.all([
+                db.Category.findAll(),
+                db.Flavor.findAll(),
+                db.Product.findByPk(req.params.id)
+            ])
 
-     
+            .then(function ([categoria, flavors, producto]) {
+                res.render('product/edit',{
+                    errors: validation.mapped(),
+                     oldData: req.body,
+                     categoria:categoria,
+                     flavors:flavors,
+                     producto:producto
+              })
+            })
+      
+        } else {
+             db.Product
+             .update({
+                 name: req.body.name,
+                 category_id : req.body.category_id,
+                 price: req.body.price,
+                 description : req.body.description,
+                 stock: req.body.stock,
+             },{
+                 where: {id: productId}
+             })
+             .then(() =>{
+                 return res.redirect('/products/show/'+ productId)
+             })
+    
+        }    
     },
-//
+
 
     show: function (req, res) {
-      
         db.Product.findByPk(req.params.id, {
             include: [{association: 'category'}]
         })

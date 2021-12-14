@@ -48,34 +48,45 @@
 	<form action="/products/create" method="POST">
 
         <!-- Nombre -->
-	<div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input name="name" class="form-control" placeholder="Ingresa el nombre" type="text">
-    </div> 
-
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+           </div>
+              <input name="name" class="form-control <%= locals.errors && errors.name? 'is-invalid' : null %> " type="text" placeholder="Ingresa el nombre"
+              <% if (locals.oldData) { %>
+                value="<%=oldData.name%>"
+               <% }%> 
+              >
+              <% if (locals.errors && errors.name) { %>
+                <div class="error">
+                  <p class="text-danger"> <%= errors.name.msg %> </p>
+                </div>
+              <% } %>
+          </div>
     <!-- /Nombre -->
 
-
     <!-- Categoria -->
-
-
-<!-- /Categoria -->
-
-
-
-
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-cookie"></i> </span>
 		</div>
-		<select class="form-control" name="category_id">
+		<select class="form-control" name="category_id" <%= locals.errors && errors.category_id? 'is-invalid' : null %>>
 			<option selected="" disabled selected> Categorias</option>
-            <% categorias.forEach(category => { %>
-            <option value="<%= category.id %>"><%= category.name %></option>
-            <% }); %>
+            <% categoria.forEach(category => { %>
+            <option value="<%= category.name %>"
+                <%= locals.oldData && (category.name === oldData.category_id)? 'selected' : null %> 
+                ><%= category.name %></option>
+            <% }); %>    
 		</select>
+
+
+        
+        <% if (locals.errors && errors.category_id) { %>
+            <div class="error">
+              <p class="text-danger"> <%= errors.category_id.msg %> </p>
+            </div>
+          <% } %> 
+
 	</div> 
     
     <!-- Precio -->
@@ -83,7 +94,18 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fas fa-money-bill-alt"></i></span>
 		</div>
-        <input class="form-control" name="price" placeholder="Ingresa el precio" type="number">
+        <!-- <input class="form-control" name="price" placeholder="Ingresa el precio" type="number"> -->
+        <input name="price"  class="form-control
+        <%= locals.errors && errors.price? 'is-invalid' : null %>" type="number" placeholder="Ingresa el precio"
+        <% if (locals.oldData) { %>
+          value="<%=oldData.price%>"
+         <% }%> 
+        >
+        <% if (locals.errors && errors.price) { %>
+          <div class="error">
+            <p class="text-danger"> <%= errors.price.msg %> </p>
+          </div>
+        <% } %>
     </div> 
     <!-- /Precio -->
 
@@ -92,63 +114,60 @@
         <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-suitcase" aria-hidden="true"></i></i></span>
         </div>
-        <input class="form-control" name="stock" placeholder="Ingresa el stock" type="number">
+        <!-- <input class="form-control" name="stock" placeholder="Ingresa el stock" type="number"> -->
+        <input name="stock"  class="form-control
+        <%= locals.errors && errors.stock? 'is-invalid' : null %>" type="number" placeholder="Ingresa el stock"
+        <% if (locals.oldData) { %>
+          value="<%=oldData.stock%>"
+         <% }%>>
+
+        <% if (locals.errors && errors.price) { %>
+          <div class="error">
+            <p class="text-danger"> <%= errors.stock.msg %> </p>
+          </div>
+        <% } %>
     </div>
     <!-- /Stock -->
 
-
-      <!-- Flavor -->
-      <!-- <div class="form-group input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-cookie-bite"></i></i></span>
-        </div>
-        <input class="form-control" name="flavor_id" placeholder="Ingresa el gusto" type="number">
-    </div> -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-cookie"></i> </span>
 		</div>
-		<select class="form-control" name="flavor_id">
-			<option selected="" disabled selected> Sabores</option>
+        <select class="form-control" name="flavor_id" <%= locals.errors && errors.flavor_id? 'is-invalid' : null %>>
+			<option selected="" disabled selected>Sabores</option>
             <% flavors.forEach(flavor => { %>
-            <option value="<%= flavor.id %>"><%= flavor.name %></option>
-            <% }); %>
+            <option value="<%= flavor.name %>"
+                <%= locals.oldData && (flavor.name === oldData.flavor_id)? 'selected' : null %> 
+                ><%= flavor.name %></option>
+            <% }); %>    
 		</select>
+        <% if (locals.errors && errors.flavor_id) { %>
+            <div class="error">
+              <p class="text-danger"> <%= errors.flavor_id.msg %> </p>
+            </div>
+          <% } %> 
 	</div> 
     
-  
-	
     <!-- /Flavor-->
-    <!-- Descripcion -->
 
+    <!-- Descripcion -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="far fa-file-alt"></i> </span>
 		</div>
-  
-        <textarea name="description"  class="form-control" cols="30" rows="10"  placeholder="Ingresa una descripción"></textarea>
+        <textarea name="description"  class="form-control" cols="30" rows="10"  placeholder="Ingresa una descripción" <%= locals.errors && errors.description? 'is-invalid' : null %>></textarea>
+        <% if (locals.errors && errors.description) { %>
+            <div class="error">
+              <p class="text-danger"> <%= errors.description.msg %> </p>
+            </div>
+          <% } %> 
     </div> 
     <!-- /Descripcion-->   
     
    
-    <!-- Imagen -->
-<!-- 
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fas fa-images"></i> </span>
-		</div>
-  
-        
-  
-    <input type="file" name="img">
-    </div>  -->
-    
-
-    <!-- /Imagen -->
-    
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"> Crear producto </button>
-    </div> <!--/Imagen-->      
+    </div>    
                                                    
 </form>
 </article>
