@@ -2,11 +2,15 @@
 const path = require("path");
 const fs = require("fs");
 const bcrypt = require("bcryptjs");
-const { validationResult } = require("express-validator");
+const {
+  validationResult
+} = require("express-validator");
 const User = require("../models/User");
 const db = require("../src/database/models");
 const sequelize = db.sequelize;
-const { Op } = require("sequelize");
+const {
+  Op
+} = require("sequelize");
 
 // data base //
 /* const usersFilePath = path.join(__dirname, '../data/usuariosDataBase.json');
@@ -29,10 +33,10 @@ let userController = {
     }
 
     let userInDB = db.Users.findOne({
-      where: {
-        email: req.body.email,
-      },
-    })
+        where: {
+          email: req.body.email,
+        },
+      })
       .then((user) => {
         if (user) {
           res.render("user/register", {
@@ -50,10 +54,10 @@ let userController = {
     let passwordEncry = bcrypt.hashSync(UserPassword, 10);
 
     db.Users.create({
-      email: req.body.email,
-      password: passwordEncry,
-      admin: 0,
-    })
+        email: req.body.email,
+        password: passwordEncry,
+        admin: 0,
+      })
       .then(function () {
         res.redirect("/users/login");
       })
@@ -62,15 +66,17 @@ let userController = {
 
   delete: function (req, res) {
     db.Users.findByPk(req.params.id)
-      .then((users) => res.render("admin/user/delete", { users }))
+      .then((users) => res.render("admin/user/delete", {
+        users
+      }))
       .catch((err) => console.log(err));
   },
   destroy: function (req, res) {
     db.Users.destroy({
-      where: {
-        id: req.params.id,
-      },
-    })
+        where: {
+          id: req.params.id,
+        },
+      })
       .then(() => res.redirect("/users/admin/user/list"))
       .catch((err) => console.log(err));
   },
@@ -84,7 +90,9 @@ let userController = {
   },
   edit: function (req, res) {
     db.Users.findByPk(req.params.id)
-      .then((users) => res.render("admin/user/edit", { users }))
+      .then((users) => res.render("admin/user/edit", {
+        users
+      }))
       .catch((err) => console.log(err));
   },
   update: function (req, res) {
@@ -98,16 +106,13 @@ let userController = {
         },
       });
     } else {
-      db.Users.update(
-        {
+      db.Users.update({
           email: req.body.email,
-        },
-        {
+        }, {
           where: {
             id: req.params.id,
           },
-        }
-      )
+        })
         .then(() => res.redirect('/users/admin/user/list'))
         .catch((errors) => console.log(console.log(errors)));
     }
@@ -129,37 +134,6 @@ let userController = {
   register: function (req, res) {
     res.render("user/register");
   },
-  //      processRegister: function (req, res) {
-  //         const resultValidation = validationResult(req);
-
-  //        if(resultValidation.errors.length > 0){
-  //            return res.render('user/register',{ errors : resultValidation.mapped(),
-  //             oldData : req.body
-  //         })
-  //     }
-  //         let userInDB = User.findByField('email',req.body.email);
-
-  //         if(userInDB){
-  //             return res.render('user/register',{
-  //                 errors : {
-  //                 email: {
-  //                     msg : 'Este Email ya se encuentra registrado'
-  //                 }
-  //             },
-  //                 oldData : req.body
-  //         });
-  //     }
-  //         // Incriptacion de contraseña
-  //         let userToCreate = {
-  //             ...req.body,
-  //             password : bcrypt.hashSync(req.body.password, 10),
-  //             img: req.file.filename
-  //         }
-
-  //          let userCreate = User.create(userToCreate)
-
-  //         return res.redirect('/users/login')
-  // },
   login: function (req, res) {
     res.render("user/login", {
       user: User.getData(),
