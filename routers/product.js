@@ -39,9 +39,9 @@ const upload = multer({
     storage: storage
 })
 
-router.get('/', productController.index);
 
-//Routes CRUD
+//Panel de administracion
+router.get('/admin/products', productController.list);
 router.get('/create', productController.create);
 router.post('/create',validation1,validation2,validation3,productController.store);
 router.get('/show/:id', productController.show);
