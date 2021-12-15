@@ -33,7 +33,6 @@ let productController = {
         Promise.all([
             db.Category.findAll(),
             db.Flavor.findAll(),
-           
         ])
         .then(function ([categoria,flavors]) {
           res.render('product/create',{categoria,flavors})
