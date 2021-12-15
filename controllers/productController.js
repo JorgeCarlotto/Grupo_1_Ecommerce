@@ -21,7 +21,12 @@ const Products = db.Product
 let productController = {
     list: function (req, res) {
         db.Product
-            .findAll()
+            .findAll({
+                include: [
+                    {association: 'category'},
+                    {association: 'flavors'}
+                ]
+            })
             .then(products => res.render('admin/product/list', {
                 products
             }))

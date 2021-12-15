@@ -10,7 +10,7 @@
                 <h1 class="h2">LISTADO DE PRODUCTOS</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
-                        <a class="btn btn-sm btn-outline-success" href="/admin/flavors/create">CREAR PRODUCTO</a>
+                        <a class="btn btn-sm btn-outline-success" href="/admin/products/create">CREAR PRODUCTO</a>
                     </div>
                 </div>
             </div>
@@ -32,8 +32,8 @@
                         <% products.forEach(product => { %>
                         <tr>
                             <td class="text-center"> <%= product.id%></td>
-                            <td> <%= product.category_id%></td>
-                            <td> <%= product.flavor_id%></td>
+                            <td> <%= product.category.name%></td>
+                            <td> <%= product.flavors.name%></td>
                             <td> <%= product.name%></td>
                             <td class="text-center"> <%= product.stock%></td>
                             <td class="text-center">$ <%= product.price%></td>
