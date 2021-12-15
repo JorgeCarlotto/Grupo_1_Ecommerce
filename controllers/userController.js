@@ -156,7 +156,6 @@ let userController = {
             maxAge: 1000 * 60 * 60,
           });
         }
-
         return res.redirect(`profile/${userToLogin.id}`);
       }
       return res.render("user/login", {

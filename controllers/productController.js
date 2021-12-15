@@ -37,20 +37,16 @@ let productController = {
     },
     create: function (req, res) {
         Promise.all([
-                db.Category.findAll(),
-                db.Flavor.findAll(),
+            db.Category.findAll(),
+            db.Flavor.findAll(),
+        ])
+        .then(function ([categoria,flavors]) {
+          res.render('product/create',{categoria,flavors})
+        })
 
-            ])
-            .then(function ([categoria, flavors]) {
-                res.render('product/create', {
-                    categoria,
-                    flavors
-                })
-            })
-
-            .catch((error) => {
-                res.send(error)
-            })
+        .catch((error) =>{
+            res.send(error)
+        })
     },
 
 
