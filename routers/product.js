@@ -42,11 +42,11 @@ const upload = multer({
 
 //Panel de administracion
 router.get('/admin/products', productController.list);
-router.get('/create', productController.create);
+router.get('/admin/products/create', productController.create);
 router.post('/create',validation1,validation2,validation3,productController.store);
 router.get('/show/:id', productController.show);
 router.delete('/show/:id', productController.destroy);
-router.get('/edit/:id', productController.edit);
+router.get('/admin/products/:id/edit', productController.edit);
 router.post('/edit/:id',validation2, productController.update);
 //router.put('/edit/update/:id', productController.update)
 //buscar

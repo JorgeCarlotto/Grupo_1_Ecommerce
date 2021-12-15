@@ -22,9 +22,12 @@ let productController = {
     list: function (req, res) {
         db.Product
             .findAll({
-                include: [
-                    {association: 'category'},
-                    {association: 'flavors'}
+                include: [{
+                        association: 'category'
+                    },
+                    {
+                        association: 'flavors'
+                    }
                 ]
             })
             .then(products => res.render('admin/product/list', {
@@ -48,8 +51,6 @@ let productController = {
             res.send(error)
         })
     },
-
-
     store: function (req, res) {
         const validation = validationResult(req);
         if (validation.errors.length > 0) {
@@ -79,7 +80,6 @@ let productController = {
                 .then(() => res.redirect('/products'))
         }
     },
-
     edit: function (req, res) {
         Promise.all([
                 db.Category.findAll(),
@@ -95,7 +95,6 @@ let productController = {
             })
 
     },
-
     update: function (req, res) {
         const validation = validationResult(req)
         const productId = req.params.id
@@ -135,8 +134,6 @@ let productController = {
 
         }
     },
-
-
     show: function (req, res) {
         db.Product.findByPk(req.params.id, {
                 include: [{
@@ -153,8 +150,6 @@ let productController = {
     shoppingCart: function (req, res) {
         res.render('product/shoppingCart')
     },
-
-    //
     destroy: (req, res) => {
 
         let productId = req.params.id;
@@ -172,7 +167,6 @@ let productController = {
             .catch(error => res.send(error))
 
     },
-
     search: (req, res) => {
         let productoBuscado = req.query.search;
 
@@ -191,7 +185,5 @@ let productController = {
             })
             .catch(error => res.send(error))
     }
-
 }
-
 module.exports = productController;
