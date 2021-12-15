@@ -30,13 +30,13 @@ app.use(express.urlencoded({
 app.use(methodOverride('_method'));
 
 //Server Up
-app.listen(3002, () => console.log('Server running...'));
+app.listen(3001, () => console.log('Server running...'));
 
 //URL
 app.use(routerFlavor);
 app.use(routersAdmin);
 app.use(routerCategory);
-app.use('/products', routersProducts);
+app.use(routersProducts);
 app.use('/users', routerUser);
 app.use('/', routersMain);
 

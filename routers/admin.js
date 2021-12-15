@@ -19,7 +19,6 @@ const adminController = require('../controllers/adminController');
 
 //Panel de administracion
 router.get('/admin', adminController.admin);
-router.get('/admin/products', adminController.adminProducts);
 
 //Administracion de empresa
 router.get('/admin/company', adminController.companyShow);
