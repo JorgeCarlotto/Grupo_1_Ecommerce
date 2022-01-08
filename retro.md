@@ -86,3 +86,41 @@ Mantener el nivel de compromiso por parte del equipo con el proyecto, brindándo
 Dejar pasar el tiempo de las actividades, provocando mayor carga de trabajo días antes de la entrega del sprint. Trabajar únicamente en la rama “master”. 
 **5-**
 Desperdiciar el tiempo que tenemos al momento de conectarnos todos juntos. No comunicarnos entre nosotros cuando tenemos algún problema que nos tiene demorados en el cumplimiento de la actividad asignada. 
+
+
+******* Sprint 6 ******* 
+
+1. Comenzar a hacer.
+2. Hacer más.
+3. Continuar haciendo.
+4. Hacer menos.
+5. Dejar de hacer.
+
+*1*
+Administrar el tiempo de las actividades, definir fechas parciales de los avances del esprint. 
+*2*
+Ser mas positivos y trabajar la frustración. Diagramar de forma eficiente la base de datos antes de iniciar el proyecto.
+*3*
+Continuar con la responsabilidad para el proyecto. 
+*4*
+Dejar de gastar nuestro tiempo en las reuniones, y aprovechar ese tiempo para ser más productivos.
+*5*
+Dejar todo para ultimo momento. Aprovechar las clases de consultas.
+******* Sprint 7 ******* 
+
+1. Comenzar a hacer.
+2. Hacer más.
+3. Continuar haciendo.
+4. Hacer menos.
+5. Dejar de hacer.
+
+*1*
+Comenzar a planificar el Final del Proyecto y diagramar nuestro Front implementando REACT. 
+*2*
+Practicar y estudiar la teoría impartida en el curso, para aplicarla de mejor manera a nuestro Proyecto. 
+*3*
+Seguir contándonos, manteniendo el compromiso y el cumplimiento de nuestras metas y objetivos para el sprint y continuar analizando y buscando la manera de validar un select dinámico ya que nos causó varios problemas a la hora de validar ya que no pudimos realizarlo con éxito.
+*4*
+Hacer comentarios innecesarios en el código, comentar códigos de prueba y no eliminarlo después , espacios sin sentido. 
+*5*
+No cumplir con las metas planteadas al comienzo del sprint, intentar reprogramarlas a tiempo para no fallar el objetivo final.
