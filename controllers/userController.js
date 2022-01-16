@@ -8,8 +8,7 @@ const {
 const User = require("../models/User");
 const db = require("../src/database/models");
 const sequelize = db.sequelize;
-const {
-  Op
+const {Op
 } = require("sequelize");
 
 // data base //
@@ -89,6 +88,7 @@ let userController = {
     });
   },
   edit: function (req, res) {
+    /* console.log(db.Users) */
     db.Users.findByPk(req.params.id)
       .then((users) => res.render("admin/user/edit", {
         users

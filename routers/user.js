@@ -93,6 +93,10 @@ router.post('/admin/user/create',userController.createProcess)
 router.get('/admin/user/:id/edit',userController.edit)
 router.put('/admin/user/:id/edit',validationUpDate,userController.update)
 
+//URL APIs
+
+
+
 //router edit and update//
 //router.get('/edit/:id',userController.edit );
 
