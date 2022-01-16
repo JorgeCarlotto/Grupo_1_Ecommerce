@@ -34,7 +34,8 @@
                 null %>">
                   <option selected disabled>Categorias</option>
                   <% for(const category of categories) { %>
-                    <option value="<%= category.id %>" <%= (product.category_id==category.id) ? 'selected' : null %>><%= category.name %>
+                    <option value="<%= category.id %>" <%=locals.oldData && (oldData.category_id==category.id
+                        )?'selected' : null%> <%= locals.oldData == undefined ? (product.category_id == category.id ? 'selected': null) : null %> ><%= category.name %>
                     </option>
                     <% } %>
                 </select>
