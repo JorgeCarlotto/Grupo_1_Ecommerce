@@ -33,7 +33,7 @@
                 <select name="category_id" class="form-control <%=locals.errors && errors.category_id? 'is-invalid' :
                 null %>">
                   <option selected disabled>Categorias</option>
-                  <% for(const category of categoria) { %>
+                  <% for(const category of categories) { %>
                     <option value="<%= category.id %>" <%=locals.oldData && (oldData.category_id==category.id
                       )?'selected' : null%>><%= category.name %>
                     </option>

@@ -49,16 +49,15 @@ let productController = {
                 db.Category.findAll(),
                 db.Flavor.findAll(),
             ])
-                .then(function ([categoria, flavors]) {
-                    console.log(req.body);
+                .then(function ([categories, flavors]) {
+                    console.log(req.body)
                     res.render('admin/product/create', {
                         errors: validation.mapped(),
                         oldData: req.body,
-                        categoria,
+                        categories,
                         flavors
                     })
                 })
-
         } else {
             let status = true;
             if (stock <= 0) {
