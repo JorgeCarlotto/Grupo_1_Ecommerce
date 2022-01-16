@@ -22,7 +22,8 @@ const usersAPIController = {
                     total: users.length,
                     url: 'api/users'
                 },
-                data: users
+                data: users,
+        
             }
                 res.json(respuesta);
             })
