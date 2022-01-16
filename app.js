@@ -12,7 +12,8 @@ const routersMain = require('./routers/main.js');
 const routerCategory = require('./routers/category');
 const methodOverride = require('method-override');
 const routerFlavor = require('./routers/flavor.js');
-const apiUsersRouter = require('./routers/api/apiUsersRouter')
+const apiUsersRouter = require('./routers/api/apiUsersRouter');
+const apiProductsRouter = require('./routers/api/apiProductsRouter');
 const app = express();
 
 
@@ -44,6 +45,7 @@ app.use('/', routersMain);
 // URL APIs
 
 app.use('/api/users',apiUsersRouter)
+app.use('/api/products',apiProductsRouter)
 
 
 app.use((req, res, next) => {
