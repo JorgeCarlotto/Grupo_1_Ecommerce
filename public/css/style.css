@@ -17,10 +17,15 @@
 
 /* Header */
 
-
+.header{
+  position: fixed;
+   z-index: 100;
+   width: 100%;
+}
 .navbar {
   background-color: #f5f5f5 !important;
 }
+
 
 .col {
   background-color: #f5f5f5 !important;
