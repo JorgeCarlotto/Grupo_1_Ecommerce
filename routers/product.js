@@ -36,11 +36,10 @@ router.get('/admin/products/create', productController.create);
 router.post('/admin/products/create', validationStoreUpdate ,productController.store);
 router.get('/admin/products/:id/edit', productController.edit);
 router.put('/admin/products/:id/edit',validationStoreUpdate, productController.update)
+router.get('/admin/products/:id/delete', productController.delete);
+router.delete('/admin/products/:id/delete', productController.destroy);
 
-router.delete('/show/:id', productController.destroy);
 router.get('/show/:id', productController.show);
-
-// router.post('/edit/:id', productController.update);
 //buscar
 router.get('/search', productController.search)
 

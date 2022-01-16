@@ -3,9 +3,6 @@ const { render } = require('ejs');
 const { validationResult } = require('express-validator');
 const { restart } = require('nodemon');
 
-
-const Products = db.Product
-
 let productController = {
     list: function (req, res) {
         db.Product
@@ -88,13 +85,13 @@ let productController = {
     update: function (req, res) {
         const validation = validationResult(req)
         const { name, category_id, price, description, stock, flavor_id, img, status } = req.body;
-        const productId = req.params.id
+        const { id } = req.params
 
         if (validation.errors.length > 0) {
             Promise.all([
                 db.Category.findAll(),
                 db.Flavor.findAll(),
-                db.Product.findByPk(req.params.id)
+                db.Product.findByPk(id)
             ])
 
                 .then(function ([categories, flavors, product]) {
@@ -138,19 +135,21 @@ let productController = {
     shoppingCart: function (req, res) {
         res.render('product/shoppingCart')
     },
+    delete: function (req, res) {
+        db.Product
+            .findByPk(req.params.id)
+            .then(product => res.render('admin/product/delete', {
+                product
+            }));
+    },
     destroy: (req, res) => {
-
-        let productId = req.params.id;
-
+        const { id } = req.params;
         db.Product
             .destroy({
-                where: {
-                    id: productId
-                },
-                force: true
+                where: { id }, force: true
             })
             .then(() => {
-                return res.redirect('/')
+                return res.redirect('/admin/products')
             })
             .catch(error => res.send(error))
 
