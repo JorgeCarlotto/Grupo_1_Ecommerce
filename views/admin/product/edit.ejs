@@ -1,0 +1,115 @@
+<%- include('../../admin/partials/header.ejs') %>
+
+  <div class="container-fluid">
+    <div class="row">
+      <%- include('../../admin/partials/navbar.ejs') %>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <form class="row g-3" action="/admin/products/<%= product.id %>/edit?_method=PUT" method="POST">
+            <div
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">DATOS DEL PRODUCTO</h1>
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                  <button type="submit" class="btn btn-sm btn-outline-success">GUARDAR</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <label class="form-label">Nombre del producto</label>
+              <input type="text" name="name"
+                class="form-control <%= (locals.errors && errors.name) ? 'is-invalid' : null %>"
+                value="<%= locals.oldData ? oldData.name : product.name %>">
+              <div id="emailHelp" class="form-text text-danger">
+                <% if (locals.errors && errors.name) { %>
+                  <%= errors.name.msg %>
+                    <% } %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Categoria</label>
+              <div class="input-group">
+                <span class="input-group-text"><span data-feather="layers"></span></span>
+                <select name="category_id" class="form-control <%=locals.errors && errors.category_id? 'is-invalid' :
+                null %>">
+                  <option selected disabled>Categorias</option>
+                  <% for(const category of categories) { %>
+                    <option value="<%= category.id %>" <%= (product.category_id==category.id) ? 'selected' : null %>><%= category.name %>
+                    </option>
+                    <% } %>
+                </select>
+              </div>
+              <div id="emailHelp" class="form-text text-danger">
+                <% if (locals.errors && errors.category_id) { %>
+                  <%= errors.category_id.msg %>
+                    <% } %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Precio</label>
+              <div class="input-group">
+                <span class="input-group-text"><span data-feather="dollar-sign"></span></span>
+                <input type="text" name="price"
+                  class="form-control <%= (locals.errors && errors.price) ? 'is-invalid' : null %>"
+                  value="<%= locals.oldData ? oldData.price : product.price %>">
+              </div>
+              <div id="emailHelp" class="form-text text-danger">
+                <% if (locals.errors && errors.price) { %>
+                  <%= errors.price.msg %>
+                    <% } %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Stock</label>
+              <div class="input-group">
+                <span class="input-group-text"><span data-feather="clipboard"></span></span>
+                <input type="text" name="stock"
+                  class="form-control <%= (locals.errors && errors.stock) ? 'is-invalid' : null %>"
+                  value="<%= locals.oldData ? oldData.stock : product.stock %>">
+              </div>
+              <div id="emailHelp" class="form-text text-danger">
+                <% if (locals.errors && errors.stock) { %>
+                  <%= errors.stock.msg %>
+                    <% } %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Sabores</label>
+              <div class="input-group">
+                <span class="input-group-text"><span data-feather="droplet"></span></span>
+                <select name="flavor_id" class="form-control <%=locals.errors && errors.flavor_id? 'is-invalid' : null
+                %>">
+                  <option disabled>Sabores</option>
+                  <% for(const flavor of flavors) { %>
+                    <option value="<%= flavor.id %>" <%=locals.oldData && (oldData.flavor_id==flavor.id
+                        )?'selected' : null%> <%= locals.oldData == undefined ? (product.flavor_id == flavor.id ? 'selected': null) : null %> ><%= flavor.name %>
+                    </option>
+                    <% } %>
+                </select>
+              </div>
+              <div id="emailHelp" class="form-text text-danger">
+                <% if (locals.errors && errors.flavor_id) { %>
+                  <%= errors.flavor_id.msg %>
+                    <% } %>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label class="form-label">Descripción</label>
+              <textarea name="description" cols="30" rows="5"
+                class="form-control <%= (locals.errors && errors.description) ? 'is-invalid' : null %>"><%= locals.oldData ? oldData.description : product.description %></textarea>
+              <div id="emailHelp" class="form-text text-danger">
+                <% if (locals.errors && errors.description) { %>
+                  <%= errors.description.msg %>
+                    <% } %>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label class="form-label">Imagen</label>
+              <input type="file" class="form-control" name="img">
+            </div>
+          </form>
+        </main>
+    </div>
+  </div>
+
+  <%- include('../../admin/partials/footer.ejs') %>

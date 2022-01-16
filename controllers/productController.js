@@ -31,8 +31,8 @@ let productController = {
             db.Category.findAll(),
             db.Flavor.findAll(),
         ])
-            .then(function ([categoria, flavors]) {
-                res.render('admin/product/create', { categoria, flavors })
+            .then(function ([categories, flavors]) {
+                res.render('admin/product/create', { categories, flavors })
             })
 
             .catch((error) => {
@@ -76,18 +76,20 @@ let productController = {
             db.Flavor.findAll(),
             db.Product.findByPk(req.params.id)
         ])
-            .then(function ([categoria, flavors, producto]) {
-                res.render('product/edit', {
-                    categoria,
+            .then(function ([categories, flavors, product]) {
+                res.render('admin/product/edit', {
+                    categories,
                     flavors,
-                    producto
+                    product
                 })
             })
 
     },
     update: function (req, res) {
         const validation = validationResult(req)
+        const { name, category_id, price, description, stock, flavor_id, img, status } = req.body;
         const productId = req.params.id
+
         if (validation.errors.length > 0) {
             Promise.all([
                 db.Category.findAll(),
@@ -95,32 +97,28 @@ let productController = {
                 db.Product.findByPk(req.params.id)
             ])
 
-                .then(function ([categoria, flavors, producto]) {
-                    res.render('product/edit', {
+                .then(function ([categories, flavors, product]) {
+                    res.render('admin/product/edit', {
                         errors: validation.mapped(),
                         oldData: req.body,
-                        categoria: categoria,
-                        flavors: flavors,
-                        producto: producto
+                        categories,
+                        flavors,
+                        product
                     })
                 })
 
         } else {
+            let status = true;
+            if (stock <= 0) {
+                status = false;
+            } else {
+                status = true;
+            }
             db.Product
-                .update({
-                    name: req.body.name,
-                    category_id: req.body.category_id,
-                    price: req.body.price,
-                    description: req.body.description,
-                    stock: req.body.stock,
-                }, {
-                    where: {
-                        id: productId
-                    }
+                .update({ name, category_id, price, description, stock, flavor_id, img, status }, {
+                    where: { id: productId }
                 })
-                .then(() => {
-                    return res.redirect('/products/show/' + productId)
-                })
+                .then(() => res.redirect('/admin/products'))
 
         }
     },

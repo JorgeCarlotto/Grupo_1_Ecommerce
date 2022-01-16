@@ -6,7 +6,7 @@ const multer = require('multer');
 const router = express.Router();
 const { body } = require('express-validator');
 
-const validationStore = [
+const validationStoreUpdate = [
     body('name').notEmpty().withMessage('Ingresa un nombre'),
     body('price').notEmpty().withMessage('Debes poner el precio'),
     body('stock').notEmpty().withMessage('Debes poner stock'),
@@ -33,12 +33,14 @@ const upload = multer({
 //Panel de administracion
 router.get('/admin/products', productController.list);
 router.get('/admin/products/create', productController.create);
-router.post('/admin/products/create', validationStore ,productController.store);
-router.get('/show/:id', productController.show);
-router.delete('/show/:id', productController.destroy);
+router.post('/admin/products/create', validationStoreUpdate ,productController.store);
 router.get('/admin/products/:id/edit', productController.edit);
-router.post('/edit/:id', productController.update);
-//router.put('/edit/update/:id', productController.update)
+router.put('/admin/products/:id/edit',validationStoreUpdate, productController.update)
+
+router.delete('/show/:id', productController.destroy);
+router.get('/show/:id', productController.show);
+
+// router.post('/edit/:id', productController.update);
 //buscar
 router.get('/search', productController.search)
 
