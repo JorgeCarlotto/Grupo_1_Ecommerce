@@ -37,9 +37,9 @@ let productController = {
             })
     },
     store: function (req, res) {
-
         const validation = validationResult(req);
-        const { name, category_id, price, description, stock, flavor_id, img } = req.body;
+        const { name, category_id, price, description, stock, flavor_id } = req.body;
+        let img = req.body.img;
 
         if (validation.errors.length > 0) {
             Promise.all([
@@ -56,11 +56,17 @@ let productController = {
                     })
                 })
         } else {
+            let imgFile = req.file;
             let status = true;
             if (stock <= 0) {
                 status = false;
             } else {
                 status = true;
+            }
+            if (imgFile) {
+                img = imgFile.filename;
+            } else {
+                img = 'product-default.png';
             }
             return db.Product
                 .create({ name, category_id, price, description, stock, flavor_id, img, status })
@@ -84,8 +90,9 @@ let productController = {
     },
     update: function (req, res) {
         const validation = validationResult(req)
-        const { name, category_id, price, description, stock, flavor_id, img, status } = req.body;
+        const { name, category_id, price, description, stock, flavor_id, imgUpload } = req.body;
         const { id } = req.params
+        let imgFile = req.body.img;
 
         if (validation.errors.length > 0) {
             Promise.all([
@@ -105,15 +112,24 @@ let productController = {
                 })
 
         } else {
+            let imgFile = req.file;
             let status = true;
             if (stock <= 0) {
                 status = false;
             } else {
                 status = true;
             }
+
+            if(imgFile){
+                img = imgFile.filename;
+            }else if(imgUpload){
+                img = imgUpload
+            }else{
+                img = 'product-default.png';
+            }
             db.Product
                 .update({ name, category_id, price, description, stock, flavor_id, img, status }, {
-                    where: { id: productId }
+                    where: { id }
                 })
                 .then(() => res.redirect('/admin/products'))
 

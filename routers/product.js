@@ -16,7 +16,7 @@ const validationStoreUpdate = [
 ];
 
 //Config multer
-const storage = multer.diskStorage({
+const multerDiskStorage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, path.join(__dirname, '../public/img/products'))
     },
@@ -25,17 +25,14 @@ const storage = multer.diskStorage({
         cb(null, newFileName)
     }
 })
-
-const upload = multer({
-    storage: storage
-})
+const fileUploadImg = multer({ storage: multerDiskStorage })
 
 //Panel de administracion
 router.get('/admin/products', productController.list);
 router.get('/admin/products/create', productController.create);
-router.post('/admin/products/create', validationStoreUpdate ,productController.store);
+router.post('/admin/products/create', fileUploadImg.single('img'), validationStoreUpdate, productController.store);
 router.get('/admin/products/:id/edit', productController.edit);
-router.put('/admin/products/:id/edit',validationStoreUpdate, productController.update)
+router.put('/admin/products/:id/edit', fileUploadImg.single('img'), validationStoreUpdate, productController.update)
 router.get('/admin/products/:id/delete', productController.delete);
 router.delete('/admin/products/:id/delete', productController.destroy);
 

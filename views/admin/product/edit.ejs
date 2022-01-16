@@ -5,7 +5,8 @@
       <%- include('../../admin/partials/navbar.ejs') %>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <form class="row g-3" action="/admin/products/<%= product.id %>/edit?_method=PUT" method="POST">
+          <form class="row g-3" action="/admin/products/<%= product.id %>/edit?_method=PUT" method="POST"
+            enctype="multipart/form-data">
             <div
               class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 class="h2">DATOS DEL PRODUCTO</h1>
@@ -35,7 +36,9 @@
                   <option selected disabled>Categorias</option>
                   <% for(const category of categories) { %>
                     <option value="<%= category.id %>" <%=locals.oldData && (oldData.category_id==category.id
-                        )?'selected' : null%> <%= locals.oldData == undefined ? (product.category_id == category.id ? 'selected': null) : null %> ><%= category.name %>
+                      )?'selected' : null%>
+                      <%= locals.oldData==undefined ? (product.category_id==category.id ? 'selected' : null) : null %> >
+                        <%= category.name %>
                     </option>
                     <% } %>
                 </select>
@@ -82,8 +85,10 @@
                 %>">
                   <option disabled>Sabores</option>
                   <% for(const flavor of flavors) { %>
-                    <option value="<%= flavor.id %>" <%=locals.oldData && (oldData.flavor_id==flavor.id
-                        )?'selected' : null%> <%= locals.oldData == undefined ? (product.flavor_id == flavor.id ? 'selected': null) : null %> ><%= flavor.name %>
+                    <option value="<%= flavor.id %>" <%=locals.oldData && (oldData.flavor_id==flavor.id )?'selected' :
+                      null%>
+                      <%= locals.oldData==undefined ? (product.flavor_id==flavor.id ? 'selected' : null) : null %> ><%=
+                          flavor.name %>
                     </option>
                     <% } %>
                 </select>
@@ -104,9 +109,14 @@
                     <% } %>
               </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-3 text-center">
+              <img style="height:80px" src="/img/products/<%= product.img ?  product.img : 'product-default.png' %> "
+                alt="img">
+            </div>
+            <div class="col-md-9">
               <label class="form-label">Imagen</label>
               <input type="file" class="form-control" name="img">
+              <input name="imgUpload" type="hidden" value="<%= product.img %>">
             </div>
           </form>
         </main>
