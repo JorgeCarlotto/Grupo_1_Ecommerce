@@ -7,7 +7,7 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         name: {
-            type: dataTypes.STRING(100),
+            type: dataTypes.STRING,
             allowNull: false
         },
         description: {
@@ -32,20 +32,24 @@ module.exports = (sequelize, dataTypes) => {
         },
         flavor_id: {
             type: dataTypes.INTEGER
+        },
+        img: {
+            type: dataTypes.INTEGER
         }
     };
     let config = {
         tableName: 'products',
-        timestamps:false
+        timestamps: false
     };
+    
     const Product = sequelize.define(alias, cols, config)
 
-    Product.associate = function (models){
-        Product.belongsTo(models.Category,{
+    Product.associate = function (models) {
+        Product.belongsTo(models.Category, {
             as: 'category',
             foreignKey: 'category_id'
         })
-        Product.belongsTo(models.Flavor,{
+        Product.belongsTo(models.Flavor, {
             as: 'flavors',
             foreignKey: 'flavor_id'
         })

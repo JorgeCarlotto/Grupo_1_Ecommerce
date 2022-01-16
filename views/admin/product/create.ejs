@@ -1,35 +1,71 @@
 <%- include('../../admin/partials/header.ejs') %>
 
-<div class="container-fluid">
-  <div class="row">
-    <%- include('../../admin/partials/navbar.ejs') %>
+  <div class="container-fluid">
+    <div class="row">
+      <%- include('../../admin/partials/navbar.ejs') %>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <form method="POST" action="/admin/categories/create">
-        <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">CREAR CATEGORIA</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group me-2">
-              <button type="submit" class="btn btn-sm btn-outline-success"
-                href="/admin/categories/create">GUARDAR</button>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <form class="row g-3" action="/products/create" method="POST">
+            <div
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">DATOS DEL PRODUCTO</h1>
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                  <button type="submit" class="btn btn-sm btn-outline-success">CREAR</button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div>
-          <div class="mb-3">
-            <label for="name" class="form-label">Nombre de categoria</label>
-            <input type="text" class="form-control <%= (locals.errors && errors.name) ? 'is-invalid' : null %>" name="name" value="<% locals.oldDate ? oldDate.name : null %>">
-            <div id="emailHelp" class="form-text text-danger">
-              <% if (locals.errors && errors.name) { %>
-                <%= errors.name.msg %>
-              <% } %>
+            <div class="col-md-8">
+              <label class="form-label">Nombre del producto</label>
+              <input type="text" class="form-control" name="name">
             </div>
-          </div>
-        </div>
-      </form>
-    </main>
+            <div class="col-md-4">
+              <label class="form-label">Categoria</label>
+              <div class="input-group">
+                <span class="input-group-text"><span data-feather="layers"></span></span>
+                <select class="form-control" name="category_id" <%=locals.errors && errors.category_id? 'is-invalid' :
+                  null %>>
+                  <option selected="" disabled selected> Categorias</option>
+                  <% categoria.forEach(category=> { %>
+                    <option value="<%= category.name %>" <%=locals.oldData &&
+                      (category.name===oldData.category_id)? 'selected' : null %>
+                      ><%= category.name %>
+                    </option>
+                    <% }); %>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Precio</label>
+              <input type="text" class="form-control" name="price">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Stock</label>
+              <input type="text" class="form-control" name="stock">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Sabores</label>
+              <div class="input-group">
+                <span class="input-group-text"><span data-feather="droplet"></span></span>
+                <select class="form-control" name="flavor_id" <%=locals.errors && errors.flavor_id? 'is-invalid' : null
+                  %>>
+                  <option selected="" disabled selected> Sabores</option>
+                  <% flavors.forEach(flavor=> { %>
+                    <option value="<%= flavor.name %>" <%=locals.oldData &&
+                      (flavor.name===oldData.flavor_id)? 'selected' : null %>
+                      ><%= flavor.name %>
+                    </option>
+                    <% }); %>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label class="form-label">Descripción</label>
+              <textarea name="" cols="30" rows="5" class="form-control"></textarea>
+            </div>
+          </form>
+        </main>
+    </div>
   </div>
-</div>
 
-<%- include('../../admin/partials/footer.ejs') %>
+  <%- include('../../admin/partials/footer.ejs') %>
