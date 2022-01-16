@@ -7,28 +7,22 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         name: {
-            type: dataTypes.STRING,
-            allowNull: false
+            type: dataTypes.STRING
         },
         description: {
-            type: dataTypes.STRING,
-            allowNull: false
+            type: dataTypes.STRING
         },
         stock: {
-            type: dataTypes.INTEGER,
-            allowNull: false
+            type: dataTypes.INTEGER
         },
         price: {
-            type: dataTypes.FLOAT,
-            allowNull: false
+            type: dataTypes.FLOAT
         },
         status: {
-            type: dataTypes.BOOLEAN,
-            defaultValue: true
+            type: dataTypes.BOOLEAN
         },
         category_id: {
-            type: dataTypes.INTEGER,
-            allowNull: false
+            type: dataTypes.INTEGER
         },
         flavor_id: {
             type: dataTypes.INTEGER

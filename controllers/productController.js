@@ -1,19 +1,7 @@
 const db = require('../src/database/models');
-const sequelize = db.sequelize;
-const {
-    Op
-} = require("sequelize");
-
-
-const {
-    render
-} = require('ejs');
-const {
-    validationResult
-} = require('express-validator');
-const {
-    restart
-} = require('nodemon');
+const { render } = require('ejs');
+const { validationResult } = require('express-validator');
+const { restart } = require('nodemon');
 
 
 const Products = db.Product
@@ -23,11 +11,11 @@ let productController = {
         db.Product
             .findAll({
                 include: [{
-                        association: 'category'
-                    },
-                    {
-                        association: 'flavors'
-                    }
+                    association: 'category'
+                },
+                {
+                    association: 'flavors'
+                }
                 ]
             })
             .then(products => res.render('admin/product/list', {
@@ -43,23 +31,27 @@ let productController = {
             db.Category.findAll(),
             db.Flavor.findAll(),
         ])
-        .then(function ([categoria,flavors]) {
-          res.render('product/create',{categoria,flavors})
-        })
+            .then(function ([categoria, flavors]) {
+                res.render('admin/product/create', { categoria, flavors })
+            })
 
-        .catch((error) =>{
-            res.send(error)
-        })
+            .catch((error) => {
+                res.send(error)
+            })
     },
     store: function (req, res) {
+
         const validation = validationResult(req);
+        const { name, category_id, price, description, stock, flavor_id, img } = req.body;
+
         if (validation.errors.length > 0) {
             Promise.all([
-                    db.Category.findAll(),
-                    db.Flavor.findAll(),
-                ])
+                db.Category.findAll(),
+                db.Flavor.findAll(),
+            ])
                 .then(function ([categoria, flavors]) {
-                    res.render('product/create', {
+                    console.log(req.body);
+                    res.render('admin/product/create', {
                         errors: validation.mapped(),
                         oldData: req.body,
                         categoria,
@@ -68,24 +60,23 @@ let productController = {
                 })
 
         } else {
-            db.Product
-                .create({
-                    name: req.body.name,
-                    category_id: req.body.category_id,
-                    price: req.body.price,
-                    description: req.body.description,
-                    stock: req.body.stock,
-                    flavor_id: req.body.flavor_id,
-                })
-                .then(() => res.redirect('/products'))
+            let status = true;
+            if (stock <= 0) {
+                status = false;
+            } else {
+                status = true;
+            }
+            return db.Product
+                .create({ name, category_id, price, description, stock, flavor_id, img, status })
+                .then(() => res.redirect('/admin/products'));
         }
     },
     edit: function (req, res) {
         Promise.all([
-                db.Category.findAll(),
-                db.Flavor.findAll(),
-                db.Product.findByPk(req.params.id)
-            ])
+            db.Category.findAll(),
+            db.Flavor.findAll(),
+            db.Product.findByPk(req.params.id)
+        ])
             .then(function ([categoria, flavors, producto]) {
                 res.render('product/edit', {
                     categoria,
@@ -100,10 +91,10 @@ let productController = {
         const productId = req.params.id
         if (validation.errors.length > 0) {
             Promise.all([
-                    db.Category.findAll(),
-                    db.Flavor.findAll(),
-                    db.Product.findByPk(req.params.id)
-                ])
+                db.Category.findAll(),
+                db.Flavor.findAll(),
+                db.Product.findByPk(req.params.id)
+            ])
 
                 .then(function ([categoria, flavors, producto]) {
                     res.render('product/edit', {
@@ -136,10 +127,10 @@ let productController = {
     },
     show: function (req, res) {
         db.Product.findByPk(req.params.id, {
-                include: [{
-                    association: 'category'
-                }]
-            })
+            include: [{
+                association: 'category'
+            }]
+        })
             .then(product => {
                 res.render('product/show', {
                     product
@@ -171,12 +162,12 @@ let productController = {
         let productoBuscado = req.query.search;
 
         db.Product.findAll({
-                where: {
-                    name: {
-                        [Op.like]: '%' + productoBuscado + '%'
-                    }
+            where: {
+                name: {
+                    [Op.like]: '%' + productoBuscado + '%'
                 }
-            })
+            }
+        })
             .then(products => {
                 console.log(products)
                 res.render('product/findProducts', {

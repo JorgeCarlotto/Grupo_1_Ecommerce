@@ -14,7 +14,6 @@
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
-
  <!-- CSS interno -->
  <link rel="stylesheet" href="/css/style.css">
 
@@ -45,7 +44,7 @@
     <div  class="galleta" > <img src="/img/cookies.png"  alt="">
     </div>
 
-	<form action="/products/create" method="POST" class="formulario" id="formulario">
+	<form action="/admin/products/create" method="POST" class="formulario" id="formulario">
 
         <!-- Nombre -->
         <div class="form-group input-group formulario__grupo"  id="grupo__nombre">
@@ -83,7 +82,7 @@
         <select class="form-control" name="category_id" <%= locals.errors && errors.category_id? 'is-invalid' : null %>>
           <option selected="" disabled selected> Categorias</option>
                 <% categoria.forEach(category => { %>
-                <option value="<%= category.name %>"
+                <option value="<%= category.id %>"
                     <%= locals.oldData && (category.name === oldData.category_id)? 'selected' : null %> 
                     ><%= category.name %></option>
                 <% }); %>    
@@ -158,7 +157,7 @@
         <select class="form-control" name="flavor_id" <%= locals.errors && errors.flavor_id? 'is-invalid' : null %>>
 			<option selected="" disabled selected>Sabores</option>
             <% flavors.forEach(flavor => { %>
-            <option value="<%= flavor.name %>"
+            <option value="<%= flavor.id %>"
                 <%= locals.oldData && (flavor.name === oldData.flavor_id)? 'selected' : null %> 
                 ><%= flavor.name %></option>
             <% }); %>    
@@ -216,6 +215,6 @@
 <!-- Footer -->
 <%- include('../partials/footer.ejs') %>
 <!-- /Footer -->
-<script src="/js/validacionesProductos.js"></script>
+<!-- <script src="/js/validacionesProductos.js"></script> -->
 </body>
 </html>
