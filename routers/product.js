@@ -4,51 +4,39 @@ let productController = require('../controllers/productController.js');
 const path = require('path');
 const multer = require('multer');
 const router = express.Router();
-const {
-    body
-} = require('express-validator');
+const { body } = require('express-validator');
 
-
-const validation1 = [
+const validationStoreUpdate = [
     body('name').notEmpty().withMessage('Ingresa un nombre'),
     body('price').notEmpty().withMessage('Debes poner el precio'),
     body('stock').notEmpty().withMessage('Debes poner stock'),
-    // body('description').notEmpty().withMessage('Debes poner una descripción')
-];
-
-
-const validation2 = [
-  body('category_id').notEmpty().withMessage('Debes elegir una categoria'),
-];
-const validation3 = [
+    body('category_id').notEmpty().withMessage('Debes elegir una categoria'),
     body('flavor_id').notEmpty().withMessage('Debes elegir un gusto'),
+    body('description').notEmpty().withMessage('Debes poner una descripción')
 ];
 
 //Config multer
-const storage = multer.diskStorage({
+const multerDiskStorage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname,'../public/img/products'))
+        cb(null, path.join(__dirname, '../public/img/products'))
     },
     filename: function (req, file, cb) {
         const newFileName = 'product-' + Date.now() + path.extname(file.originalname);
         cb(null, newFileName)
     }
 })
-
-const upload = multer({
-    storage: storage
-})
-
+const fileUploadImg = multer({ storage: multerDiskStorage })
 
 //Panel de administracion
 router.get('/admin/products', productController.list);
 router.get('/admin/products/create', productController.create);
-router.post('/create',validation1,validation2,validation3,productController.store);
-router.get('/show/:id', productController.show);
-router.delete('/show/:id', productController.destroy);
+router.post('/admin/products/create', fileUploadImg.single('img'), validationStoreUpdate, productController.store);
 router.get('/admin/products/:id/edit', productController.edit);
-router.post('/edit/:id',validation2, productController.update);
-//router.put('/edit/update/:id', productController.update)
+router.put('/admin/products/:id/edit', fileUploadImg.single('img'), validationStoreUpdate, productController.update)
+router.get('/admin/products/:id/delete', productController.delete);
+router.delete('/admin/products/:id/delete', productController.destroy);
+
+router.get('/show/:id', productController.show);
 //buscar
 router.get('/search', productController.search)
 

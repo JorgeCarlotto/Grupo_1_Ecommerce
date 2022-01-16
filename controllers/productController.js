@@ -1,33 +1,18 @@
 const db = require('../src/database/models');
-const sequelize = db.sequelize;
-const {
-    Op
-} = require("sequelize");
-
-
-const {
-    render
-} = require('ejs');
-const {
-    validationResult
-} = require('express-validator');
-const {
-    restart
-} = require('nodemon');
-
-
-const Products = db.Product
+const { render } = require('ejs');
+const { validationResult } = require('express-validator');
+const { restart } = require('nodemon');
 
 let productController = {
     list: function (req, res) {
         db.Product
             .findAll({
                 include: [{
-                        association: 'category'
-                    },
-                    {
-                        association: 'flavors'
-                    }
+                    association: 'category'
+                },
+                {
+                    association: 'flavors'
+                }
                 ]
             })
             .then(products => res.render('admin/product/list', {
@@ -43,103 +28,119 @@ let productController = {
             db.Category.findAll(),
             db.Flavor.findAll(),
         ])
-        .then(function ([categoria,flavors]) {
-          res.render('product/create',{categoria,flavors})
-        })
+            .then(function ([categories, flavors]) {
+                res.render('admin/product/create', { categories, flavors })
+            })
 
-        .catch((error) =>{
-            res.send(error)
-        })
+            .catch((error) => {
+                res.send(error)
+            })
     },
     store: function (req, res) {
         const validation = validationResult(req);
+        const { name, category_id, price, description, stock, flavor_id } = req.body;
+        let img = req.body.img;
+
         if (validation.errors.length > 0) {
             Promise.all([
-                    db.Category.findAll(),
-                    db.Flavor.findAll(),
-                ])
-                .then(function ([categoria, flavors]) {
-                    res.render('product/create', {
+                db.Category.findAll(),
+                db.Flavor.findAll(),
+            ])
+                .then(function ([categories, flavors]) {
+                    console.log(req.body)
+                    res.render('admin/product/create', {
                         errors: validation.mapped(),
                         oldData: req.body,
-                        categoria,
+                        categories,
                         flavors
                     })
                 })
-
         } else {
-            db.Product
-                .create({
-                    name: req.body.name,
-                    category_id: req.body.category_id,
-                    price: req.body.price,
-                    description: req.body.description,
-                    stock: req.body.stock,
-                    flavor_id: req.body.flavor_id,
-                })
-                .then(() => res.redirect('/products'))
+            let imgFile = req.file;
+            let status = true;
+            if (stock <= 0) {
+                status = false;
+            } else {
+                status = true;
+            }
+            if (imgFile) {
+                img = imgFile.filename;
+            } else {
+                img = 'product-default.png';
+            }
+            return db.Product
+                .create({ name, category_id, price, description, stock, flavor_id, img, status })
+                .then(() => res.redirect('/admin/products'));
         }
     },
     edit: function (req, res) {
         Promise.all([
-                db.Category.findAll(),
-                db.Flavor.findAll(),
-                db.Product.findByPk(req.params.id)
-            ])
-            .then(function ([categoria, flavors, producto]) {
-                res.render('product/edit', {
-                    categoria,
+            db.Category.findAll(),
+            db.Flavor.findAll(),
+            db.Product.findByPk(req.params.id)
+        ])
+            .then(function ([categories, flavors, product]) {
+                res.render('admin/product/edit', {
+                    categories,
                     flavors,
-                    producto
+                    product
                 })
             })
 
     },
     update: function (req, res) {
         const validation = validationResult(req)
-        const productId = req.params.id
+        const { name, category_id, price, description, stock, flavor_id, imgUpload } = req.body;
+        const { id } = req.params
+        let imgFile = req.body.img;
+
         if (validation.errors.length > 0) {
             Promise.all([
-                    db.Category.findAll(),
-                    db.Flavor.findAll(),
-                    db.Product.findByPk(req.params.id)
-                ])
+                db.Category.findAll(),
+                db.Flavor.findAll(),
+                db.Product.findByPk(id)
+            ])
 
-                .then(function ([categoria, flavors, producto]) {
-                    res.render('product/edit', {
+                .then(function ([categories, flavors, product]) {
+                    res.render('admin/product/edit', {
                         errors: validation.mapped(),
                         oldData: req.body,
-                        categoria: categoria,
-                        flavors: flavors,
-                        producto: producto
+                        categories,
+                        flavors,
+                        product
                     })
                 })
 
         } else {
+            let imgFile = req.file;
+            let status = true;
+            if (stock <= 0) {
+                status = false;
+            } else {
+                status = true;
+            }
+
+            if(imgFile){
+                img = imgFile.filename;
+            }else if(imgUpload){
+                img = imgUpload
+            }else{
+                img = 'product-default.png';
+            }
             db.Product
-                .update({
-                    name: req.body.name,
-                    category_id: req.body.category_id,
-                    price: req.body.price,
-                    description: req.body.description,
-                    stock: req.body.stock,
-                }, {
-                    where: {
-                        id: productId
-                    }
+                .update({ name, category_id, price, description, stock, flavor_id, img, status }, {
+                    where: { id }
                 })
-                .then(() => {
-                    return res.redirect('/products/show/' + productId)
-                })
+                .then(() => res.redirect('/admin/products'))
 
         }
     },
     show: function (req, res) {
         db.Product.findByPk(req.params.id, {
-                include: [{
-                    association: 'category'
-                }]
-            })
+            include: [{
+                association: 'category'
+            }]
+        })
             .then(product => {
                 res.render('product/show', {
                     product
@@ -150,19 +151,21 @@ let productController = {
     shoppingCart: function (req, res) {
         res.render('product/shoppingCart')
     },
+    delete: function (req, res) {
+        db.Product
+            .findByPk(req.params.id)
+            .then(product => res.render('admin/product/delete', {
+                product
+            }));
+    },
     destroy: (req, res) => {
-
-        let productId = req.params.id;
-
+        const { id } = req.params;
         db.Product
             .destroy({
-                where: {
-                    id: productId
-                },
-                force: true
+                where: { id }, force: true
             })
             .then(() => {
-                return res.redirect('/')
+                return res.redirect('/admin/products')
             })
             .catch(error => res.send(error))
 
@@ -171,12 +174,12 @@ let productController = {
         let productoBuscado = req.query.search;
 
         db.Product.findAll({
-                where: {
-                    name: {
-                        [Op.like]: '%' + productoBuscado + '%'
-                    }
+            where: {
+                name: {
+                    [Op.like]: '%' + productoBuscado + '%'
                 }
-            })
+            }
+        })
             .then(products => {
                 console.log(products)
                 res.render('product/findProducts', {

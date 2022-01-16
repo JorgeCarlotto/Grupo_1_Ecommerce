@@ -7,45 +7,43 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
         name: {
-            type: dataTypes.STRING(100),
-            allowNull: false
+            type: dataTypes.STRING
         },
         description: {
-            type: dataTypes.STRING,
-            allowNull: false
+            type: dataTypes.STRING
         },
         stock: {
-            type: dataTypes.INTEGER,
-            allowNull: false
+            type: dataTypes.INTEGER
         },
         price: {
-            type: dataTypes.FLOAT,
-            allowNull: false
+            type: dataTypes.FLOAT
         },
         status: {
-            type: dataTypes.BOOLEAN,
-            defaultValue: true
+            type: dataTypes.BOOLEAN
         },
         category_id: {
-            type: dataTypes.INTEGER,
-            allowNull: false
+            type: dataTypes.INTEGER
         },
         flavor_id: {
+            type: dataTypes.INTEGER
+        },
+        img: {
             type: dataTypes.INTEGER
         }
     };
     let config = {
         tableName: 'products',
-        timestamps:false
+        timestamps: false
     };
+    
     const Product = sequelize.define(alias, cols, config)
 
-    Product.associate = function (models){
-        Product.belongsTo(models.Category,{
+    Product.associate = function (models) {
+        Product.belongsTo(models.Category, {
             as: 'category',
             foreignKey: 'category_id'
         })
-        Product.belongsTo(models.Flavor,{
+        Product.belongsTo(models.Flavor, {
             as: 'flavors',
             foreignKey: 'flavor_id'
         })
