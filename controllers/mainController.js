@@ -5,7 +5,7 @@ const fs = require('fs');
 let mainController = {
     index: function (req, res) {
         db.Product
-            .findAll({ limit: 6 })
+            .findAll({ order: [['id', 'DESC']], limit: 6 })
             .then(products => res.render('main/index', { products }))
             .catch(error => { res.send(error) })
     },

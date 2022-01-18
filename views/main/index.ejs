@@ -44,7 +44,7 @@
             <div class="producto">
               <picture>
                 <img class="imagen_producto"
-                  src="/img/products/<%= product.img ?  product.img : 'product-default.png' %> ">
+                  src="/img/products/<%= product.img ?  product.img : 'product-default.png' %>">
               </picture>
               <h2 class="titulo_producto">
                 <%= product.name%>
@@ -52,7 +52,7 @@
               <h3 class="price_producto">
                 $ <%= product.price%>
               </h3>
-              <a class="detalle_producto" href="#">Detalle</a>
+              <a class="detalle_producto" href="/product/show/<%= product.id %>">Detalle</a>
             </div>
             <%}); %>
         </section>
