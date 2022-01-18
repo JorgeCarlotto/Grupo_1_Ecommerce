@@ -14,6 +14,16 @@
   user-select: none;
 }
 
+.carousel-caption{
+  left: 60%;
+  bottom: 25%;
+}
+
+.titulo-portada{
+  text-shadow: 3px 3px 0px rgb(138, 135, 135);
+
+}
+
 
 /* Header */
 
