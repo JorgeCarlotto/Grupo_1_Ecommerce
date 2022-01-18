@@ -8,11 +8,10 @@
   <!-- Bootstrap  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-  </script>
-
+    </script>
 
   <!-- CSS interno -->
   <link rel="stylesheet" href="/css/style.css">
@@ -24,155 +23,92 @@
 </head>
 
 <body>
-
-
   <!-- Header -->
   <%- include('../partials/navbar.ejs') %>
-  <!-- /Header -->
-
-  <main class="main">
-
-
-<div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
-
-  <div class="carousel-inner">
-  
-    <div class="carousel-item active">
-      <img src="/img/clara.jpg" class="d-block w-100  imagen-portada"  />
-      <div class="carousel-caption d-none d-md-block">
-        <h1 class="titulo-portada">Bienvenido a Luana cake's</h1> 
-      </div>
-    </div>
-
-  </div>
- 
-  </div>
-  
-
-
-  <!-- Productos -->
-<!-- ultima visita -->
-<div class="container">
-
-   <h2 class="products-title">Productos destacados</h2>
-    
-     
-    <% let products = [
-        {
-          id: 1,
-          name: "Torta Balcarce",
-         price: "1,500",
-          img:"1.jpg" ,
-         description: "lorem imspum lorem impsum lorem"
-        },
-        {
-          id: 2,
-         name: "Torta Balcarce",
-         price: "1,500",
-          img:"1.jpg" ,
-          description: "lorem imspum lorem impsum lorem"
-        },
-        {
-          id: 3,
-         name: "Torta Balcarce",
-         price: "1,500",
-          img:"1.jpg" ,
-          description: "lorem imspum lorem impsum lorem"
-        },
-        {
-          id: 4,
-         name: "Torta Balcarce",
-         price: "1,500",
-          img:"1.jpg" ,
-          description: "lorem imspum lorem impsum lorem"
-        },
-        {
-          id: 4,
-         name: "Torta Balcarce",
-         price: "1,500",
-          img:"1.jpg" ,
-          description: "lorem imspum lorem impsum lorem"
-        },
-        {
-          id: 4,
-         name: "Torta Balcarce",
-         price: "1,500",
-          img:"1.jpg" ,
-          description: "lorem imspum lorem impsum lorem"
-        }
-     
-    ] %>
-
-    <section class="contenedor-productos">
-      <% products.forEach(product => { %>
-          <div class="producto">
-            <picture>
-              <img class="imagen_producto" src="/img/Bombas/<%= product.img %> ">
-              </picture>
-              <h2 class="titulo_producto"><%= product.name%></h2>
-              <h3 class="price_producto">$<%= product.price%></h3>
-             <a  class="detalle_producto" href="#">Detalle</a>
+    <main class="main">
+      <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/img/main/header.jpg" class="d-block w-100  imagen-portada" />
+            <div class="carousel-caption d-none d-md-block">
+              <h1 class="titulo-portada">Bienvenido a Luana cake's</h1>
+            </div>
           </div>
-          <%}); %> 
-      </section>
+        </div>
       </div>
 
-      <div class="boton"> 
+      <div class="container">
+        <h2 class="products-title">Productos destacados</h2>
+        <section class="contenedor-productos">
+          <% products.forEach(product=> { %>
+            <div class="producto">
+              <picture>
+                <img class="imagen_producto"
+                  src="/img/products/<%= product.img ?  product.img : 'product-default.png' %> ">
+              </picture>
+              <h2 class="titulo_producto">
+                <%= product.name%>
+              </h2>
+              <h3 class="price_producto">
+                $ <%= product.price%>
+              </h3>
+              <a class="detalle_producto" href="#">Detalle</a>
+            </div>
+            <%}); %>
+        </section>
+      </div>
+
+      <div class="boton">
         <a href="#" class="cta">
-    <span>Todos los productos</span>
-    <svg width="13px" height="10px" viewBox="0 0 13 10">
-      <path d="M1,5 L11,5"></path>
-      <polyline points="8 1 12 5 8 9"></polyline>
-    </svg>
-  </a>
+          <span>Todos los productos</span>
+          <svg width="13px" height="10px" viewBox="0 0 13 10">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <section class="compra">
+        <h1 class="compra-h1">Comprá on-line ahora</h1>
+        <p class="compra-p">Mirá todo lo que podés llevar a tu casa con un solo click - Si querés <span>Recibír tu
+            pedido HOY</span>, comunicate con la sucursal más cercana. </p>
+      </section>
+
+      <section class="conoce">
+        <div class="imagen_conoce  imagen_uno">
+          <img src="/img/Navidad/Benidia Navideño-18.jpeg" alt="">
+        </div>
+        <div class="imagen_conoce imagen_dos">
+          <img src="/img/Navidad/Benidia Navideño-20.jpeg" alt="">
         </div>
 
-        
-
-   <section class="compra">
-    <h1 class="compra-h1">Comprá on-line ahora</h1>
-    <p class="compra-p">Mirá todo lo que podés llevar a tu casa con un solo click - Si querés  <span>Recibír tu pedido HOY</span>, comunicate con la sucursal más cercana. </p>
-    </section> 
-    
-
-
-    <section class="conoce">
-       <div class="imagen_conoce  imagen_uno"><img src="/img/Navidad/Benidia Navideño-18.jpeg" alt=""></div>
-       <div class="imagen_conoce imagen_dos"><img src="/img/Navidad/Benidia Navideño-20.jpeg" alt=""></div>
-
-       <div class="texto_conoce">
-        <img class="logo_conoce" src="/img/logo.png" alt="">
-        <h1>Conoce más de Luana cake's</h1>
-        <p>Te esperamos en nuestras sucursales de Lomas de zamora, Neuquen y Mar del Plata.</p>
+        <div class="texto_conoce">
+          <img class="logo_conoce" src="/img/logo.png" alt="">
+          <h1>Conoce más de Luana cake's</h1>
+          <p>Te esperamos en nuestras sucursales de Lomas de zamora, Neuquen y Mar del Plata.</p>
         </div>
-        
-    </section>
-   
-    <div class="container-velas">
-  <div class="bdayCake">
-    <div class="plate"></div>
-    <div class="cream"></div>
-    <div class="candle"></div>
-    <div class="flame">
-      <div class="one">+</div>
-      <div class="two">+</div>
-      <div class="three">+</div>
-    </div>
-  </div>
-</div>
+      </section>
 
-    
-  </main>
+      <div class="container-velas">
+        <div class="bdayCake">
+          <div class="plate"></div>
+          <div class="cream"></div>
+          <div class="candle"></div>
+          <div class="flame">
+            <div class="one">+</div>
+            <div class="two">+</div>
+            <div class="three">+</div>
+          </div>
+        </div>
+      </div>
+    </main>
 
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
 
-
-  <!-- Footer -->
-  <%- include('../partials/footer.ejs') %>
-  <!-- /Footer -->
-
-  <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-  </script>
+      <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
