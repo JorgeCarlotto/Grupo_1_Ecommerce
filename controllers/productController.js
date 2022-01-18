@@ -146,6 +146,7 @@ let productController = {
                     product
                 })
             })
+            .catch(err => console.log(err))
     },
 
     shoppingCart: function (req, res) {

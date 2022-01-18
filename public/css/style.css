@@ -14,6 +14,16 @@
   user-select: none;
 }
 
+.carousel-caption{
+  left: 60%;
+  bottom: 25%;
+}
+
+.titulo-portada{
+  text-shadow: 3px 3px 0px rgb(138, 135, 135);
+
+}
+
 
 /* Header */
 
@@ -23,7 +33,7 @@
    width: 100%;
 }
 .navbar {
-  background-color: #f5f5f5 !important;
+  background-color: rgba(230, 210, 210, 0.2) !important;
 }
 
 
@@ -61,14 +71,630 @@
 
 /* Fin pagina create */
 
+/* Productos index */
+.products-title{
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+  color: #8a7878;
+ 
+}
+.contenedor-productos{
+   display: flex;
+   flex-wrap: wrap;
+  }
+  
+  .producto{
+  margin: auto;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+ margin-top:10px ;
+ margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.titulo_producto{
+  font-size: 12px;
+  font-style: italic;
+  color: rgb(128, 125, 125);
+  margin-top: 8px;
+ 
+}
+.titulo_producto{
+  font-size: 14px;
+}
+.imagen_producto{
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.price_producto{
+   font-size: 16px;
+    font-weight: bolder;
+    color: rgb(144, 80, 80);
+}
+
+.detalle_producto{
+  text-decoration: none;
+  color: rgb(56, 55, 55);
+  font-weight: bolder;
+  
+}
+
+/* Boton de todos los productos */
+
+  .boton{
+    text-align: center;
+    margin-top: 35px;  
+  }
+  
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 19px 22px;
+  transition: all 0.2s ease;
+}
+.cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 28px;
+  background: rgba(255, 171, 157, 0.5);
+  width: 56px;
+  height: 56px;
+  transition: all 0.3s ease;
+}
+.cta span {
+  position: relative;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: rgb(216, 127, 127);
+}
+.cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #111;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+.cta:hover:before {
+  width: 100%;
+  background: rgba(209, 161, 153, 0.5);
+}
+.cta:hover svg {
+  transform: translateX(0);
+}
+.cta:active {
+  transform: scale(0.96);
+}
 
 
-/* Tortas */
+/* / fin boton de todos los productos */
+
+/* media querie de todos los productos */
+@media (min-width: 600px) {
+  .producto{
+    width: 32%;
+  }
+  }
+
+/* /Productos index */
+
+ /* compra */
+  .compra{
+    text-align: center;
+     margin-top: 100px;
+  }
+
+  .compra .compra-h1{
+    font-style:oblique;
+    color: rgb(44, 43, 43);
+  }
+
+  .compra .compra-p{
+    font-style: italic;
+    font-weight:normal;
+  }
+
+  .compra span{
+    color: rgb(141, 35, 35);
+    font-weight: bold;
+  }
+
+ /* Compra */
+
+
+
+ /* Conoce más */
+ .conoce{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+}
+
+.imagen_conoce, .texto_conoce{
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.imagen_conoce img{
+  width: 85%;
+  border-radius: 3%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.conoce .imagen_uno img{
+  align-self: flex-end;
+}
+.conoce .imagen_dos img{
+  align-self: flex-start;
+}
+.texto_conoce .logo_conoce{
+  width: 15%;
+}
+
+.texto_conoce h1, p{
+  text-align: center;
+  margin: 10px;
+}
+.texto_conoce h1 {
+  font-style: italic;
+  color: rgb(185, 137, 137);
+  text-shadow: 1px 1px 0px rgb(218, 196, 196);
+  
+}
+
+/* conoce más mdia queries */
+@media (min-width: 600px) {
+  .conoce{
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  
+  .imagen_conoce, .texto_conoce{
+    width: 30%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+   
+   
+  }
+
+  
+  .imagen_conoce img{
+    width: 75%;
+    border-radius: 5%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+  }
+  .conoce .imagen_uno img{
+    align-self:flex-end;
+    
+  }
+  .conoce .imagen_dos img{
+    align-self: flex-start;
+  }
+  .texto_conoce .logo_conoce{
+    width: 10%;
+  }
+  
+  .texto_conoce h1, p{
+    text-align: center;
+    
+
+  }
+  .texto_conoce h1 {
+    font-style: italic;
+    color: rgb(185, 137, 137);
+    text-shadow: 1px 1px 0px rgb(218, 196, 196);
+    font-size: 20px;
+  }
+
+  .texto_conoce p{
+    font-size: 12px;
+  }
+  
+  
+}
+
+/* /conoce más media queries */
+
+/* /conoce más */
+
+/* velas */
+
+.container-velas {
+  background-color: #f0efeb;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  height: 50vh;
+  position: relative;
+  margin: auto;
+}
+
+.bdayCake {
+  position: relative;
+  left:-100px;
+  top:100px;
+}
+
+.plate {
+  position: absolute;
+  width: 242px;
+  height:10px;
+  border-radius:10px;
+  background-color: #2a9d8f;
+}
+
+.plate:before {
+  content:"";
+  position: absolute;
+  width:195px;
+  height:90px;
+  background-color: #9c6644;
+  top:-90px;
+  left:25px;  
+}
+
+.plate:after {
+  content:"";
+  position: absolute;
+  width:195px;
+  left:25px;
+  height:10px;
+  background-color: #ffd166;
+  top:-60px;
+  box-shadow: 0px 25px #f4978e;
+}
+
+.cream {
+  position: absolute;
+  background-color: #f08080;
+  width:195px;
+  height:20px;
+  left:25px;
+  top:-110px;
+  border-radius:20px 20px 0 0;
+}
+
+.cream:before {
+  content:"";
+  position: absolute;
+  background-color: #f08080;
+  width:15px;
+  height:30px;
+  top:10px;
+  border-radius:20px;
+  box-shadow: 15px 5px #9c6644, 30px -5px #f08080, 45px 0px #9c6644, 60px 4px #f08080, 75px 3px #9c6644, 90px -5px #f08080, 105px 5px #9c6644, 120px -5px #f08080, 135px 0px #9c6644, 150px 4px #f08080, 165px 0px #9c6644, 180px 3px #f08080;
+}
+
+.cream:after {
+  position: absolute;
+  content:"";
+  background-color: rgba(0,0,0,0.1);
+  width: 97.5px;
+  height:110px;
+  left:98px;
+  border-radius: 0 20px 0 0;
+}
+
+.candle {
+  position: absolute;
+  width: 10px;
+  height:40px;
+  background: repeating-linear-gradient(#fae0e4,
+  #fae0e4 5px, #ff0a54 5px, #ff0a54 10px);
+  box-shadow: inset -5px 0px rgba(0,0,0,0.1);
+  top: -150px;
+  left:118px;
+}
+
+.candle:before {
+  content:"";
+  position: absolute;
+  background-color: #333;
+  width:2px;
+  height:10px;
+  top:-10px;
+  left:4px;
+}
+
+.candle:after {
+  content:"";
+  position: absolute;
+  width:20px;
+  height: 20px;
+  background-color:#fcca46;
+  border-radius: 80% 15% 55% 50% / 55% 15% 80% 50%;
+  box-shadow: inset -3px 3px #fe7f2d;
+  transform: rotate(-45deg);
+  top:-28px;
+  left:-5px;
+  opacity:0.9;
+  animation: scale .5s ease-out infinite;
+}
+
+@keyframes scale {
+  0% {transform: scaleY(1) rotate(-45deg); opacity:0.9;}
+  50% {transform: scaleY(0.9) rotate(-45deg); opacity:0.8;}
+  100% {transform: scaleY(1) rotate(-45deg); opacity: 0.9;}  
+}
+
+.flame {
+  position: absolute; 
+}
+
+.flame:before {
+  content:"";
+  position: absolute;
+  background-color: rgba(0,0,0,0.1);
+  height:10px;
+  width:118px;
+  border-radius:0 10px 10px 0;
+  top:0;
+  left:123px;
+}
+
+.one {
+  position: absolute;
+  color: #fcca46;
+  font-size:20px;
+  top:-160px;
+  left: 100px;
+  text-shadow: 33px -30px #fcca46;
+  animation: flash .5s ease infinite alternate;
+}
+
+.two {
+  position: absolute;
+  color: #fcca46;
+  font-size:15px;
+  top:-180px;
+  left: 100px;
+  text-shadow: 35px 30px #fcca46;
+  animation: flash .8s ease infinite alternate;
+}
+ 
+.three {
+  position: absolute;
+  color: #fcca46;
+  font-size:10px;
+  top:-195px;
+  left: 110px;
+  text-shadow: 30px 30px #fcca46;
+  animation: flash .4s ease infinite alternate;
+}
+
+@keyframes flash {
+  from { opacity: 1; }  
+  to { opacity: 0; }
+}
+
+/* /velas */
+
+/* fin index */
+
+
+
+
+/* detalle del producto */
+
+.wrapper-detalle_producto {
+  display: flex;
+  flex-direction: column;
+   width:100%;
+    padding-top: 50px;
+  }
+  
+  
+  .product-detalle_img{
+    width: 80%;
+    margin-top: 35px;
+    align-self: center;
+  }
+  .product-detalle_img img {
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+  
+  }
+  
+  
+  .product-detalle_descr {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-bottom: 25px;
+    background-color: rgba(231, 225, 225, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    border-bottom-right-radius: 5%;
+    border-bottom-left-radius: 5%;
+}
+
+
+.product_detalle-name{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+.product_detalle_description{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+ .product_detalle-name .product-name{
+  margin: 0 0 0 38px;
+  padding-top: 30px;
+  margin-bottom: 10px;
+  font-size: 34px;
+  color: #474747;
+ }
+
+
+ .product_detalle-name .product-subt{
+  margin: 0 0 10px 38px;
+  font-size: 13px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #807f7f;
+  letter-spacing: 0.2em;
+ }
+
+ .product-description {
+  height: 125px;
+  font-family: 'Playfair Display', serif;
+  color: #aa7474;
+  line-height: 1.7em;
+  font-size: 18px;
+}
+
+.product_detalle-price{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+
+.product_detalle-price .product-price {
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #6d2f2f;
+  letter-spacing: 0.2em;
+  font-weight: bolder;
+}
+
+.product_detalle-price .detalle_button{
+  display: inline-block;
+  height: 40px;
+  width: 122px;
+  margin: 0 0px 0 10px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  background-color: #cc9393;
+  cursor: pointer;
+  outline: none;
+}
+
+.product_detalle-price .detalle_button:hover {
+  background-color:#ac7878;
+}
+
+/* Media querie detalle del producto */
+
+
+@media (min-width: 650px) {
+  .wrapper-detalle_producto {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+     width:100%;
+   
+    }
+    
+    
+    .product-detalle_img{
+      width: 45%;
+    }
+    .product-detalle_img img {
+      margin-bottom: 20px;
+      margin-top: 20px;
+      height: 120%;
+      width: 120%;
+      border-radius: 5%;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    }
+    
+    
+    .product-detalle_descr {
+      margin-top: 20px;
+      width: 45%;
+      background-color: rgba(231, 225, 225, 0.5);
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+      border-radius: 5%;
+  }
+
+  
+ .product-description {
+  color: #8d4e4e;
+}
+
+
+.product_detalle-price .detalle_button{
+  height: 40px;
+  width: 136px;
+}
+  
+  }
+/* / fin Media querie detalle del producto */
+
+/* /fin detalle del producto */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Tortas
 .tortas {
   height: 100%;
   padding: 10px;
   padding-top: 90px;
-  /* background-color: #e8e9eb !important; */
+
 }
 
 .tortas h2 {
@@ -112,7 +738,7 @@
 
 .tortas .product picture img {
   width: 100%;
-}
+} */
 
 /* /Tortas */
 

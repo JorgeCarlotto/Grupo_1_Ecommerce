@@ -21,45 +21,28 @@
     <%- include('../partials/navbar.ejs') %>
 
     <main class="detalle-producto">
-        <div class="container">
-            <h1><%= product.name %></h1>
-            <div class="card">
-                <div class="container-fliud">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="preview-pic tab-content">
-                                <img class="show-img" src="/img/Brownies/Benidia0.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <h2 class="product-title">COD: # <%= product.id %> </h2>
-                            <div class="rating">
-                                <div class="stars">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                            </div>
-                            <p class="product-description"><%= product.description %> </p>
-                            <h4 class="price">Precio: <span>$ <%= product.price %></span></h4>
-                            <h4 class="price">Categoria: <span><%= product.category_id %> </span></h4>
-                            <div class="row">
-                                <div class="col">
-                                    <button class="add-to-cart btn btn-default" type="button">añadir al carrito</button>
-                                </div>
-                                <div class="col">
-                                    <form action="/products/show/<%= product.id %>?_method=DELETE" method="POST">
-                                        <button class="like btn btn-default" type="submit">ELIMINAR</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+        <div class="wrapper-detalle_producto">
+             <div class="product-detalle_img">
+                 <img src="/img/Navidad/Benidia Navideño-22-min.jpeg" alt="" height="450">
+             </div>
+             <div class="product-detalle_descr">  
+                 <div class="product_detalle-name">
+                     <h1 class="product-name"><%= product.name %></h1>
+                     <h3 class="product-subt">BY LUANA'S CAKE</h3>
+                 </div>
+
+                 <div class="product_detalle_description">
+                     <p class="product-description"><%= product.description%></p>
+                 </div>
+
+                 <div class="product_detalle-price">
+                     <p class="product-price">$<%= product.price%></p>
+                     <button class="detalle_button" type="button">Comprar</button>
+                 </div>
+             </div>
         </div>
+
     </main>
     <!-- Footer -->
     <%- include('../partials/footer.ejs') %>
