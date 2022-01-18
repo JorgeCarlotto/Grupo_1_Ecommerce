@@ -7,21 +7,15 @@ let productController = {
     list: function (req, res) {
         db.Product
             .findAll({
-                include: [{
-                    association: 'category'
-                },
-                {
-                    association: 'flavors'
-                }
+                include: [
+                    { association: 'category' },
+                    { association: 'flavors' }
                 ]
             })
             .then(products => res.render('admin/product/list', {
                 products
             }))
-            .catch(error => {
-
-                res.send(error)
-            })
+            .catch(error => { res.send(error) })
     },
     create: function (req, res) {
         Promise.all([
@@ -31,10 +25,7 @@ let productController = {
             .then(function ([categories, flavors]) {
                 res.render('admin/product/create', { categories, flavors })
             })
-
-            .catch((error) => {
-                res.send(error)
-            })
+            .catch(error => { res.send(error) })
     },
     store: function (req, res) {
         const validation = validationResult(req);
@@ -55,22 +46,18 @@ let productController = {
                         flavors
                     })
                 })
+                .catch(error => { res.send(error) })
         } else {
             let imgFile = req.file;
             let status = true;
-            if (stock <= 0) {
-                status = false;
-            } else {
-                status = true;
-            }
-            if (imgFile) {
-                img = imgFile.filename;
-            } else {
-                img = 'product-default.png';
-            }
+            if (stock <= 0) { status = false }
+            else { status = true; }
+            if (imgFile) { img = imgFile.filename }
+            else { img = 'product-default.png' }
             return db.Product
                 .create({ name, category_id, price, description, stock, flavor_id, img, status })
-                .then(() => res.redirect('/admin/products'));
+                .then(() => res.redirect('/admin/products'))
+                .catch(error => { res.send(error) })
         }
     },
     edit: function (req, res) {
@@ -86,6 +73,7 @@ let productController = {
                     product
                 })
             })
+            .catch(error => { res.send(error) })
 
     },
     update: function (req, res) {
@@ -110,42 +98,26 @@ let productController = {
                         product
                     })
                 })
-
+                .catch(error => { res.send(error) })
         } else {
             let imgFile = req.file;
             let status = true;
-            if (stock <= 0) {
-                status = false;
-            } else {
-                status = true;
-            }
-
-            if(imgFile){
-                img = imgFile.filename;
-            }else if(imgUpload){
-                img = imgUpload
-            }else{
-                img = 'product-default.png';
-            }
+            if (stock <= 0) { status = false; }
+            else { status = true }
+            if (imgFile) { img = imgFile.filename }
+            else if (imgUpload) { img = imgUpload }
+            else { img = 'product-default.png'; }
             db.Product
                 .update({ name, category_id, price, description, stock, flavor_id, img, status }, {
                     where: { id }
                 })
                 .then(() => res.redirect('/admin/products'))
-
+                .catch(error => { res.send(error) })
         }
     },
     show: function (req, res) {
-        db.Product.findByPk(req.params.id, {
-            include: [{
-                association: 'category'
-            }]
-        })
-            .then(product => {
-                res.render('product/show', {
-                    product
-                })
-            })
+        db.Product.findByPk(req.params.id, { include: [{ association: 'category' }] })
+            .then(product => { res.render('product/show', { product }) })
             .catch(err => console.log(err))
     },
 
@@ -155,39 +127,34 @@ let productController = {
     delete: function (req, res) {
         db.Product
             .findByPk(req.params.id)
-            .then(product => res.render('admin/product/delete', {
-                product
-            }));
+            .then(product => res.render('admin/product/delete', { product }));
     },
     destroy: (req, res) => {
         const { id } = req.params;
         db.Product
-            .destroy({
-                where: { id }, force: true
-            })
-            .then(() => {
-                return res.redirect('/admin/products')
-            })
+            .destroy({ where: { id }, force: true })
+            .then(() => { res.redirect('/admin/products') })
             .catch(error => res.send(error))
-
     },
     search: (req, res) => {
         let productoBuscado = req.query.search;
 
         db.Product.findAll({
-            where: {
-                name: {
-                    [Op.like]: '%' + productoBuscado + '%'
-                }
-            }
+            where: { name: { [Op.like]: '%' + productoBuscado + '%' } }
         })
-            .then(products => {
-                console.log(products)
-                res.render('product/findProducts', {
-                    products
-                })
-            })
+            .then(products => { res.render('product/findProducts', { products }) })
             .catch(error => res.send(error))
+    },
+    listAll: function (req, res) {
+        db.Product
+            .findAll({
+                include: [
+                    { association: 'category' },
+                    { association: 'flavors' }
+                ]
+            })
+            .then(products => res.render('/product/list', { products }))
+            .catch(error => { res.send(error) })
     }
 }
 module.exports = productController;

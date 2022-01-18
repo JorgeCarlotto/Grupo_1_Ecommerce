@@ -35,8 +35,8 @@ router.get('/admin/products/:id/edit', productController.edit);
 router.put('/admin/products/:id/edit', fileUploadImg.single('img'), validationStoreUpdate, productController.update)
 router.get('/admin/products/:id/delete', productController.delete);
 router.delete('/admin/products/:id/delete', productController.destroy);
+router.get('/product/show/:id', productController.show);
 
-router.get('/show/:id', productController.show);
 //buscar
 router.get('/search', productController.search)
 
