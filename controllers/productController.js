@@ -153,7 +153,7 @@ let productController = {
                     { association: 'flavors' }
                 ]
             })
-            .then(products => res.render('/product/list', { products }))
+            .then(products => res.render('product/list', { products }))
             .catch(error => { res.send(error) })
     }
 }

@@ -43,4 +43,6 @@ router.get('/search', productController.search)
 //Routes ShoppingCar
 router.get('/shoppingCart', productController.shoppingCart);
 
+//list product
+router.get('/products/list', productController.listAll);
 module.exports = router;
