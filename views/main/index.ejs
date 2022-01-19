@@ -42,10 +42,11 @@
         <section class="contenedor-productos">
           <% products.forEach(product=> { %>
             <div class="producto">
-              <picture>
+              <div class="div_imagen_producto">
                 <img class="imagen_producto"
-                  src="/img/products/<%= product.img ?  product.img : 'product-default.png' %>">
-              </picture>
+                  src="/img/products/<%= product.img ?  product.img : 'product-default.png' %>" >
+              </div>
+              
               <h2 class="titulo_producto">
                 <%= product.name%>
               </h2>
@@ -76,16 +77,16 @@
 
       <section class="conoce">
         <div class="imagen_conoce  imagen_uno">
-          <img src="/img/Navidad/Benidia Navideño-18.jpeg" alt="">
+          <img src="/img/main/index-1.jpg" alt="">
         </div>
         <div class="imagen_conoce imagen_dos">
-          <img src="/img/Navidad/Benidia Navideño-20.jpeg" alt="">
+          <img src="/img/main/index-2.jpg" alt="">
         </div>
 
         <div class="texto_conoce">
           <img class="logo_conoce" src="/img/logo.png" alt="">
           <h1>Conoce más de Luana cake's</h1>
-          <p>Te esperamos en nuestras sucursales de Lomas de zamora, Neuquen y Mar del Plata.</p>
+          <p>Te esperamos en nuestras sucursales de Lomas de zamora, Zárate, Neuquen y Mar del Plata.</p>
         </div>
       </section>
 
