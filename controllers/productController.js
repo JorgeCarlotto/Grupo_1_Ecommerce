@@ -145,7 +145,7 @@ let productController = {
         db.Product.findAll({
             where: { name: { [Op.like]: '%' + productoBuscado + '%' } }
         })
-            .then(products => { res.render('product/findProducts', { products }) })
+            .then(products => { res.render('product/findProducts', { products, productoBuscado }) })
             .catch(error => res.send(error))
     },
     listAll: function (req, res) {

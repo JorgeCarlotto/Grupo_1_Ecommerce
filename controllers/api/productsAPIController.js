@@ -10,16 +10,16 @@ const { Op } = require("sequelize");
 //----------------------------------
 const productsAPIController = {
     'list': (req, res) => {
-        db.Users.findAll()
-        .then(users => {
+        db.Product.findAll()
+        .then(products => {
             let respuesta = {
                 meta: {
                     status : 200,
-                    total: users.length,
-                    url: 'api/users'
+                    total: products.length,
+                    url: 'api/products'
                 },
                 data:[{
-                    total: users.length
+                    total: products.length
                 }]
             }
                 res.json(respuesta);

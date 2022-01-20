@@ -373,6 +373,7 @@ a {
   height: 50vh;
   position: relative;
   margin: auto;
+  margin-top: 20px;
 }
 
 .bdayCake {
@@ -653,8 +654,32 @@ a {
   outline: none;
 }
 
+
+.product_detalle-price .sin_stock{
+  display: inline-block;
+  height: 40px;
+  width: 122px;
+  margin: 0 0px 0 10px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  background-color: #757070;
+  cursor: pointer;
+  outline: none;
+}
+
+
 .product_detalle-price .detalle_button:hover {
   background-color:#ac7878;
+}
+.product_detalle-price .sin_stock:hover {
+  background-color:#757070;
 }
 
 /* Media querie detalle del producto */
