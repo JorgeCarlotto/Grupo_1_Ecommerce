@@ -16,6 +16,11 @@
   <!-- CSS interno -->
   <link rel="stylesheet" href="/css/style.css">
 
+  <!-- Fuente -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@0;1&display=swap" rel="stylesheet">
+
   <!-- Favicons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <title>Luana Cake</title>
@@ -42,7 +47,7 @@
         <section class="contenedor-productos">
           <% products.forEach(product=> { %>
             <div class="producto">
-              <div class="div_imagen_producto">
+              <div  class="div_imagen_producto">
                 <img class="imagen_producto"
                   src="/img/products/<%= product.img ?  product.img : 'product-default.png' %>" >
               </div>
@@ -77,7 +82,7 @@
 
       <section class="conoce">
         <div class="imagen_conoce  imagen_uno">
-          <img src="/img/main/index-1.jpg" alt="">
+          <img src="/img/main/cake-g0d6586988_640.jpg" alt="">
         </div>
         <div class="imagen_conoce imagen_dos">
           <img src="/img/main/index-2.jpg" alt="">
