@@ -713,7 +713,50 @@ a {
 /* /fin detalle del producto */
 
 
+/* Not found */
+ .not-found{
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 20px;
+ }
 
+ .not-found_titulo{
+   margin-top:90px;
+   font-family: 'PT Serif', serif;
+   font-style: italic;
+   font-size: 25px;
+   color: #333;
+ }
+
+
+/* /Fin not found */
+
+/* Media querie not found */
+@media (min-width: 650px) {
+
+  .not-found{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+ 
+  .not-found_titulo{
+    margin-top:90px;
+    font-family: 'PT Serif', serif;
+    font-style: italic;
+    font-size: 35px;
+    color: #333;
+  }
+
+  .not-found_imgDiv img{
+    height: 50vh;
+    width: 50vh;
+  }
+}
+
+/* /Media querie not found */
 
 
 

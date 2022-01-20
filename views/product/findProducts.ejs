@@ -25,11 +25,27 @@
 <body>
   <!-- Header -->
   <%- include('../partials/navbar.ejs') %>
+
+
+
+
     <main class="main">
-      <br><br><br>
+        <% if (products.length == 0) { %>
+            
+        <div class="not-found">
+                <h1 class="not-found_titulo">Producto no encontrado</h1>
+                <div class="div_imagen_producto  not-found_imgDiv">
+                    <img class="imagen_producto not-found_img"
+                    src="/img/products/thrid-party-cookies-SITE.jpg" >
+                </div>
+        </div>  
+         
+        <% } else { %>
+       <br> <br><br>
+     
       <div class="container">
-        <h2 class="products-title">Productos encontrados:</h2>
-        <section class="contenedor-productos">
+          <h2 class="products-title not_found_titulo">Todos los productos</h2>
+          <section class="contenedor-productos">
           <% products.forEach(product=> { %>
             <div class="producto">
               <div class="div_imagen_producto">
@@ -43,16 +59,14 @@
               <h2 class="titulo_producto">
                 <%= product.description%>
               </h2>
-           
-                <a class="detalle_producto" href="/product/show/<%= product.id %>">Comprar</a>
-           
-               
+
+              <a class="detalle_producto" href="/product/show/<%= product.id %>">Comprar</a>
             </div>
             <%}); %>
         </section>
       </div>
 
-    
+      <%  } %> 
     </main>
 
     <!-- Footer -->
