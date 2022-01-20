@@ -19,7 +19,8 @@ const productsAPIController = {
                     url: 'api/products'
                 },
                 data:[{
-                    total: products.length
+                    total: products.length,
+                    products:products
                 }]
             }
                 res.json(respuesta);
