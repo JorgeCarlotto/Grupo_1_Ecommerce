@@ -2,6 +2,9 @@ const db = require('../src/database/models');
 const { render } = require('ejs');
 const { validationResult } = require('express-validator');
 const { restart } = require('nodemon');
+const sequelize = db.sequelize;
+const {Op
+} = require("sequelize");
 
 let productController = {
     list: function (req, res) {
