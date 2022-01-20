@@ -38,7 +38,12 @@
 
                  <div class="product_detalle-price">
                      <p class="product-price">$<%= product.price%></p>
-                     <button class="detalle_button" type="button">Comprar</button>
+                     
+                     <% if (product.stock == 0) { %>
+                     <button class="detalle_button sin_stock" type="button">Sin stock</button>
+                     <% } else { %>
+                        <button class="detalle_button" type="button">Comprar</button>
+                        <%  } %> 
                  </div>
              </div>
         </div>
