@@ -142,51 +142,5 @@ let userController = {
       user: User.getData(),
     });
   },
-  // destroy: function (req, res) {
-  //     res.clearCookie('userEmail')
-  //     req.session.destroy();
-  //     let id = req.params.id;
-  //     let finalUsers = User.getData().filter(user => user.id != id);
-  //     fs.writeFileSync(User.fileName, JSON.stringify(finalUsers, null, ' '));
-  //     res.redirect('/')
-  // },
-
-  //Codigo con Sequelize y BD
 };
-/* let img
- if( req.file != undefined){
-   img = req.file.filename;
- }else {
-     img  = 'person-default.jpg'
- }
- let ids = users.map(u => u.id);
- let newUser = {
-     id: Math.max (...ids) + 1,...req.body,
-     img :img   
- };
- users.push(newUser)
- fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
- res.redirect('/users') */
-/* } */
-/* profile: function (req, res) {
-   let user = users.find( user => user.id == req.params.id );
-   res.render('user/profile', {
-       user : user})
-}, */
-/* destroy : (req, res) => {
-    let id = req.params.id;
-    let finalUsers = users.filter(user => user.id != id);
-    fs.writeFileSync(usersFilePath, JSON.stringify(finalUsers, null, ' '));
-    res.redirect('/users/register');
-  }, */
-/* dit:(req,res)=> {
-  let user = users.find( user => user.id == req.params.id );
-  res.render('user/edit', {
-      users : users})
-},
-update: (req,res) =>{
-  
-} */
-/*  } */
-/* console.log(userController.profile()); */
 module.exports = userController;
