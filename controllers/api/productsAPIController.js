@@ -10,20 +10,25 @@ const { Op } = require("sequelize");
 //----------------------------------
 const productsAPIController = {
     'list': (req, res) => {
-        db.Users.findAll()
-        .then(users => {
+        db.Product.findAll()
+        
+        .then(product => {
+            console.log(product)
             let respuesta = {
                 meta: {
                     status : 200,
-                    total: users.length,
-                    url: 'api/users'
+                    total: product.length,
+                    url: 'api/products'
                 },
                 data:[{
-                    total: users.length
+                    total: product.length,
+                    products : product
                 }]
             }
                 res.json(respuesta);
+               
             })
     }
+    
 }
 module.exports = productsAPIController

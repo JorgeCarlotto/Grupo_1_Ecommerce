@@ -140,41 +140,37 @@ let userController = {
     });
   },
   loginProcess: function (req, res) {
-    let userToLogin = User.findByField("email", req.body.email);
-
-    if (userToLogin) {
-      let isOkThePassword = bcrypt.compareSync(
-        req.body.password,
-        userToLogin.password
-      );
-
-      if (isOkThePassword) {
-        delete userToLogin.password;
-        req.session.userLogged = userToLogin;
-        if (req.body.recordUser) {
-          res.cookie("userEmail", req.body.email, {
-            maxAge: 1000 * 60 * 60,
-          });
-        }
-        return res.redirect(`profile/${userToLogin.id}`);
+    
+    let userInDB;
+    db.Users.findAll({
+      where :{
+        email : req.body.email
       }
-      return res.render("user/login", {
-        errors: {
-          email: {
-            msg: "Password invalido",
-          },
-        },
-      });
-    }
+    })
+    .then (result =>{
+        userInDB = result
+        console.log(userInDB)
 
-    return res.render("user/login", {
-      errors: {
-        email: {
-          msg: "No se encuentra el email en la base de datos",
-        },
-      },
-    });
-  },
+        if(userInDB.length == 0){ 
+        return res.render('user/login',{
+          errors : {
+            msg: 'Email no registrado'
+          }
+        }
+        )
+        } else {
+           if (!bcrypt.compareSync(req.body.password, userInDB[0].dataValues.password)){
+            return res.render('user/login',{
+              errors: {
+                  password: {
+                    msg: 'Credenciales invalidas'
+                  }
+                }
+              })
+            }
+          } 
+      })
+ },              
   profile: function (req, res) {
     /* console.log(req.session.userLogged); */
     console.log(req.cookies.userEmail);
@@ -235,3 +231,37 @@ update: (req,res) =>{
 /*  } */
 /* console.log(userController.profile()); */
 module.exports = userController;
+
+
+// codigo login gripo //
+
+/*  const errors = validationResult(req);
+      let usuarioALoguearse
+      if (errors.isEmpty()){
+          db.Users.findOne({where: {email: req.body.email}})
+          .then(user =>{
+           if (user != null && bcrypt.compareSync(req.body.password, user.password)){
+           usuarioALoguearse = user; 
+           req.session.usuarioLogueado = usuarioALoguearse
+           console.log(usuarioALoguearse)
+           res.redirect('/')             
+          
+          if(req.body.remember_user) {
+                  res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+              }
+          if(usuarioALoguearse == null){
+          res.render((path.join(__dirname,'../Views/users/login.ejs')), {errors: [{msg: 'Credenciales inválidas'}
+          ]})
+          }
+          
+          // delete usuarioALoguearse.password;
+          req.session.usuarioLogueado = usuarioALoguearse
+          console.log(usuariologueado)
+        
+      }else{
+          res.render((path.join(__dirname,'../Views/users/login.ejs')), {errors: errors.array(), old: req.body})}
+          
+      
+      })
+      .catch(function(err){console.log(err)})
+      } */
