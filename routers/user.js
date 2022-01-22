@@ -4,8 +4,10 @@ let router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const { body } = require('express-validator');
-// const guestMiddleware = require('../middlewares/guestMiddleware');
-// const authMiddleware = require('../middlewares/authMiddleware')
+
+//Reglas de vistas
+const authMiddleware = require('../middlewares/authMiddleware')
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
 //configuracion multer //
 const storage = multer.diskStorage({
@@ -33,9 +35,8 @@ const validationUpDate = [
     body('email').notEmpty().withMessage('Ingresa tu email').bail().isEmail().withMessage('Debe introducir un formato de correo valido'),
 ]
 
-
 //Panel admin
-router.get('/admin/user/list', userController.list);
+router.get('/admin/user/list', authMiddleware, adminMiddleware, userController.list);
 router.get('/admin/user/create', userController.create);
 router.get('/admin/user/:id/delete', userController.delete);
 router.delete('/admin/user/:id/delete', userController.destroy);
@@ -52,8 +53,6 @@ router.post('/login', validations, userController.loginProcess);
 router.get('/register', userController.register);
 router.post('/register', validations, userController.createProcess);
 
-
-router.get('/', userController.index)
 router.get('/profile/:id/', userController.profile);
 router.get('/logout/', userController.logout)
 

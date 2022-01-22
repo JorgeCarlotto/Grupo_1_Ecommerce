@@ -135,12 +135,6 @@ let userController = {
         user: user,
       });
     });
-  },
-
-  index: function (req, res) {
-    res.render("user/index", {
-      user: User.getData(),
-    });
-  },
+  }
 };
 module.exports = userController;
