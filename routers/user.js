@@ -36,21 +36,21 @@ const validationUpDate = [
 ]
 
 //Panel admin
-router.get('/admin/user/list', userController.list);
-router.get('/admin/user/:id/delete', userController.delete);
-router.delete('/admin/user/:id/delete', userController.destroy);
-router.get('/admin/user/:id/edit', userController.edit)
-router.put('/admin/user/:id/edit', validationUpDate, userController.update)
+router.get('/admin/user/list', authMiddleware, userController.list);
+router.get('/admin/user/:id/delete', authMiddleware, adminMiddleware, userController.delete);
+router.delete('/admin/user/:id/delete', authMiddleware, adminMiddleware, userController.destroy);
+router.get('/admin/user/:id/edit', authMiddleware, adminMiddleware, userController.edit)
+router.put('/admin/user/:id/edit', authMiddleware, adminMiddleware, validationUpDate, userController.update)
 
 //Login
 router.get('/login', validations, userController.login);
 router.post('/login', validations, userController.loginProcess);
+router.get('/logout/', userController.logout)
 
 //Registro de usuario
 router.get('/register', userController.register);
 router.post('/register', validations, userController.createProcess);
 
-router.get('/profile/:id/', userController.profile);
-router.get('/logout/', userController.logout)
+// router.get('/profile/:id/', userController.profile);
 
 module.exports = router;
