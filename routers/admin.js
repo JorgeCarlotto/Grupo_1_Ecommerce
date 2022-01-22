@@ -17,9 +17,6 @@ const validationUpdateCompany = [
 //Controlador
 const adminController = require('../controllers/adminController');
 
-//Panel de administracion
-router.get('/admin', adminController.admin);
-
 //Administracion de empresa
 router.get('/admin/company', adminController.companyShow);
 router.get('/admin/company/edit', adminController.companyEdit);

@@ -8,11 +8,6 @@
                     <div
                         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="h2">LISTADO DE USUARIOS</h1>
-                        <div class="btn-toolbar mb-2 mb-md-0">
-                            <div class="btn-group me-2">
-                                <a class="btn btn-sm btn-outline-success" href="/users/register">CREAR USUARIO</a>
-                            </div>
-                        </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-sm">
@@ -36,13 +31,15 @@
                                         <td>
                                             <% if(users.admin) {%>
                                                 <span data-feather="check-circle"></span>
-                                            <% } %>
+                                                <% } %>
                                         </td>
                                         <td class="text-end">
                                             <a href="/users/admin/user/<%= users.id%>/edit" class="text-success"><span
                                                     data-feather="edit"></span></a>
-                                            <a href="/users/admin/user/<%= users.id%>/delete" class="text-danger"><span
-                                                    data-feather="trash"></span></a>
+                                            <% if (locals.isLogged) { 
+                                                if(locals.userLogged.admin){%>
+                                                <a href="/users/admin/user/<%= users.id%>/delete" class="text-danger"><span data-feather="trash"></span></a>
+                                            <% } }%>
                                         </td>
                                     </tr>
                                     <% });%>

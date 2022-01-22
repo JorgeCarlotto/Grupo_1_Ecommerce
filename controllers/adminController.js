@@ -5,9 +5,6 @@ const {
 } = require('express-validator');
 
 let mainController = {
-    admin: function (req, res) {
-        res.render('admin/adminPanel');
-    },
     adminProducts: function (req, res) {
         db.Products.findAll()
             .then(productos => console.log(productos));

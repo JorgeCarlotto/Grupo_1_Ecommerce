@@ -42,8 +42,20 @@ let userController = {
   },
   loginProcess: async function (req, res) {
     const { email, password } = req.body;
+    
+    if(!password){
+      return res.render("user/login", {
+        errors: { password: { msg: "Datos incorrectos" } }
+      })
+    }
 
     const userToLogin = await db.Users.findOne({ where: { email: email } })
+    if (!userToLogin){
+      return res.render("user/login", {
+        errors: { password: { msg: "Datos incorrectos" } }
+      })
+    }
+  
     const passwordOk = bcrypt.compareSync(password, userToLogin.password);
 
     if (passwordOk) {
@@ -60,9 +72,6 @@ let userController = {
         errors: { password: { msg: "Datos incorrectos" } }
       })
     }
-  },
-  create: function (req, res) {
-    res.render("admin/user/create");
   },
   delete: function (req, res) {
     db.Users.findByPk(req.params.id)
@@ -125,13 +134,6 @@ let userController = {
     res.clearCookie("userEmail");
     req.session.destroy();
     return res.redirect("/");
-  },
-  detail: function (req, res) {
-    db.Users.findByPk(req.params.id).then(function (user) {
-      res.render("userDetail", {
-        user: user,
-      });
-    });
   }
 };
 module.exports = userController;
