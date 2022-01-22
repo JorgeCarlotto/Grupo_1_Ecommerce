@@ -97,6 +97,8 @@ let userController = {
   },
   update: function (req, res) {
     const validation = validationResult(req);
+    const { email, admin } = req.body
+
     if (validation.errors.length > 0) {
       res.render("admin/user/edit", {
         errors: validation.mapped(),
@@ -106,13 +108,8 @@ let userController = {
         },
       });
     } else {
-      db.Users.update({
-        email: req.body.email,
-      }, {
-        where: {
-          id: req.params.id,
-        },
-      })
+      db.Users.update({ email, admin },
+        { where: { id: req.params.id } })
         .then(() => res.redirect('/users/admin/user/list'))
         .catch((errors) => console.log(console.log(errors)));
     }

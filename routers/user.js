@@ -36,7 +36,7 @@ const validationUpDate = [
 ]
 
 //Panel admin
-router.get('/admin/user/list', authMiddleware, adminMiddleware, userController.list);
+router.get('/admin/user/list', userController.list);
 router.get('/admin/user/create', userController.create);
 router.get('/admin/user/:id/delete', userController.delete);
 router.delete('/admin/user/:id/delete', userController.destroy);
