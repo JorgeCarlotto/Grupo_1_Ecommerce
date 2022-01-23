@@ -5,6 +5,7 @@ const usersAPIController = require('../../controllers/api/usersAPIController');
 //Rutas
 //Listado de todos los usuarios
 router.get('/', usersAPIController.list);
+router.get('/top', usersAPIController.top);
 //Detalle del actor
 /* router.get('/:id', actorsAPIController.detail);
 //En que peliculas trabajo el actor con id tal

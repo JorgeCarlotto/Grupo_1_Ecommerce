@@ -1,45 +1,33 @@
-module.exports = (sequelize, dataTypes) =>{
+module.exports = (sequelize, dataTypes) => {
 
     let alias = "Users"
     let cols = {
-        id:{
+        id: {
             autoIncrement: true,
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        email :{
-            allowNull : false,
+        email: {
+            allowNull: false,
             type: dataTypes.STRING,
             type: dataTypes.STRING
         },
-        password : {
+        password: {
             allowNull: false,
             type: dataTypes.STRING
 
         },
-        admin :{
-            allowNull : false,
+        admin: {
+            allowNull: false,
             type: dataTypes.TINYINT,
-        }, 
-    
+        },
+
     }
     let config = {
         tableName: "users",
         timestamps: false
     }
-const User = sequelize.define(alias,cols,config);
-
-/*
-User.associate = function (models){
-    User.hasMany(models.Sales,{
-        as:"sale",
-        foreignKey:"user_id"
-    });
-    User.belongsTo(models.Profiles,{
-        as:"profile",
-        foreignKey:"user_id"
-    })*/
+    const User = sequelize.define(alias, cols, config);
 
     return User;
 }
-;

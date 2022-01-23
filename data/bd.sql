@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 06-01-2022 a las 00:16:39
+-- Tiempo de generación: 16-01-2022 a las 18:17:21
 -- Versión del servidor: 8.0.25
 -- Versión de PHP: 8.0.7
 
@@ -60,7 +60,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`id`, `name`, `phone`, `cuit`, `email`) VALUES
-(1, 'LuanaCake', '2995099606', '20364353473', 'contacto@luanacake.com.ar');
+(1, 'LuanaCakes', '2995099607', '20364353473', 'contacto@luanacake.com.ar');
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,6 @@ INSERT INTO `images` (`id`, `product_id`, `url`) VALUES
 (2, 20, 'https://robohash.org/enimperspiciatisadipisci.png?size=50x50&set=set1'),
 (3, 29, 'https://robohash.org/sapientequasiqui.png?size=50x50&set=set1'),
 (4, 28, 'https://robohash.org/estitaquedolorem.png?size=50x50&set=set1'),
-(5, 1, 'https://robohash.org/doloresutdolorem.png?size=50x50&set=set1'),
 (6, 14, 'https://robohash.org/harumvoluptatesmagnam.png?size=50x50&set=set1'),
 (7, 12, 'https://robohash.org/quiaofficiisconsequatur.png?size=50x50&set=set1'),
 (8, 6, 'https://robohash.org/voluptatemrepellatdebitis.png?size=50x50&set=set1'),
@@ -172,48 +171,59 @@ CREATE TABLE `products` (
   `id` int NOT NULL,
   `category_id` int DEFAULT NULL,
   `flavor_id` int DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `description` text,
-  `stock` int NOT NULL,
-  `price` float NOT NULL,
-  `status` tinyint DEFAULT NULL
+  `stock` int DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `status` tinyint DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`id`, `category_id`, `flavor_id`, `name`, `description`, `stock`, `price`, `status`) VALUES
-(1, 1, 5, 'Dodge', 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis.', 72, 541.49, 0),
-(2, 2, 2, 'Dodge', 'Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.', 49, 504.65, 1),
-(3, 3, 1, 'Mercury', 'Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.', 97, 507.04, 1),
-(4, 3, 5, 'Chrysler', 'Nunc rhoncus dui vel sem. Sed sagittis.', 96, 371.63, 0),
-(5, 3, 1, 'Subaru', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.', 37, 336.19, 0),
-(6, 2, 1, 'Mitsubishi', 'Etiam pretium iaculis justo. In hac habitasse platea dictumst.', 85, 223.44, 1),
-(7, 2, 4, 'Isuzu', 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla.', 3, 335.46, 1),
-(8, 3, 3, 'Chevrolet', 'Morbi ut odio.', 97, 606.19, 1),
-(9, 3, 2, 'Mitsubishi', 'Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.', 40, 425.81, 0),
-(10, 3, 1, 'Honda', 'Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.', 39, 324.66, 0),
-(11, 1, 1, 'Ford', 'Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.', 42, 214, 1),
-(12, 2, 2, 'Toyota', 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', 25, 412.24, 1),
-(13, 3, 2, 'Subaru', 'Cras non velit nec nisi vulputate nonummy.', 54, 701.59, 0),
-(14, 2, 1, 'Toyota', 'Nullam varius.', 10, 503.79, 0),
-(15, 2, 4, 'Pontiac', 'Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.', 60, 165.41, 1),
-(16, 1, 5, 'Volkswagen', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', 63, 264.69, 0),
-(17, 3, 1, 'GMC', 'Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 35, 719.57, 1),
-(18, 3, 4, 'Hyundai', 'Pellentesque ultrices mattis odio.', 68, 532.42, 0),
-(19, 3, 4, 'Mitsubishi', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.', 27, 507.34, 0),
-(20, 2, 5, 'Dodge', 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.', 100, 607.81, 1),
-(21, 1, 1, 'Mercedes-Benz', 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo.', 57, 797.28, 1),
-(22, 1, 1, 'Lexus', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', 71, 187, 0),
-(23, 1, 1, 'Mercedes-Benz', 'Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio.', 98, 213.95, 0),
-(24, 1, 5, 'Mercury', 'Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', 2, 723.41, 0),
-(25, 2, 2, 'Cadillac', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', 18, 677.34, 1),
-(26, 3, 3, 'Toyota', 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.', 86, 80.01, 0),
-(27, 3, 4, 'Ford', 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.', 38, 387.46, 0),
-(28, 1, 2, 'Mercury', 'Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 48, 229.16, 0),
-(29, 1, 2, 'Ford', 'Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.', 50, 610.5, 0),
-(30, 3, 5, 'Mitsubishi', 'Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 8, 252.01, 1);
+INSERT INTO `products` (`id`, `category_id`, `flavor_id`, `name`, `description`, `stock`, `price`, `status`, `img`) VALUES
+(2, 2, 2, '1', 'Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.', 49, 504.65, 1, ''),
+(3, 3, 1, 'Mercury', 'Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.', 97, 507.04, 1, NULL),
+(4, 3, 5, 'Chrysler', 'Nunc rhoncus dui vel sem. Sed sagittis.', 96, 371.63, 0, NULL),
+(5, 3, 1, 'Subaru', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.', 37, 336.19, 0, NULL),
+(6, 2, 1, 'Mitsubishi', 'Etiam pretium iaculis justo. In hac habitasse platea dictumst.', 85, 223.44, 1, NULL),
+(7, 2, 1, 'Isuzu', 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla.', 3, 335.46, 1, ''),
+(8, 3, 3, 'Chevrolet', 'Morbi ut odio.', 97, 606.19, 1, NULL),
+(9, 3, 2, 'Mitsubishi', 'Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.', 40, 425.81, 0, NULL),
+(10, 3, 1, 'Honda', 'Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.', 39, 324.66, 0, NULL),
+(11, 1, 1, 'Ford', 'Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.', 42, 214, 1, NULL),
+(12, 2, 2, 'Toyota', 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', 25, 412.24, 1, NULL),
+(13, 3, 2, 'Subaru', 'Cras non velit nec nisi vulputate nonummy.', 54, 701.59, 0, NULL),
+(14, 2, 1, 'Toyota', 'Nullam varius.', 10, 503.79, 0, NULL),
+(15, 2, 4, 'Pontiac', 'Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.', 60, 165.41, 1, NULL),
+(16, 1, 5, 'Volkswagen', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', 63, 264.69, 0, NULL),
+(17, 3, 1, 'GMC', 'Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.', 35, 719.57, 1, NULL),
+(18, 3, 4, 'Hyundai', 'Pellentesque ultrices mattis odio.', 68, 532.42, 0, NULL),
+(19, 3, 4, 'Mitsubishi', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.', 27, 507.34, 0, NULL),
+(20, 2, 5, 'Dodge', 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.', 100, 607.81, 1, NULL),
+(21, 1, 1, 'Mercedes-Benz', 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo.', 57, 797.28, 1, NULL),
+(22, 1, 1, 'Lexus', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.', 71, 187, 0, NULL),
+(23, 1, 1, 'Mercedes-Benz', 'Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio.', 98, 213.95, 0, NULL),
+(24, 1, 5, 'Mercury', 'Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', 2, 723.41, 0, NULL),
+(25, 2, 2, 'Cadillac', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', 18, 677.34, 1, NULL),
+(26, 3, 3, 'Toyota', 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.', 86, 80.01, 0, NULL),
+(27, 3, 4, 'Ford', 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.', 38, 387.46, 0, NULL),
+(28, 1, 2, 'Mercury', 'Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 48, 229.16, 0, NULL),
+(29, 1, 2, 'Ford', 'Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.', 50, 610.5, 0, NULL),
+(30, 3, 5, 'Mitsubishi', 'Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 8, 252.01, 1, NULL),
+(33, 1, 2, 'Producto 33', 'dakjjkadsjldajlkjdkajkldjklasjkldakldkajkdjlsa', 321321, 1312, NULL, ''),
+(34, 1, 1, 'producto 1231', 'daljkadkjlasdjkllka', 32, 12312, 1, ''),
+(35, 2, 2, 'sin stock', 'jkladjklakjldklsadas', 0, 231232, 0, ''),
+(39, 1, 1, '32132', 'dsadsasa', 321, 231, 1, ''),
+(40, 1, 1, 'dsadas', 'dsadk3lj892yhdsadas', 2, 2, 1, NULL),
+(41, 1, 1, 'dsadsadedk32', 'csaclñjalkxasla', 2, 2, 1, NULL),
+(42, 1, 1, 'dskabdjd', 'sadnkladsa', 2, 2, 1, NULL),
+(43, 1, 3, 'cadads', 'dasdas', 2, 2, 1, NULL),
+(44, 2, 2, 'Juancho', 'dasdasdas', 2, 2, 1, NULL),
+(45, 1, 2, 'Juanchito', 'dad3deasdas', 2, 2, 1, 'product-default.png'),
+(46, 1, 2, 'PRO IMG', 'DEASDAS', 2, 2, 1, 'product-1642356144277.jpg');
 
 -- --------------------------------------------------------
 
@@ -234,15 +244,12 @@ CREATE TABLE `product_sale` (
 INSERT INTO `product_sale` (`id`, `product_id`, `sale_id`) VALUES
 (1, 25, 86),
 (2, 3, 94),
-(3, 1, 87),
 (4, 28, 82),
 (5, 14, 99),
 (6, 14, 86),
 (7, 17, 96),
-(8, 1, 88),
 (9, 3, 85),
 (10, 22, 93),
-(11, 1, 96),
 (12, 12, 82),
 (13, 27, 81),
 (15, 27, 85),
@@ -255,10 +262,8 @@ INSERT INTO `product_sale` (`id`, `product_id`, `sale_id`) VALUES
 (22, 7, 92),
 (23, 6, 82),
 (24, 14, 98),
-(25, 1, 91),
 (26, 21, 81),
 (27, 3, 93),
-(28, 1, 95),
 (29, 5, 99),
 (30, 2, 93),
 (31, 15, 85),
@@ -566,7 +571,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `sales`

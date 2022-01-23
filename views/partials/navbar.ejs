@@ -1,10 +1,9 @@
 <header class="header">
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <!-- <a href="users/login"> <i class="fas fa-user-alt" ></i></a> -->
       <div class="navbar-brand d-flex align-items-center">
-        <a href="/"><img class="bd-placeholder-img card-img-top" src="/img/logo.png"  width="100%" height="55"
-          alt="logo"></a>
+        <a href="/"><img class="bd-placeholder-img card-img-top" src="/img/logo.png" width="100%" height="55"
+            alt="logo"></a>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar">
@@ -16,88 +15,39 @@
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
 
-        <!-- <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Usuario: Jorge Carloto</h5>
-          <li class="nav-item">
-            <a class="nav-link active nav-acount-home" aria-current="page" href="/users/logout">cerrar Sección</a>
-
-          </li>
-
-          <img src="/img/users/person-default.jpg" height="100" alt="">
-
-        </div>
-
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3"> -->
         <% if (locals.isLogged) { %>
           <div class="offcanvas-header  usuario">
-            <h5 class="offcanvas-title nombre-login" id="offcanvasNavbarLabel"><%= locals.userLogged.name%> </h5>
-           
-
-            <!-- <li class="nav-item">
-                        <a class="nav-link active nav-acount-home" aria-current="page" href="users/login">Cerrar sesion</a>
-                    </li> -->
-
-            
-            <img src="/img/users/<%=locals.userLogged.img%>" height="100" alt="" class="imagen_usuario">
-      
+            <h5 class="offcanvas-title nombre-login" id="offcanvasNavbarLabel">
+              <%= locals.userLogged.email%>
+            </h5>
             <li class="nav-item usuario">
-              <!-- <a class="nav-link active nav-acount-home" aria-current="page" href="/users/register">Crear cuenta</a>
+              <a class="nav-link active nav-acount-home  cerrarSesion" aria-current="page" href="/users/logout">Cerrar
+                Sección</a>
+            </li>
 
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active nav-acount-home" aria-current="page" href="/users/login">Iniciar sesion</a> -->
-              <a class="nav-link active nav-acount-home  cerrarSesion" aria-current="page" href="/users/logout">Cerrar Sección</a>
-  
-            </li>
-            <!-- <li>
-              <a class="nav-link active nav-acount-home  cerrarSesion" aria-current="page" href="/users/edit/locals.userLogged.id ">Editar Datos</a>
-            </li> -->
-            
           </div>
-        
-        <% } else { %>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link active nav-acount-home" aria-current="page" href="/users/register">Crear cuenta</a>
-  
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active nav-acount-home" aria-current="page" href="/users/login">Iniciar sesion</a>
-              </li>
-        <% } %> 
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                Categorias
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                <li><a class="dropdown-item" href="#">Tortas</a></li>
-                <li><a class="dropdown-item" href="#">Desayunos</a></li>
-                <li><a class="dropdown-item" href="#">Galletitas</a></li>
+
+          <% } else { %>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active nav-acount-home" aria-current="page" href="/users/register">Crear cuenta</a>
+
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active nav-acount-home" aria-current="page" href="/users/login">Iniciar sesion</a>
+                </li>
+                <% } %>
+                  
               </ul>
-            </li>
-          </ul>
-          <form class="d-flex" action="/products/search" method="GET">
-            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="search">
-            <!-- <button class="btn btn-outline-success" type="submit" value="search">Buscar</button> -->
-            <input type="submit" value="Buscar">
-          </form>
-        </div>
+              <form class="d-flex" action="/search" method="GET">
+                <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="search">
+                <input type="submit" value="Buscar">
+              </form>
+            </div>
       </div>
     </div>
   </nav>
 
 
 </header>
-
-
-
-
-            <!-- <li class="nav-item">
-                        <a class="nav-link active nav-acount-home" aria-current="page" href="users/login">Cerrar sesion</a>
-                    </li> -->
-
-
-                    

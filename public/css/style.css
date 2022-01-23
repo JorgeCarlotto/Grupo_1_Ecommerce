@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: 'PT Serif', serif;
 }
 
 
@@ -106,8 +106,15 @@
 .titulo_producto{
   font-size: 14px;
 }
+
+
+
+
+
 .div_imagen_producto img{
-  width: 90%;
+  background-size: cover; 
+  height:20vh; 
+  width: 20vh;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;  border-radius: 5%;
 }
 
@@ -195,8 +202,29 @@ a {
   .producto{
     width: 32%;
   }
+  .div_imagen_producto img{
+    background-size: cover; 
+    height:25vh; 
+    width: 25vh;
+  }
   }
 
+  @media (min-width: 800px) {
+    .div_imagen_producto img{
+      background-size: cover; 
+      height:35vh; 
+      width: 35vh;
+    }
+    }
+
+
+    @media (min-width: 1200px) {
+      .div_imagen_producto img{
+        background-size: cover; 
+        height:45vh; 
+        width: 45vh;
+      }
+      }
 /* /Productos index */
 
  /* compra */
@@ -345,6 +373,7 @@ a {
   height: 50vh;
   position: relative;
   margin: auto;
+  margin-top: 20px;
 }
 
 .bdayCake {
@@ -625,8 +654,32 @@ a {
   outline: none;
 }
 
+
+.product_detalle-price .sin_stock{
+  display: inline-block;
+  height: 40px;
+  width: 122px;
+  margin: 0 0px 0 10px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  background-color: #757070;
+  cursor: pointer;
+  outline: none;
+}
+
+
 .product_detalle-price .detalle_button:hover {
   background-color:#ac7878;
+}
+.product_detalle-price .sin_stock:hover {
+  background-color:#757070;
 }
 
 /* Media querie detalle del producto */
@@ -685,7 +738,50 @@ a {
 /* /fin detalle del producto */
 
 
+/* Not found */
+ .not-found{
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 20px;
+ }
 
+ .not-found_titulo{
+   margin-top:90px;
+   font-family: 'PT Serif', serif;
+   font-style: italic;
+   font-size: 25px;
+   color: #333;
+ }
+
+
+/* /Fin not found */
+
+/* Media querie not found */
+@media (min-width: 650px) {
+
+  .not-found{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+ 
+  .not-found_titulo{
+    margin-top:90px;
+    font-family: 'PT Serif', serif;
+    font-style: italic;
+    font-size: 35px;
+    color: #333;
+  }
+
+  .not-found_imgDiv img{
+    height: 50vh;
+    width: 50vh;
+  }
+}
+
+/* /Media querie not found */
 
 
 

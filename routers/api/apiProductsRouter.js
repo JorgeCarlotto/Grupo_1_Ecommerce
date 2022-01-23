@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const productsAPIController = require('../../controllers/api/productsAPIController');
+const db = require('../../src/database/models');
 
 //Rutas
 //Listado de todos los usuarios
 router.get('/', productsAPIController.list);
+router.get('/top', productsAPIController.top);
 //Detalle del actor
 /* router.get('/:id', actorsAPIController.detail);
 //En que peliculas trabajo el actor con id tal

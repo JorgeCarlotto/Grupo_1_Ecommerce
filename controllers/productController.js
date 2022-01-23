@@ -2,6 +2,9 @@ const db = require('../src/database/models');
 const { render } = require('ejs');
 const { validationResult } = require('express-validator');
 const { restart } = require('nodemon');
+const sequelize = db.sequelize;
+const {Op
+} = require("sequelize");
 
 let productController = {
     list: function (req, res) {
@@ -142,7 +145,7 @@ let productController = {
         db.Product.findAll({
             where: { name: { [Op.like]: '%' + productoBuscado + '%' } }
         })
-            .then(products => { res.render('product/findProducts', { products }) })
+            .then(products => { res.render('product/findProducts', { products, productoBuscado }) })
             .catch(error => res.send(error))
     },
     listAll: function (req, res) {
@@ -153,7 +156,7 @@ let productController = {
                     { association: 'flavors' }
                 ]
             })
-            .then(products => res.render('/product/list', { products }))
+            .then(products => res.render('product/list', { products }))
             .catch(error => { res.send(error) })
     }
 }

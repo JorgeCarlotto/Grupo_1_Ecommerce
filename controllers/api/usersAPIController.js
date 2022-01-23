@@ -29,6 +29,29 @@ const usersAPIController = {
             }
                 res.json(respuesta);
             })
-    }
+    },
+    'top': async (req, res) => {
+        const pageAsNumber = Number.parseInt(req.query.page);
+        const sizeAsNumber = Number.parseInt(req.query.size);
+      
+        let page = 0;
+        if(!Number.isNaN(pageAsNumber) && pageAsNumber > 0){
+          page = pageAsNumber;
+        }
+      
+        let size = 5;
+        if(!Number.isNaN(sizeAsNumber) && !(sizeAsNumber > 5) && !(sizeAsNumber < 1)){
+          size = sizeAsNumber;
+        }
+      
+        const usersWithCount = await db.Users.findAndCountAll({
+            limit: size,
+            offset: page * size
+        });
+        
+        res.json(usersWithCount.rows)
+
+        
+      }
 }
 module.exports = usersAPIController
