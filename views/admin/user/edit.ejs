@@ -1,34 +1,40 @@
 <%- include('../../admin/partials/header.ejs') %>
 
-<div class="container-fluid">
-  <div class="row">
-    <%- include('../../admin/partials/navbar.ejs') %>
+  <div class="container-fluid">
+    <div class="row">
+      <%- include('../../admin/partials/navbar.ejs') %>
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <form method="POST" action="/users/admin/user/<%= users.id %>/edit?_method=PUT">
-        <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">EDITAR USUARIO</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group me-2">
-              <button type="submit" class="btn btn-sm btn-outline-success">GUARDAR</button>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <form class="row" method="POST" action="/users/admin/user/<%= users.id %>/edit?_method=PUT">
+            <div
+              class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h2">EDITAR USUARIO</h1>
+              <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                  <button type="submit" class="btn btn-sm btn-outline-success">GUARDAR</button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div>
-          <div class="mb-3">
-            <label class="form-label" > Email del Usuario</label>
-            <input type="text" class="form-control" value="<%= users.email%>" name="email">
-            <div id="emailHelp" class="form-text text-danger">
-              <% if (locals.errors && errors.email) { %>
-                <%= errors.email.msg %>
-              <% } %>
+            <div class="col-md-8">
+              <label class="form-label"> Email del Usuario</label>
+              <input type="text" class="form-control" value="<%= users.email%>" name="email">
+              <div id="emailHelp" class="form-text text-danger">
+                <% if (locals.errors && errors.email) { %>
+                  <%= errors.email.msg %>
+                    <% } %>
+              </div>
             </div>
-          </div>
-        </div>
-      </form>
-    </main>
+            <div class="col-md-4">
+              <label class="form-label"> Tipo de usuario</label>
+              <select name="admin" class="form-control">
+                <option selected disabled>Permiso</option>
+                <option value=1 <%= users.admin ? 'selected' : null %> >Administrador</option>
+                <option value=0 <%= users.admin ? null : 'selected' %>>Invitado</option>
+              </select>
+            </div>
+          </form>
+        </main>
+    </div>
   </div>
-</div>
 
-<%- include('../../admin/partials/footer.ejs') %>
+  <%- include('../../admin/partials/footer.ejs') %>
