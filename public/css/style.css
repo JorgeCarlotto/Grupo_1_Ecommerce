@@ -55,7 +55,24 @@
   font-size: 30px;
 }
 
+#offcanvasNavbarLabel{
+  font-size: 20px;
+  color: #ce6972;
+}
 
+.cerrarSesion{
+   color: #000;
+   font-size: 15px;
+}
+
+.cerrarSesion:hover{
+  font-size: 18px;
+  color: rgb(141, 138, 138);
+}
+
+.buscar{
+  margin: 5px;
+}
 /*  Fin  Header */
 /* Pagina create */
 
